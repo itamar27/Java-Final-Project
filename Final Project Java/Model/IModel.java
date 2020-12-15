@@ -1,6 +1,7 @@
 package Model;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public interface IModel {
 
@@ -26,5 +27,5 @@ public interface IModel {
      */
 
     public void addCategory(Category category) throws CostManagerException;
-    public Category[] getAllCategory() throws CostManagerException;
+    public List<Category> getAllCategory() throws CostManagerException;
 }

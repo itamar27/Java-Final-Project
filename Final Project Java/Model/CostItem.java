@@ -9,7 +9,7 @@ public class CostItem {
 
     private int id;
     private Category category;
-    private double sum;
+    private double amount;
     private Currency currency;
     private String description;
     private LocalDate date;
@@ -20,20 +20,20 @@ public class CostItem {
      * This constructor builds a CostItem object from input.
      * @params description - A short text describing the cost reason of spending.
      *
-     * @params  sum - The total sum of the cost
+     * @params  amount - The total amount of the cost
      *
      * @params currency - The currency that was being used during the purchase time.
      *
      * @params Category - An instantiation  of an object that represents the category that
      *                    the Cost belonged to.
      */
-    public CostItem(String description, double sum, Currency currency, Category category, LocalDate date) throws CostManagerException{
+    public CostItem(String description, double amount, Currency currency, Category category, LocalDate date) throws CostManagerException{
 
-        if(sum < 0)
-            throw new CostManagerException("Not a valid sum");
+        if(amount < 0)
+            throw new CostManagerException("Not a valid amount");
         this.date = date;
         this.description = description;
-        this.sum = sum;
+        this.amount = amount;
         this.currency = currency;
         this.id  = -1;
         this.category = category;
@@ -44,7 +44,7 @@ public class CostItem {
      * This constructor builds a CostItem object from a database load.
      * @params description - A short text describing the cost reason of spending.
      *
-     * @params  sum - The total sum of the cost
+     * @params  amount - The total amount of the cost
      *
      * @params currency - The currency that was being used during the purchase time.
      *
@@ -54,13 +54,13 @@ public class CostItem {
      * @params id - A variable to hold the Cost id from DB.
      */
 
-    public CostItem(String description, double sum, Currency currency, Category category, int id, LocalDate date) throws CostManagerException {
+    public CostItem(String description, double amount, Currency currency, Category category, int id, LocalDate date) throws CostManagerException {
 
-        if(sum < 0)
-            throw new CostManagerException("Not a valid sum");
+        if(amount < 0)
+            throw new CostManagerException("Not a valid amount");
         this.date = date;
         this.description = description;
-        this.sum = sum;
+        this.amount= amount;
         this.currency = currency;
         this.id  = id;
         this.category = category;
@@ -79,8 +79,8 @@ public class CostItem {
         return category;
     }
 
-    public double getSum() {
-        return sum;
+    public double getAmount() {
+        return amount;
     }
 
     public Currency getCurrency() {
@@ -100,7 +100,7 @@ public class CostItem {
         return "CostItem {" +
                 "id=" + id +
                 ", category=" + category +
-                ", sum=" + sum +
+                ", amount=" + amount +
                 ", currency=" + currency +
                 ", description='" + description +
                 ", date="+ date +

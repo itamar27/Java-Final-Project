@@ -1,13 +1,38 @@
 package Model;
 
 import java.sql.*;
+import java.util.List;
 
 public class DerbySimpleCode {
     public static String driver = "org.apache.derby.jdbc.EmbeddedDriver";
     public static String connectionString = "jdbc:derby:";
-    public static void main(String[] args) {
-        Connection connection = null;
+    public static void main(String[] args) throws CostManagerException {
+
+        ResultSet rs = null;
         Statement statement = null;
+
+        try {
+            DerbyDBModel db = new DerbyDBModel();
+            db.addCategory(new Category("Pets"));
+            List<Category> categories = db.getAllCategory();
+
+            categories.forEach(category -> {
+                System.out.print("Category name is: ");
+                System.out.println(category.getName());
+            });
+        }catch(CostManagerException e){
+            System.out.println(e.getMessage());
+            throw new CostManagerException("Could not create or connect to db");
+        }
+
+        System.out.print("The connection was created everything is working so far!");
+
+
+
+
+
+
+        /*
         ResultSet rs = null;
         try {
             connection = null;
@@ -44,6 +69,6 @@ public class DerbySimpleCode {
                 rs.close();
             } catch (Exception e) {
             }
-        }
+        }*/
     }
 }
