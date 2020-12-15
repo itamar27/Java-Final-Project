@@ -92,14 +92,11 @@ public class CostItem {
     }
 
     /**
-     *
      * Over riding class object methods.
      */
 
     @Override
     public String toString() {
-
-
         return "CostItem {" +
                 "id=" + id +
                 ", category=" + category +
