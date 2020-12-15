@@ -1,6 +1,7 @@
 package Model;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -87,6 +88,22 @@ public class DerbyDBModel implements IModel {
 
     @Override
     public void addCostItem(CostItem item) throws CostManagerException {
+
+        System.out.println(item);
+
+        //Transform into it's SQL equivalent
+        Date date = Date.valueOf(item.getDate());
+
+        try {
+            statement.execute("INSERT INTO CostItem(category, amount, currency, description, date)" +
+                                    " values('" + item.getCategory().getName() +
+                                    "'," + item.getAmount() +
+                                    ",'"+ item.getCurrency().name() +
+                                    "','"+ item.getDescription()+"','"+ date +"')");
+        }catch(SQLException e){
+            e.printStackTrace();
+            throw new CostManagerException("Could not add new CostItem");
+        }
 
 
     }

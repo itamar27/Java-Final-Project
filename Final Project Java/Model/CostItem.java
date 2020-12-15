@@ -27,11 +27,11 @@ public class CostItem {
      * @params Category - An instantiation  of an object that represents the category that
      *                    the Cost belonged to.
      */
-    public CostItem(String description, double amount, Currency currency, Category category, LocalDate date) throws CostManagerException{
+    public CostItem(String description, double amount, Currency currency, Category category, String date) throws CostManagerException{
 
         if(amount < 0)
             throw new CostManagerException("Not a valid amount");
-        this.date = date;
+        this.date = createDateFromString(date);
         this.description = description;
         this.amount = amount;
         this.currency = currency;
@@ -54,11 +54,11 @@ public class CostItem {
      * @params id - A variable to hold the Cost id from DB.
      */
 
-    public CostItem(String description, double amount, Currency currency, Category category, int id, LocalDate date) throws CostManagerException {
+    public CostItem(String description, double amount, Currency currency, Category category, int id, String date) throws CostManagerException {
 
         if(amount < 0)
             throw new CostManagerException("Not a valid amount");
-        this.date = date;
+        this.date = createDateFromString(date);
         this.description = description;
         this.amount= amount;
         this.currency = currency;
@@ -89,6 +89,17 @@ public class CostItem {
 
     public String getDescription() {
         return description;
+    }
+
+    public LocalDate getDate() {return date;}
+
+    private LocalDate createDateFromString(String dateTime){
+
+        DateTimeFormatter inputFormat = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        // Parsing the date
+        LocalDate date = LocalDate.parse(dateTime, inputFormat);
+
+        return date;
     }
 
     /**

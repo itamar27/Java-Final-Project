@@ -13,7 +13,9 @@ public class DerbySimpleCode {
 
         try {
             DerbyDBModel db = new DerbyDBModel();
-            db.addCategory(new Category("Pets"));
+            //db.addCategory(new Category("Pets"));
+            CostItem ci = new CostItem("Very expansive", 450, Currency.USD,new Category("Shopping"),"11/15/2020");
+            db.addCostItem(ci);
             List<Category> categories = db.getAllCategory();
 
             categories.forEach(category -> {
