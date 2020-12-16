@@ -95,7 +95,7 @@ public class CostItem {
 
     private LocalDate createDateFromString(String dateTime){
 
-        DateTimeFormatter inputFormat = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        DateTimeFormatter inputFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         // Parsing the date
         LocalDate date = LocalDate.parse(dateTime, inputFormat);
 

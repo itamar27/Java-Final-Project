@@ -1,27 +1,26 @@
 package Model;
 
-import java.sql.*;
 import java.util.List;
 
 public class DerbySimpleCode {
-    public static String driver = "org.apache.derby.jdbc.EmbeddedDriver";
-    public static String connectionString = "jdbc:derby:";
     public static void main(String[] args) throws CostManagerException {
-
-        ResultSet rs = null;
-        Statement statement = null;
 
         try {
             DerbyDBModel db = new DerbyDBModel();
             //db.addCategory(new Category("Pets"));
-            CostItem ci = new CostItem("Very expansive", 450, Currency.USD,new Category("Shopping"),"11/15/2020");
-            db.addCostItem(ci);
+//            CostItem ci = new CostItem("super market", 2222, Currency.ILS,new Category("Food"),"2020-05-31");
+//            db.addCostItem(ci);
             List<Category> categories = db.getAllCategory();
 
-            categories.forEach(category -> {
-                System.out.print("Category name is: ");
-                System.out.println(category.getName());
-            });
+            List<CostItem> myCosts = db.getCostItemsBetweenDates("1990-01-01", "2020-12-31");
+
+            myCosts.forEach(System.out::println);
+
+            System.out.println("--------------------------------------");
+
+            categories.forEach(System.out::println);
+
+
         }catch(CostManagerException e){
             System.out.println(e.getMessage());
             throw new CostManagerException("Could not create or connect to db");
@@ -38,7 +37,7 @@ public class DerbySimpleCode {
         ResultSet rs = null;
         try {
             connection = null;
-            //Instantiating the dirver class will indirectly register
+            //Instantiating the driver class will indirectly register
             //this driver as an available driver for DriverManager
             Class.forName(driver);
             //Getting a connection by calling getConnection

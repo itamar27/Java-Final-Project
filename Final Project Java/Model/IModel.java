@@ -19,7 +19,7 @@ public interface IModel {
      */
 
     public void addCostItem(CostItem item) throws CostManagerException;
-    public CostItem[] getCostItemsBetweenDates(String fromDate, String toDate) throws CostManagerException;
+    public List<CostItem> getCostItemsBetweenDates(String fromDate, String toDate) throws CostManagerException;
 
     /*
      * Category DB execution
