@@ -12,6 +12,11 @@ public class DerbyDBModel implements IModel {
     private Connection connection = null;
     private Statement statement = null;
 
+
+    /*
+     * DerbyDbModel constructor
+     */
+
     public DerbyDBModel() throws CostManagerException {
 
         try {
@@ -89,8 +94,6 @@ public class DerbyDBModel implements IModel {
     @Override
     public void addCostItem(CostItem item) throws CostManagerException {
 
-        System.out.println(item);
-
         //Transform into it's SQL equivalent
         Date date = Date.valueOf(item.getDate());
 
@@ -108,10 +111,7 @@ public class DerbyDBModel implements IModel {
 
     }
 
-    @Override
-    public void deleteCostItem(CostItem item) throws CostManagerException {
 
-    }
 
     @Override
     public CostItem[] getCostItemsBetweenDates(String fromDate, String toDate) throws CostManagerException {
