@@ -25,11 +25,27 @@ public class DerbyDBModel implements IModel {
             statement = connection.createStatement();
             createDB();
 
-        }catch (SQLException | CostManagerException e){
+        } catch (SQLException | CostManagerException e) {
             e.printStackTrace();
             throw new CostManagerException("Could not create DerbyDBModel");
         }
     }
+
+    public void DerbyDBModelRelease() throws CostManagerException {
+
+        try {
+            if (statement != null)
+                statement.close();
+
+            if (connection != null)
+                connection.close();
+        } catch (SQLException e) {
+            throw new CostManagerException(e.getMessage());
+        }
+
+
+    }
+
 
     /*
      * General DB query implementation
@@ -58,25 +74,25 @@ public class DerbyDBModel implements IModel {
             boolean costItemTableNotExist = true;
 
             DatabaseMetaData meta = connection.getMetaData();
-            ResultSet res = meta.getTables(null, null, null,new String[] {"TABLE"});
+            ResultSet res = meta.getTables(null, null, null, new String[]{"TABLE"});
             while (res.next()) {
 
-                if(res.getString("TABLE_NAME").equals("CATEGORY")){
-                        categoryTableNotExist = false;
+                if (res.getString("TABLE_NAME").equals("CATEGORY")) {
+                    categoryTableNotExist = false;
                 }
-                if(res.getString("TABLE_NAME").equals("COSTITEM")){
+                if (res.getString("TABLE_NAME").equals("COSTITEM")) {
                     costItemTableNotExist = false;
                 }
             }
 
-            if(categoryTableNotExist)  {
+            if (categoryTableNotExist) {
                 statement.execute("create table Category(id INT GENERATED ALWAYS AS IDENTITY NOT NULL," +
                         "name VARCHAR(30) NOT NULL, PRIMARY KEY(name))");
                 addCategory(new Category("Shopping"));
                 addCategory(new Category("Rent"));
                 addCategory(new Category("Food"));
             }
-            if(costItemTableNotExist) {
+            if (costItemTableNotExist) {
                 statement.execute("create table CostItem(id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, " +
                         "category VARCHAR(30) REFERENCES Category(name) NOT NULL ," +
                         " amount DOUBLE NOT NULL, currency VARCHAR(5) NOT NULL, description VARCHAR(100), date DATE NOT NULL)");
@@ -100,11 +116,11 @@ public class DerbyDBModel implements IModel {
 
         try {
             statement.execute("INSERT INTO CostItem(category, amount, currency, description, date)" +
-                                    " values('" + item.getCategory().getName() +
-                                    "'," + item.getAmount() +
-                                    ",'"+ item.getCurrency().name() +
-                                    "','"+ item.getDescription()+"','"+ date +"')");
-        }catch(SQLException e){
+                    " values('" + item.getCategory().getName() +
+                    "'," + item.getAmount() +
+                    ",'" + item.getCurrency().name() +
+                    "','" + item.getDescription() + "','" + date + "')");
+        } catch (SQLException e) {
             e.printStackTrace();
             throw new CostManagerException("Could not add new CostItem");
         }
@@ -112,13 +128,11 @@ public class DerbyDBModel implements IModel {
 
     }
 
-
-
     @Override
     public List<CostItem> getCostItemsBetweenDates(String fromDate, String toDate) throws CostManagerException {
+
         ResultSet rs = null;
         List<CostItem> costItems = new ArrayList<CostItem>();
-
 
         //Parsing the strings to create the dates as java.time.LocalDate
         DateTimeFormatter inputFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -129,9 +143,9 @@ public class DerbyDBModel implements IModel {
         Date fromDate_sql = Date.valueOf(from_date);
         Date toDate_sql = Date.valueOf(to_date);
         try {
-            rs = statement.executeQuery("SELECT * FROM CostItem WHERE date between '" + fromDate_sql +"' and '" + toDate_sql + "'");
+            rs = statement.executeQuery("SELECT * FROM CostItem WHERE date between '" + fromDate_sql + "' and '" + toDate_sql + "'");
 
-            while (rs.next()){
+            while (rs.next()) {
                 String description = rs.getString("description");
                 Double amount = rs.getDouble("amount");
                 String currency = rs.getString("currency");
@@ -141,9 +155,15 @@ public class DerbyDBModel implements IModel {
 
                 costItems.add(new CostItem(description, amount, Currency.valueOf(currency), new Category(category), id, date.toString()));
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
             throw new CostManagerException("Could not receive data");
+        } finally {
+            if (rs != null) try {
+                rs.close();
+            } catch (SQLException e) {
+                throw new CostManagerException(e.getMessage());
+            }
         }
 
         return costItems;
@@ -157,8 +177,8 @@ public class DerbyDBModel implements IModel {
     public void addCategory(Category category) throws CostManagerException {
 
         try {
-            statement.execute("INSERT INTO category(name) values('" + category.getName() +"')");
-        }catch(SQLException e){
+            statement.execute("INSERT INTO category(name) values('" + category.getName() + "')");
+        } catch (SQLException e) {
             e.printStackTrace();
             throw new CostManagerException("Could not add new category");
         }
@@ -172,15 +192,21 @@ public class DerbyDBModel implements IModel {
         ResultSet rs = null;
 
         try {
-             rs = statement.executeQuery("SELECT * FROM Category");
-            while(rs.next()){
+            rs = statement.executeQuery("SELECT * FROM Category");
+            while (rs.next()) {
 
-                Category category = new Category( rs.getString("name"),rs.getInt("id"));
+                Category category = new Category(rs.getString("name"), rs.getInt("id"));
                 categories.add(category);
 
             }
-        }catch(SQLException e){
+        } catch (SQLException e) {
             throw new CostManagerException(e.getMessage());
+        }finally {
+            if (rs != null) try {
+                rs.close();
+            } catch (SQLException e) {
+                throw new CostManagerException(e.getMessage());
+            }
         }
 
         return categories;

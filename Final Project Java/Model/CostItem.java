@@ -110,7 +110,7 @@ public class CostItem {
     public String toString() {
         return "CostItem {" +
                 "id=" + id +
-                ", category=" + category +
+                "," + category +
                 ", amount=" + amount +
                 ", currency=" + currency +
                 ", description='" + description +

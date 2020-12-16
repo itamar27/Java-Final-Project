@@ -7,12 +7,13 @@ public class DerbySimpleCode {
 
         try {
             DerbyDBModel db = new DerbyDBModel();
-            //db.addCategory(new Category("Pets"));
-//            CostItem ci = new CostItem("super market", 2222, Currency.ILS,new Category("Food"),"2020-05-31");
-//            db.addCostItem(ci);
-            List<Category> categories = db.getAllCategory();
 
-            List<CostItem> myCosts = db.getCostItemsBetweenDates("1990-01-01", "2020-12-31");
+            List<Category> categories = db.getAllCategory();
+            //db.addCostItem(new CostItem("almost easy", 20.2, Currency.ILS, new Category("Shopping"), "2002-12-14"));
+            //db.addCostItem(new CostItem("Very cheap", 4, Currency.NZD, new Category("Shopping"), "2021-12-14"));
+            new CostItem("Very pricey", 12.2, Currency.USD, new Category("Shopping"), "2000-12-14");
+
+            List<CostItem> myCosts = db.getCostItemsBetweenDates("1990-01-01", "2021-12-31");
 
             myCosts.forEach(System.out::println);
 
@@ -20,56 +21,15 @@ public class DerbySimpleCode {
 
             categories.forEach(System.out::println);
 
+            db.DerbyDBModelRelease();
 
-        }catch(CostManagerException e){
+        } catch (CostManagerException e) {
             System.out.println(e.getMessage());
             throw new CostManagerException("Could not create or connect to db");
         }
 
+
         System.out.print("The connection was created everything is working so far!");
 
-
-
-
-
-
-        /*
-        ResultSet rs = null;
-        try {
-            connection = null;
-            //Instantiating the driver class will indirectly register
-            //this driver as an available driver for DriverManager
-            Class.forName(driver);
-            //Getting a connection by calling getConnection
-            connection = DriverManager.getConnection(connectionString + "CostMangerDB;create=true");
-            //connection = new org.apache.derby.jdbc.ClientDriver().connect(connectionString,null);
-            statement = connection.createStatement();
-            statement.execute("create table inventory(id int GENERATED ALWAYS AS IDENTITY, fee double)");
-            statement.execute("insert into inventory(fee) values (2.5)");
-            statement.execute("insert into inventory(fee) values (1.2)");
-            statement.execute("insert into inventory(fee) values (2.2)");
-            rs = statement.executeQuery("SELECT id,fee FROM inventory ORDER BY id");
-
-            while (rs.next()) {
-                System.out.println("id=" + rs.getInt("id")
-                        + " fee=" + rs.getDouble("fee"));
-            }
-            statement.execute("DROP TABLE inventory");
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        } finally {
-            if (statement != null) try {
-                statement.close();
-            } catch (Exception e) {
-            }
-            if (connection != null) try {
-                connection.close();
-            } catch (Exception e) {
-            }
-            if (rs != null) try {
-                rs.close();
-            } catch (Exception e) {
-            }
-        }*/
     }
 }
