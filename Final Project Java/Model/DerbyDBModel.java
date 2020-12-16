@@ -2,6 +2,7 @@ package Model;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,15 +71,15 @@ public class DerbyDBModel implements IModel {
 
             if(categoryTableNotExist)  {
                 statement.execute("create table Category(id INT GENERATED ALWAYS AS IDENTITY NOT NULL," +
-                        "name CHAR(30) NOT NULL, PRIMARY KEY(name))");
+                        "name VARCHAR(30) NOT NULL, PRIMARY KEY(name))");
                 addCategory(new Category("Shopping"));
                 addCategory(new Category("Rent"));
                 addCategory(new Category("Food"));
             }
             if(costItemTableNotExist) {
                 statement.execute("create table CostItem(id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, " +
-                        "category CHAR(30) REFERENCES Category(name) NOT NULL ," +
-                        " amount DOUBLE NOT NULL, currency CHAR(5) NOT NULL, description CHAR(100), date DATE NOT NULL)");
+                        "category VARCHAR(30) REFERENCES Category(name) NOT NULL ," +
+                        " amount DOUBLE NOT NULL, currency VARCHAR(5) NOT NULL, description VARCHAR(100), date DATE NOT NULL)");
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -114,8 +115,38 @@ public class DerbyDBModel implements IModel {
 
 
     @Override
-    public CostItem[] getCostItemsBetweenDates(String fromDate, String toDate) throws CostManagerException {
-        return new CostItem[0];
+    public List<CostItem> getCostItemsBetweenDates(String fromDate, String toDate) throws CostManagerException {
+        ResultSet rs = null;
+        List<CostItem> costItems = new ArrayList<CostItem>();
+
+
+        //Parsing the strings to create the dates as java.time.LocalDate
+        DateTimeFormatter inputFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate from_date = LocalDate.parse(fromDate, inputFormat);
+        LocalDate to_date = LocalDate.parse(toDate, inputFormat);
+
+        //Creating java.sql.Date from LocalDate to use it in the query
+        Date fromDate_sql = Date.valueOf(from_date);
+        Date toDate_sql = Date.valueOf(to_date);
+        try {
+            rs = statement.executeQuery("SELECT * FROM CostItem WHERE date between '" + fromDate_sql +"' and '" + toDate_sql + "'");
+
+            while (rs.next()){
+                String description = rs.getString("description");
+                Double amount = rs.getDouble("amount");
+                String currency = rs.getString("currency");
+                String category = rs.getString("category");
+                Date date = rs.getDate("date");
+                int id = rs.getInt("id");
+
+                costItems.add(new CostItem(description, amount, Currency.valueOf(currency), new Category(category), id, date.toString()));
+            }
+        } catch (SQLException e){
+            e.printStackTrace();
+            throw new CostManagerException("Could not receive data");
+        }
+
+        return costItems;
     }
 
     /*
