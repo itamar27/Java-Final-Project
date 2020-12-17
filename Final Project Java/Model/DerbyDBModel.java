@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class DerbyDBModel implements IModel {
 
@@ -174,6 +175,42 @@ public class DerbyDBModel implements IModel {
      */
 
     @Override
+    public List<Pair> getCategorySumBetweenDates(String fromDate, String toDate) throws CostManagerException {
+        ResultSet rs = null;
+        List<Pair> categoriesSum = new ArrayList<Pair>();
+
+        //Parsing the strings to create the dates as java.time.LocalDate
+        DateTimeFormatter inputFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate from_date = LocalDate.parse(fromDate, inputFormat);
+        LocalDate to_date = LocalDate.parse(toDate, inputFormat);
+
+        //Creating java.sql.Date from LocalDate to use it in the query
+        Date fromDate_sql = Date.valueOf(from_date);
+        Date toDate_sql = Date.valueOf(to_date);
+        try {
+            rs = statement.executeQuery("SELECT category, SUM(amount) as amount FROM CostItem WHERE date between '" + fromDate_sql + "' and '" + toDate_sql + "' GROUP BY category");
+
+            while (rs.next()) {
+                String name = rs.getString("category");
+                Double amount = rs.getDouble("amount");
+
+                categoriesSum.add(new Pair(name, amount));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new CostManagerException("Could not receive data");
+        } finally {
+            if (rs != null) try {
+                rs.close();
+            } catch (SQLException e) {
+                throw new CostManagerException(e.getMessage());
+            }
+        }
+
+        return categoriesSum;
+    }
+
+    @Override
     public void addCategory(Category category) throws CostManagerException {
 
         try {
@@ -201,7 +238,7 @@ public class DerbyDBModel implements IModel {
             }
         } catch (SQLException e) {
             throw new CostManagerException(e.getMessage());
-        }finally {
+        } finally {
             if (rs != null) try {
                 rs.close();
             } catch (SQLException e) {
