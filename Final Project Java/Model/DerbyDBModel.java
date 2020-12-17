@@ -177,6 +177,8 @@ public class DerbyDBModel implements IModel {
     @Override
     public List<Pair> getCategorySumBetweenDates(String fromDate, String toDate) throws CostManagerException {
         ResultSet rs = null;
+
+        //Pair implementation can be found inside the IModel Interface
         List<Pair> categoriesSum = new ArrayList<Pair>();
 
         //Parsing the strings to create the dates as java.time.LocalDate
