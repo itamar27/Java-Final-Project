@@ -13,9 +13,9 @@ public class DerbySimpleCode {
 //            db.addCostItem(new CostItem("Very cheap", 4, Currency.NZD, new Category("Food"), "2021-12-14"));
 //            new CostItem("Very pricey", 12.2, Currency.USD, new Category("Shopping"), "2000-12-14");
 
-//            List<CostItem> myCosts = db.getCostItemsBetweenDates("1990-01-01", "2021-12-31");
+            List<CostItem> myCosts = db.getCostItemsBetweenDates("1990-01-01", "2021-12-31");
 
-//            myCosts.forEach(System.out::println);
+            myCosts.forEach(System.out::println);
 
             System.out.println("--------------------------------------");
 
