@@ -2,6 +2,7 @@ package Model;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Objects;
 
 public interface IModel {
     /*
@@ -22,6 +23,15 @@ public interface IModel {
         public String toString() {
             return "name = " + name +
                     ", Sum amount = " + amount;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Pair pair = (Pair) o;
+            return name.equals(pair.name) &&
+                    amount.equals(pair.amount);
         }
     }
 

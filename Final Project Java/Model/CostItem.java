@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.Objects;
 
 public class CostItem {
 
@@ -105,6 +106,20 @@ public class CostItem {
     /**
      * Over riding class object methods.
      */
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CostItem costItem = (CostItem) o;
+        return id == costItem.id &&
+                Double.compare(costItem.amount, amount) == 0 &&
+                category.equals(costItem.category) &&
+                currency == costItem.currency &&
+                description.equals(costItem.description) &&
+                date.equals(costItem.date);
+    }
+
 
     @Override
     public String toString() {
