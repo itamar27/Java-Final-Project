@@ -114,7 +114,7 @@ public class CostItem {
                 ", amount=" + amount +
                 ", currency=" + currency +
                 ", description='" + description +
-                ", date="+ date +
+                "', date="+ date +
                 '}';
     }
 }

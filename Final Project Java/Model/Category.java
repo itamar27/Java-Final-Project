@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.Objects;
+
 public class Category {
 
     private String name;
@@ -36,6 +38,16 @@ public class Category {
     public int getId() {
         return id;
     }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Category category = (Category) o;
+        return id == category.id && Objects.equals(name, category.name);
+    }
+
 
     @Override
     public String toString() {
