@@ -82,10 +82,10 @@ class DerbyDBModelTest {
 
     @Test
     void getCategorySumBetweenDates() throws CostManagerException {
-        List<IModel.Pair> expectedList = new ArrayList<>();
-        expectedList.add(new IModel.Pair("Food", 24.2));
-        expectedList.add(new IModel.Pair("Shopping", 76.8));
-        List<IModel.Pair> actualList = db.getCategorySumBetweenDates("1990-01-01", "2021-12-31");
+        List<Pair> expectedList = new ArrayList<>();
+        expectedList.add(new Pair("Food", 24.2));
+        expectedList.add(new Pair("Shopping", 76.8));
+        List<Pair> actualList = db.getCategorySumBetweenDates("1990-01-01", "2021-12-31");
 
         assertEquals(expectedList, actualList);
     }

@@ -21,7 +21,7 @@ public class DerbySimpleCode {
 
 //            categories.forEach(System.out::println);
 
-            List<IModel.Pair> forPieChart = db.getCategorySumBetweenDates("1990-01-01", "2021-12-31");
+            List<Pair> forPieChart = db.getCategorySumBetweenDates("1990-01-01", "2021-12-31");
 
             forPieChart.forEach(System.out::println);
 
