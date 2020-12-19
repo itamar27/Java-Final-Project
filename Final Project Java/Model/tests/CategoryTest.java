@@ -1,6 +1,9 @@
 package Model.tests;
 
 import Model.Category;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -8,31 +11,34 @@ class CategoryTest {
 
     Category category;
 
-    @org.junit.jupiter.api.BeforeEach
+    @BeforeEach
     void setUp() {
         category = new Category("Shopping");
     }
 
-    @org.junit.jupiter.api.AfterEach
+    @AfterEach
     void tearDown() {
         category = null;
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getName() {
         String expected = "Shopping";
         String actual = category.getName();
         assertEquals(expected, actual);
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getId() {
         int expected = -1;
         int actual = category.getId();
         assertEquals(expected, actual, 0);
     }
 
-    @org.junit.jupiter.api.Test
+
+
+
+    @Test
     void testToString() {
         String expected = "Category={ " +
                 "name='Shopping'" +

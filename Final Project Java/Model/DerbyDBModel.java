@@ -154,7 +154,7 @@ public class DerbyDBModel implements IModel {
                 Date date = rs.getDate("date");
                 int id = rs.getInt("id");
 
-                costItems.add(new CostItem(description, amount, Currency.valueOf(currency), new Category(category), id, date.toString()));
+                costItems.add(new CostItem(id,new Category(category), amount, Currency.valueOf(currency),description , date.toString()));
             }
         } catch (SQLException e) {
             e.printStackTrace();

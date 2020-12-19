@@ -27,7 +27,7 @@ public class CostItem {
      * @params Category - An instantiation  of an object that represents the category that
      *                    the Cost belonged to.
      */
-    public CostItem(String description, double amount, Currency currency, Category category, String date) throws CostManagerException{
+    public CostItem(Category category, double amount, Currency currency,  String description,String date) throws CostManagerException{
 
         if(amount < 0)
             throw new CostManagerException("Not a valid amount");
@@ -54,7 +54,7 @@ public class CostItem {
      * @params id - A variable to hold the Cost id from DB.
      */
 
-    public CostItem(String description, double amount, Currency currency, Category category, int id, String date) throws CostManagerException {
+    public CostItem(int id, Category category, double amount, Currency currency,  String description,String date) throws CostManagerException {
 
         if(amount < 0)
             throw new CostManagerException("Not a valid amount");
