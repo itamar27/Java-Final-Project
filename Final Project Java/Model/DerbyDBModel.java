@@ -5,7 +5,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class DerbyDBModel implements IModel {
 
@@ -41,7 +40,7 @@ public class DerbyDBModel implements IModel {
             if (connection != null)
                 connection.close();
         } catch (SQLException e) {
-            throw new CostManagerException(e.getMessage());
+            throw new CostManagerException("Error closing DB");
         }
 
 
