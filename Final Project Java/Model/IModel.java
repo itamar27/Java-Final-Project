@@ -17,6 +17,11 @@ public interface IModel {
 
     /*
      * Cost item DB execution
+     *
+     * API -
+     * @Post (addCostItem)  -  add new cost item to the DB.
+     * @Get (getCostItemBetweenDates) - get list of cost items between different dates.
+     * @Get (getCategorySumBetweenDates) - get list of sums of categories between dates
      */
 
     public void addCostItem(CostItem item) throws CostManagerException;
@@ -27,6 +32,9 @@ public interface IModel {
 
     /*
      * Category DB execution
+     *
+     * @Post (addCategory) - add new category to  DB.
+     * @Get (getAllCategory) - get all categories from DB.s
      */
 
     public void addCategory(Category category) throws CostManagerException;
