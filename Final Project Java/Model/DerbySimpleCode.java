@@ -26,7 +26,7 @@ public class DerbySimpleCode {
             forPieChart.forEach(System.out::println);
 
 
-            db.DerbyDBModelRelease();
+            db.closeConnection();
 
         } catch (CostManagerException e) {
             System.out.println(e.getMessage());

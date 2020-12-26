@@ -29,7 +29,7 @@ class DerbyDBModelTest {
         String expectedException = "Error closing DB";
 
         try {
-            db.DerbyDBModelRelease();
+            db.closeConnection();
         } catch (CostManagerException e) {
             assertEquals(e.getMessage(), expectedException);
         }

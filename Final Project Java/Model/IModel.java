@@ -12,7 +12,7 @@ public interface IModel {
 
     public void createConnection() throws CostManagerException;
 
-    public void createDB() throws CostManagerException, SQLException;
+    public void createDB() throws CostManagerException;
 
 
     /*

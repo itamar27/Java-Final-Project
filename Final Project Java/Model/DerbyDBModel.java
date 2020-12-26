@@ -1,5 +1,7 @@
 package Model;
 
+import org.apache.derby.client.am.SqlException;
+
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -21,18 +23,15 @@ public class DerbyDBModel implements IModel {
     public DerbyDBModel() throws CostManagerException {
 
         try {
-            createConnection();
-            statement = connection.createStatement();
             createDB();
 
-        } catch (SQLException | CostManagerException e) {
+        } catch (CostManagerException e) {
             e.printStackTrace();
             throw new CostManagerException("Could not create DerbyDBModel");
         }
     }
 
-    public void DerbyDBModelRelease() throws CostManagerException {
-
+    public void closeConnection() throws CostManagerException {
         try {
             if (statement != null)
                 statement.close();
@@ -42,8 +41,6 @@ public class DerbyDBModel implements IModel {
         } catch (SQLException e) {
             throw new CostManagerException("Error closing DB");
         }
-
-
     }
 
 
@@ -67,6 +64,15 @@ public class DerbyDBModel implements IModel {
 
     @Override
     public void createDB() throws CostManagerException {
+
+        try {
+            this.createConnection();
+            this.statement = connection.createStatement();
+        } catch (SQLException e) {
+            throw new CostManagerException("Connection couldn't be made");
+        }
+
+
         try {
 
             //using the JDBC MetaData to check if table already exist
@@ -101,6 +107,8 @@ public class DerbyDBModel implements IModel {
             e.printStackTrace();
             throw new CostManagerException("Error with creating a table statement");
         }
+
+        this.closeConnection();
     }
 
 
@@ -110,6 +118,13 @@ public class DerbyDBModel implements IModel {
 
     @Override
     public void addCostItem(CostItem item) throws CostManagerException {
+
+        try {
+            this.createConnection();
+            this.statement = connection.createStatement();
+        } catch (SQLException e) {
+            throw new CostManagerException("Connection couldn't be made");
+        }
 
         //Transform into it's SQL equivalent
         Date date = Date.valueOf(item.getDate());
@@ -125,11 +140,19 @@ public class DerbyDBModel implements IModel {
             throw new CostManagerException("Could not add new CostItem");
         }
 
-
+        this.closeConnection();
     }
 
     @Override
     public List<CostItem> getCostItemsBetweenDates(String fromDate, String toDate) throws CostManagerException {
+
+        try {
+            this.createConnection();
+            this.statement = connection.createStatement();
+        } catch (SQLException e) {
+            throw new CostManagerException("Connection couldn't be made");
+        }
+
 
         ResultSet rs = null;
         List<CostItem> costItems = new ArrayList<CostItem>();
@@ -166,6 +189,8 @@ public class DerbyDBModel implements IModel {
             }
         }
 
+        this.closeConnection();
+
         return costItems;
     }
 
@@ -175,6 +200,14 @@ public class DerbyDBModel implements IModel {
 
     @Override
     public List<Pair> getCategorySumBetweenDates(String fromDate, String toDate) throws CostManagerException {
+
+        try {
+            createConnection();
+            statement = connection.createStatement();
+        } catch (SQLException e) {
+            throw new CostManagerException("Connection couldn't be made");
+        }
+
         ResultSet rs = null;
 
         //Pair implementation can be found inside the IModel Interface
@@ -208,11 +241,20 @@ public class DerbyDBModel implements IModel {
             }
         }
 
+        this.closeConnection();
+
         return categoriesSum;
     }
 
     @Override
     public void addCategory(Category category) throws CostManagerException {
+
+        try {
+            createConnection();
+            statement = connection.createStatement();
+        } catch (SQLException e) {
+            throw new CostManagerException("Connection couldn't be made");
+        }
 
         try {
             statement.execute("INSERT INTO category(name) values('" + category.getName() + "')");
@@ -221,10 +263,19 @@ public class DerbyDBModel implements IModel {
             throw new CostManagerException("Could not add new category");
         }
 
+        this.closeConnection();
+
     }
 
     @Override
     public List<Category> getAllCategory() throws CostManagerException {
+
+        try {
+            createConnection();
+            statement = connection.createStatement();
+        } catch (SQLException e) {
+            throw new CostManagerException("Connection couldn't be made");
+        }
 
         List<Category> categories = new ArrayList<Category>();
         ResultSet rs = null;
@@ -246,6 +297,8 @@ public class DerbyDBModel implements IModel {
                 throw new CostManagerException(e.getMessage());
             }
         }
+
+        this.closeConnection();
 
         return categories;
     }
