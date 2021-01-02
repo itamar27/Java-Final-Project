@@ -1,12 +1,16 @@
 package View;
 
-//import il.ac.hit.costmanager.viewmodel.IViewModel;
+
+import ViewModel.IViewModel;
 
 import java.util.Map;
 
 public interface IView {
 
-    public void displayPieChart(Map map);
-//    public void setViewModel(IViewModel vm);
-    //..
+    //will be implemented after the ViewModel implementation
+    //public void displayPieChart(Map map);
+    //public void displayCostItemTable(CostItem[] cs);
+
+    public void setViewModel(IViewModel vm);
+
 }
