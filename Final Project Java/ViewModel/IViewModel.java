@@ -1,8 +1,8 @@
 package ViewModel;
 
-/*
-import il.ac.hit.costmanager.model.IModel;
-import il.ac.hit.costmanager.view.IView;
+
+import Model.IModel;
+import View.IView;
 
 public interface IViewModel {
 
@@ -11,4 +11,4 @@ public interface IViewModel {
 
 }
 
- */
+
