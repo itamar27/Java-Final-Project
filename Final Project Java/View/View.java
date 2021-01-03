@@ -8,6 +8,14 @@ import java.awt.*;
 import java.awt.event.*;
 
 
+/*
+ * View class to implement the IView interface.
+ *
+ * @params IViewModel vm
+ *         ApplicationUI ui
+ * @Methods setViewModel() - setting the viewmodel data member
+ *          View() - To intiate all data members and start the program/
+ */
 public class View implements IView {
 
     private IViewModel vm;
@@ -20,16 +28,29 @@ public class View implements IView {
 
     public View() {
 
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                View.this.ui = new View.ApplicationUI();
-                View.this.ui.start();
-            }
+        SwingUtilities.invokeLater(() -> {
+            View.this.ui = new ApplicationUI();
+            View.this.ui.start();
         });
     }
 
-    public class ApplicationUI {
+    /*
+     * This inner class implements the specific functionality of the GUI
+     * provide to the view class the required functions to implement the the IView contract
+     *
+     * @params  frame - to set the frame of the application
+     *          current - to hold the current performance of the screen displayed
+     *          mainPanel -  functionality of the main panel
+     *          addCostPanel - functionality of the add cost panel
+     *          addCategoryPanel - functionality of the add category panel
+     *          dateChoosePanel - functionality of the date choose category panel
+     *@Methods  displayMainMenu()  - application method  to show the home screen
+     *          replaceScreen() - application method to render different screens in the frame
+     *          cleanTextInputs() - application method to clean all the inputs from the different screens
+     *
+     */
+
+    public static class ApplicationUI {
 
         //General frame component
         private JFrame frame;
@@ -37,11 +58,16 @@ public class View implements IView {
         private MainPanel mainPanel;
         private AddCostPanel addCostPanel;
         private AddCategoryPanel addCategoryPanel;
+        private DatesChoosePanel dateChoosePanel;
 
         public ApplicationUI() {
+
+            // starting the panels inner class data members
             mainPanel = new MainPanel();
             addCostPanel = new AddCostPanel();
             addCategoryPanel = new AddCategoryPanel();
+            dateChoosePanel = new DatesChoosePanel();
+
             //general common components setup
             frame = new JFrame("CostManager");
             frame.setSize(900, 900);
@@ -55,7 +81,6 @@ public class View implements IView {
             });
         }
 
-
         /*
          * Inner class to implement the main panel of the program
          */
@@ -68,9 +93,9 @@ public class View implements IView {
             private JButton btDisplayTable;
 
             public MainPanel() {
+
                 setBorder(new EmptyBorder(10, 10, 10, 10));
                 setLayout(new GridBagLayout());
-
 
                 GridBagConstraints gbc = new GridBagConstraints();
                 gbc.gridwidth = GridBagConstraints.REMAINDER;
@@ -105,6 +130,22 @@ public class View implements IView {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         ApplicationUI.this.replaceScreen(ApplicationUI.this.addCategoryPanel);
+                    }
+                });
+
+                btDisplayTable.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        ApplicationUI.this.dateChoosePanel.setButton("table");
+                        ApplicationUI.this.replaceScreen(ApplicationUI.this.dateChoosePanel);
+                    }
+                });
+
+                btDisplayPie.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        ApplicationUI.this.dateChoosePanel.setButton("pie chart");
+                        ApplicationUI.this.replaceScreen(ApplicationUI.this.dateChoosePanel);
                     }
                 });
 
@@ -178,7 +219,7 @@ public class View implements IView {
                 cbChooseCurrency.setRenderer(new MyComboBoxRenderer("Currency"));
                 cbChooseCurrency.setSelectedIndex(-1);
 
-                myFont = new Font("Default", Font.PLAIN, 12 );
+                myFont = new Font("Default", Font.PLAIN, 12);
                 jlEnterAmount = new JLabel("Enter Amount");
                 tfEnterAmount = new TextField(5);
                 tfEnterAmount.setFont(myFont);
@@ -228,7 +269,7 @@ public class View implements IView {
         }
 
         /*
-         * Inner class to implement the
+         * Inner class to implement the add new category panel
          */
 
         public class AddCategoryPanel extends JPanel {
@@ -272,7 +313,7 @@ public class View implements IView {
                 headerPanel.add(jlHeader, gbc);
                 add(headerPanel, gbc);
 
-                myFont = new Font("Default", Font.PLAIN, 12 );
+                myFont = new Font("Default", Font.PLAIN, 12);
                 tfCategoryName = new TextField("Shopping..", 10);
                 tfCategoryName.setFont(myFont);
 
@@ -297,6 +338,54 @@ public class View implements IView {
 
         }
 
+        /*
+         * Inner class to implement the date cut for pie chart or table
+         */
+
+        class DatesChoosePanel extends JPanel {
+
+            private TextField tfFromDate;
+            private JLabel jlFromDate;
+            private TextField tfToDate;
+            private JLabel jlToDate;
+            private JButton btSubmit;
+            private JButton btBackToMainMenu;
+
+            private String buttonName;
+
+            public DatesChoosePanel() {
+                setBorder(new EmptyBorder(10, 10, 10, 10));
+                setLayout(new GridBagLayout());
+
+                GridBagConstraints gbc = new GridBagConstraints();
+
+                gbc.gridwidth = GridBagConstraints.REMAINDER;
+                gbc.insets = new Insets(5, 5, 5, 5);
+
+                JPanel homePanel = new JPanel(new GridBagLayout());
+                btBackToMainMenu = new JButton("Home");
+                gbc.weightx = 1;
+                gbc.anchor = GridBagConstraints.WEST;
+                homePanel.add(btBackToMainMenu, gbc);
+                add(homePanel, gbc);
+
+                btBackToMainMenu.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        ApplicationUI.this.replaceScreen(ApplicationUI.this.mainPanel);
+                    }
+                });
+                
+
+
+            }
+            public void setButton(String str){
+
+                this.buttonName = str;
+            }
+
+
+        }
 
 
         public void displayMainMenu() {
@@ -316,6 +405,9 @@ public class View implements IView {
             frame.setVisible(true);
         }
 
+        public void cleanTextInputs() {
+
+        }
 
         public void start() {
             displayMainMenu();
