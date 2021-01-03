@@ -6,6 +6,8 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 
 /*
@@ -122,6 +124,7 @@ public class View implements IView {
                 btAddCostItem.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
+                        ApplicationUI.this.addCostPanel.cleanInputs();
                         ApplicationUI.this.replaceScreen(ApplicationUI.this.addCostPanel);
                     }
                 });
@@ -129,6 +132,7 @@ public class View implements IView {
                 btAddCategory.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
+                        ApplicationUI.this.addCategoryPanel.cleanInputs();
                         ApplicationUI.this.replaceScreen(ApplicationUI.this.addCategoryPanel);
                     }
                 });
@@ -136,7 +140,8 @@ public class View implements IView {
                 btDisplayTable.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        ApplicationUI.this.dateChoosePanel.setButton("table");
+                        ApplicationUI.this.dateChoosePanel.cleanInputs();
+                        ApplicationUI.this.dateChoosePanel.updateButton("table");
                         ApplicationUI.this.replaceScreen(ApplicationUI.this.dateChoosePanel);
                     }
                 });
@@ -144,7 +149,8 @@ public class View implements IView {
                 btDisplayPie.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        ApplicationUI.this.dateChoosePanel.setButton("pie chart");
+                        ApplicationUI.this.dateChoosePanel.cleanInputs();
+                        ApplicationUI.this.dateChoosePanel.updateButton("pie chart");
                         ApplicationUI.this.replaceScreen(ApplicationUI.this.dateChoosePanel);
                     }
                 });
@@ -248,6 +254,13 @@ public class View implements IView {
                 add(submit, gbc);
             }
 
+            public void cleanInputs() {
+                tfEnterAmount.setText("");
+                tfEnterDescription.setText("");
+                cbChooseCategory.setSelectedIndex(-1);
+                cbChooseCurrency.setSelectedIndex(-1);
+            }
+
             /*
              * Inner class to control the combo box of the category combo box element
              */
@@ -314,7 +327,7 @@ public class View implements IView {
                 add(headerPanel, gbc);
 
                 myFont = new Font("Default", Font.PLAIN, 12);
-                tfCategoryName = new TextField("Shopping..", 10);
+                tfCategoryName = new TextField("", 10);
                 tfCategoryName.setFont(myFont);
 
                 jlEnterCategory = new JLabel("<html><h3><strong><i>Enter new category:</i></strong></h3></html>");
@@ -336,6 +349,10 @@ public class View implements IView {
                 add(submit, gbc);
             }
 
+            public void cleanInputs() {
+                tfCategoryName.setText("");
+            }
+
         }
 
         /*
@@ -344,9 +361,10 @@ public class View implements IView {
 
         class DatesChoosePanel extends JPanel {
 
-            private TextField tfFromDate;
+            private JLabel jlHeader;
+            private JFormattedTextField tfFromDate;
             private JLabel jlFromDate;
-            private TextField tfToDate;
+            private JFormattedTextField tfToDate;
             private JLabel jlToDate;
             private JButton btSubmit;
             private JButton btBackToMainMenu;
@@ -375,25 +393,72 @@ public class View implements IView {
                         ApplicationUI.this.replaceScreen(ApplicationUI.this.mainPanel);
                     }
                 });
-                
 
+                gbc.weightx = 0;
 
+                JPanel headerPanel = new JPanel(new GridBagLayout());
+                jlHeader = new JLabel("<html><h1><strong><i>Choose dates</i></strong></h1><hr></html>");
+                gbc.anchor = GridBagConstraints.CENTER;
+                headerPanel.add(jlHeader, gbc);
+                add(headerPanel, gbc);
+
+                JPanel form = new JPanel(new GridBagLayout());
+                JPanel submit = new JPanel(new GridBagLayout());
+
+                jlFromDate = new JLabel("<html><h3><strong><i>From date:</i></strong></h3></html>");
+                jlToDate = new JLabel("<html><h3><strong><i>To date:</i></strong></h3></html>");
+
+                Font myFont = new Font("Default", Font.PLAIN, 12);
+
+                DateFormat format = new SimpleDateFormat("yyyy-MM");
+                tfFromDate = new JFormattedTextField(format);
+                tfToDate = new JFormattedTextField(format);
+                tfFromDate.setFont(myFont);
+                tfToDate.setFont(myFont);
+
+                btSubmit = new JButton("Submit");
+
+                gbc.fill = GridBagConstraints.HORIZONTAL;
+
+                tfFromDate.setColumns(10);
+                tfToDate.setColumns(10);
+                form.add(jlFromDate, gbc);
+                form.add(tfFromDate, gbc);
+                form.add(jlToDate, gbc);
+                form.add(tfToDate, gbc);
+                submit.add(btSubmit, gbc);
+
+                btSubmit.addActionListener(e -> {
+                    if(buttonName.equals("table")) {
+                        //replace to table screen
+                    }
+                    else if(buttonName.equals("pie chart")) {
+                        //replace to pie char screen
+                    }
+                });
+
+                gbc.weighty = 1;
+                add(form, gbc);
+                add(submit, gbc);
             }
-            public void setButton(String str){
 
+            public void updateButton(String str){
                 this.buttonName = str;
+                btSubmit.setText("Get " + str);
             }
 
+            public void cleanInputs() {
+                tfToDate.setText("");
+                tfFromDate.setText("");
+            }
 
         }
 
 
         public void displayMainMenu() {
-
             this.current = mainPanel;
             frame.getContentPane().add(this.current);
             frame.setVisible(true);
-
         }
 
 
@@ -403,10 +468,6 @@ public class View implements IView {
             this.current = next;
             frame.add(this.current);
             frame.setVisible(true);
-        }
-
-        public void cleanTextInputs() {
-
         }
 
         public void start() {
