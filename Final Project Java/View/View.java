@@ -1,5 +1,6 @@
 package View;
 
+import Model.CostItem;
 import ViewModel.IViewModel;
 
 import javax.swing.*;
@@ -61,6 +62,7 @@ public class View implements IView {
         private AddCostPanel addCostPanel;
         private AddCategoryPanel addCategoryPanel;
         private DatesChoosePanel dateChoosePanel;
+        private TablePanel tablePanel;
 
         public ApplicationUI() {
 
@@ -69,6 +71,7 @@ public class View implements IView {
             addCostPanel = new AddCostPanel();
             addCategoryPanel = new AddCategoryPanel();
             dateChoosePanel = new DatesChoosePanel();
+            tablePanel = new TablePanel();
 
             //general common components setup
             frame = new JFrame("CostManager");
@@ -429,10 +432,34 @@ public class View implements IView {
                 submit.add(btSubmit, gbc);
 
                 btSubmit.addActionListener(e -> {
-                    if(buttonName.equals("table")) {
-                        //replace to table screen
-                    }
-                    else if(buttonName.equals("pie chart")) {
+                    if (buttonName.equals("table")) {
+                        //When ViewModel will be implemented, the tableData will be gained through it.
+                        //At the moment the data is fake and only for View example.
+                        String[][] tableData = {
+                                {"This", "data", "is", "only", "for example"},
+                                {"2019-12", "Food", "780", "ILS", "Rami Levi"},
+                                {"2019-12", "Food", "780", "ILS", "Rami Levi"},
+                                {"2019-12", "Food", "780", "ILS", "Rami Levi"},
+                                {"2019-12", "Food", "780", "ILS", "Rami Levi"},
+                                {"2019-12", "Food", "780", "ILS", "Rami Levi"},
+                                {"2019-12", "Food", "780", "ILS", "Rami Levi"},
+                                {"2019-12", "Food", "780", "ILS", "Rami Levi"},
+                                {"2019-12", "Food", "780", "ILS", "Rami Levi"},
+                                {"2019-12", "Food", "780", "ILS", "Rami Levi"},
+                                {"2019-12", "Food", "780", "ILS", "Rami Levi"},
+                                {"2019-12", "Food", "780", "ILS", "Rami Levi"},
+                                {"2019-12", "Food", "780", "ILS", "Rami Levi"},
+                                {"2019-12", "Food", "780", "ILS", "Rami Levi"},
+                                {"2019-12", "Food", "780", "ILS", "Rami Levi"},
+                                {"2019-12", "Food", "780", "ILS", "Rami Levi"},
+                                {"2020-01", "Food", "600", "ILS", "Rami Levi"},
+                                {"2020-02", "Entrainment", "120", "ILS", "Movies"},
+                                {"2020-03", "Food", "500", "ILS", "Rami Levi"},
+                                {"2020-04", "Food", "580", "ILS", "Rami Levi"}
+                        };
+                        ApplicationUI.this.tablePanel.updateTableData(tableData);
+                        ApplicationUI.this.replaceScreen(ApplicationUI.this.tablePanel);
+                    } else if (buttonName.equals("pie chart")) {
                         //replace to pie char screen
                     }
                 });
@@ -442,7 +469,7 @@ public class View implements IView {
                 add(submit, gbc);
             }
 
-            public void updateButton(String str){
+            public void updateButton(String str) {
                 this.buttonName = str;
                 btSubmit.setText("Get " + str);
             }
@@ -452,6 +479,69 @@ public class View implements IView {
                 tfFromDate.setText("");
             }
 
+        }
+
+        /*
+         * Inner class to implement the tablePanel by the dates choosen in datesChoose
+         */
+
+        class TablePanel extends JPanel {
+            JPanel table;
+            GridBagConstraints gbc;
+            JScrollPane scrolledTable;
+            private JButton btBackToMainMenu;
+            private JLabel jlHeader;
+            private JTable tableCosts;
+            String[] colNames = {"Date", "Category", "Amount", "Currency", "Description"};
+
+            public TablePanel() {
+                setBorder(new EmptyBorder(10, 10, 10, 10));
+                setLayout(new GridBagLayout());
+
+                gbc = new GridBagConstraints();
+
+                gbc.gridwidth = GridBagConstraints.REMAINDER;
+                gbc.insets = new Insets(5, 5, 5, 5);
+
+                JPanel homePanel = new JPanel(new GridBagLayout());
+                btBackToMainMenu = new JButton("Home");
+                gbc.weightx = 1;
+                gbc.anchor = GridBagConstraints.WEST;
+                homePanel.add(btBackToMainMenu, gbc);
+                add(homePanel, gbc);
+
+                btBackToMainMenu.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        ApplicationUI.this.replaceScreen(ApplicationUI.this.mainPanel);
+                    }
+                });
+
+                gbc.weightx = 0;
+
+                JPanel headerPanel = new JPanel(new GridBagLayout());
+                jlHeader = new JLabel("<html><h1><strong><i>Costs table</i></strong></h1><hr></html>");
+                gbc.anchor = GridBagConstraints.CENTER;
+                headerPanel.add(jlHeader, gbc);
+                add(headerPanel, gbc);
+
+                table = new JPanel(new GridBagLayout());
+
+                gbc.fill = GridBagConstraints.BOTH;
+
+                gbc.weighty = 1;
+                add(table, gbc);
+                gbc.weighty = 0;
+            }
+
+            public void updateTableData(String[][] data) {
+                tableCosts = new JTable(data, this.colNames);
+                tableCosts.setPreferredScrollableViewportSize(new Dimension(600, 300));
+                tableCosts.setFillsViewportHeight(true);
+                scrolledTable = new JScrollPane(tableCosts);
+                table.removeAll();
+                table.add(scrolledTable, gbc);
+            }
         }
 
 
@@ -475,3 +565,4 @@ public class View implements IView {
         }
     }
 }
+
