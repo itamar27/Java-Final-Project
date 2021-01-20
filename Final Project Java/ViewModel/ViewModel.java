@@ -1,12 +1,10 @@
 package ViewModel;
 
-import Model.Category;
-import Model.CostItem;
-import Model.CostManagerException;
-import Model.IModel;
+import Model.*;
 import View.IView;
 
-import java.util.concurrent.Executor;
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -95,5 +93,26 @@ public class ViewModel implements IViewModel {
                 }
             }
         });
+    }
+
+    @Override
+    public String[] getCategories() {
+        try {
+            List<Category> categoryList = model.getAllCategory();
+            String[] categoriesNames = new String[categoryList.size()];
+            for (int i = 0; i < categoryList.size(); i++) {
+                categoriesNames[i] = categoryList.get(i).getName();
+            }
+            return categoriesNames;
+        } catch (CostManagerException e) {
+            // At the moment a console message, maybe error message should
+            // be displayed for the user.
+            System.out.println(e.getMessage());
+        }
+        return new String[0];
+    }
+
+    public String[] getCurrencies() {
+        return Arrays.toString(Currency.values()).replaceAll("^.|.$", "").split(", ");
     }
 }

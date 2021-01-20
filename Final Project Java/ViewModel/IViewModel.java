@@ -16,6 +16,9 @@ public interface IViewModel {
     public void getCostsForChart(String dateFrom, String dateTo);
     public void getCostsForPie(String dateFrom, String dateTo);
 
+    public String[] getCategories();
+    public String[] getCurrencies();
+
 }
 
 

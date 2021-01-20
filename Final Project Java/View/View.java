@@ -1,6 +1,8 @@
 package View;
 
+import Model.Category;
 import Model.CostItem;
+import Model.Currency;
 import ViewModel.IViewModel;
 
 import javax.swing.*;
@@ -53,7 +55,7 @@ public class View implements IView {
      *
      */
 
-    public static class ApplicationUI {
+    public class ApplicationUI {
 
         //General frame component
         private JFrame frame;
@@ -128,6 +130,7 @@ public class View implements IView {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         ApplicationUI.this.addCostPanel.cleanInputs();
+                        ApplicationUI.this.addCostPanel.updateCategories();
                         ApplicationUI.this.replaceScreen(ApplicationUI.this.addCostPanel);
                     }
                 });
@@ -174,12 +177,19 @@ public class View implements IView {
             private JComboBox cbChooseCurrency;
             private TextField tfEnterAmount;
             private TextField tfEnterDescription;
+            private JFormattedTextField tfDate;
             private JButton btSubmit;
             private JLabel jlEnterAmount;
             private JLabel jlEnterDescription;
+            private JLabel jlDate;
             private JButton btBackToMainMenu;
             private JLabel jlHeader;
             private Font myFont;
+
+            private String[] categoriesOptions;
+            private DefaultComboBoxModel<String> defaultCBmodel;
+
+            private String[] currencyOptions;
 
 
             public AddCostPanel() {
@@ -216,14 +226,16 @@ public class View implements IView {
                 gbc.anchor = GridBagConstraints.CENTER;
                 gbc.fill = GridBagConstraints.BOTH;
 
-                String[] option = {"Shopping", "Food"};
-                cbChooseCategory = new JComboBox(option);
+                categoriesOptions = View.this.vm.getCategories();
+                defaultCBmodel = new DefaultComboBoxModel<>(categoriesOptions);
+                cbChooseCategory = new JComboBox(defaultCBmodel);
                 cbChooseCategory.setBackground(Color.white);
                 cbChooseCategory.setRenderer(new MyComboBoxRenderer("Category"));
                 cbChooseCategory.setSelectedIndex(-1); //By default it selects first item, we don't want any selection
 
-                String[] option2 = {"USD", "NZD", "ILS"};
-                cbChooseCurrency = new JComboBox(option2);
+
+                currencyOptions = View.this.vm.getCurrencies();
+                cbChooseCurrency = new JComboBox(currencyOptions);
                 cbChooseCurrency.setBackground(Color.white);
                 cbChooseCurrency.setRenderer(new MyComboBoxRenderer("Currency"));
                 cbChooseCurrency.setSelectedIndex(-1);
@@ -236,6 +248,11 @@ public class View implements IView {
                 tfEnterDescription = new TextField(20);
                 tfEnterDescription.setFont(myFont);
 
+
+                DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                jlDate = new JLabel("Enter date (yyyy-MM-dd):");
+                tfDate = new JFormattedTextField(format);
+                tfDate.setFont(myFont);
                 btSubmit = new JButton("Submit");
 
 
@@ -248,6 +265,8 @@ public class View implements IView {
                 form.add(tfEnterAmount, gbc);
                 form.add(jlEnterDescription, gbc);
                 form.add(tfEnterDescription, gbc);
+                form.add(jlDate, gbc);
+                form.add(tfDate, gbc);
                 submit.add(btSubmit, gbc);
                 submit.setAlignmentX(RIGHT_ALIGNMENT);
 
@@ -262,6 +281,17 @@ public class View implements IView {
                 tfEnterDescription.setText("");
                 cbChooseCategory.setSelectedIndex(-1);
                 cbChooseCurrency.setSelectedIndex(-1);
+            }
+
+            public void updateCategories() {
+                this.categoriesOptions = View.this.vm.getCategories();
+
+                this.defaultCBmodel.removeAllElements();
+                for (String name : this.categoriesOptions) {
+                    this.defaultCBmodel.addElement(name);
+                }
+
+                this.cbChooseCategory.setSelectedIndex(-1);
             }
 
             /*
@@ -345,6 +375,16 @@ public class View implements IView {
                 form.add(jlEnterCategory, gbc);
                 form.add(tfCategoryName, gbc);
                 submit.add(btSubmit, gbc);
+
+                btSubmit.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        String categoryName = tfCategoryName.getText();
+                        Category category = new Category(categoryName);
+                        View.this.vm.addCategory(category);
+                        ApplicationUI.this.replaceScreen(ApplicationUI.this.mainPanel);
+                    }
+                });
 
 
                 gbc.weighty = 1;
