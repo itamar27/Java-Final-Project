@@ -2,9 +2,11 @@ package View;
 
 import Model.Category;
 import Model.CostItem;
+import Model.CostManagerException;
 import Model.Currency;
 import ViewModel.IViewModel;
 
+import java.util.List;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -13,14 +15,15 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 
-/*
+/**
  * View class to implement the IView interface.
  *
  * @params IViewModel vm
- *         ApplicationUI ui
- * @Methods setViewModel() - setting the viewmodel data member
- *          View() - To initiate all data members and start the program/
+ * ApplicationUI ui
+ * @Methods View() - To initiate all data members and start the program/
+ * setViewModel() - setting the viewmodel data member
  */
+
 public class View implements IView {
 
     private IViewModel vm;
@@ -39,21 +42,46 @@ public class View implements IView {
         });
     }
 
-    /*
+
+    @Override
+    public void displayCostItemTable(List<CostItem> cs) {
+
+        String[][] table = new String[cs.size()][5];
+
+        for (int i = 0; i < cs.size(); i++) {
+
+            CostItem cost = cs.get(i);
+            table[i][0] = cost.getDate().toString();
+            table[i][1] = cost.getCategory().toString();
+            table[i][2] = Double.toString(cost.getAmount());
+            table[i][3] = cost.getCurrency().name();
+            table[i][4] = cost.getDescription();
+        }
+
+        View.this.ui.updateTable(table);
+    }
+
+    @Override
+    public void showMessage(String message) {
+
+        this.ui.updateMessageBoard(message);
+    }
+
+
+    /**
      * This inner class implements the specific functionality of the GUI
      * provide to the view class the required functions to implement the the IView contract
      *
-     * @params  frame - to set the frame of the application
-     *          current - to hold the current performance of the screen displayed
-     *          mainPanel -  functionality of the main panel
-     *          addCostPanel - functionality of the add cost panel
-     *          addCategoryPanel - functionality of the add category panel
-     *          dateChoosePanel - functionality of the date choose category panel
-     *@Methods  ApplicationUI() - Constructor to initiate all class panels that will be rendered.
-     *          displayMainMenu()  - application method  to show the home screen
-     *          replaceScreen() - application method to render different screens in the frame
-     *          cleanTextInputs() - application method to clean all the inputs from the different screens
-     *
+     * @params frame - to set the frame of the application
+     * current - to hold the current performance of the screen displayed
+     * mainPanel -  functionality of the main panel
+     * addCostPanel - functionality of the add cost panel
+     * addCategoryPanel - functionality of the add category panel
+     * dateChoosePanel - functionality of the date choose category panel
+     * @Methods ApplicationUI() - Constructor to initiate all class panels that will be rendered.
+     * displayMainMenu()  - application method  to show the home screen
+     * replaceScreen() - application method to render different screens in the frame
+     * cleanTextInputs() - application method to clean all the inputs from the different screens
      */
 
     public class ApplicationUI {
@@ -89,12 +117,39 @@ public class View implements IView {
             });
         }
 
-        /*
+        public void updateMessageBoard(String message) {
+            mainPanel.updateMessageBoard(message);
+        }
+
+        public void updateTable(String[][] table) {
+            this.tablePanel.updateTableData(table);
+        }
+
+        public void displayMainMenu() {
+            this.current = mainPanel;
+            frame.getContentPane().add(this.current);
+            frame.setVisible(true);
+        }
+
+
+        public void replaceScreen(JPanel next) {
+            frame.remove(this.current);
+            frame.repaint();
+            this.current = next;
+            frame.add(this.current);
+            frame.setVisible(true);
+        }
+
+        public void start() {
+            displayMainMenu();
+        }
+
+        /**
          * This inner class implements the main panel (window) by extending the JPanel swing class
          *
-         * @Methods  MainPanel() - class C'tor to initiate all swing properties
-         *                         and define the class action listenrs for each functional button
-         *
+         * @Methods MainPanel() - class C'tor to initiate all swing properties
+         * and define the class action listenrs for each functional button
+         * updateMessageBoard() - This function is updating the message board that displayed in the main panel.
          */
 
         public class MainPanel extends JPanel {
@@ -103,6 +158,9 @@ public class View implements IView {
             private JButton btAddCategory;
             private JButton btDisplayPie;
             private JButton btDisplayTable;
+
+            private JLabel jlMessage;
+            private JTextArea taMessage;
 
             public MainPanel() {
 
@@ -124,12 +182,21 @@ public class View implements IView {
                 btDisplayPie = new JButton("Display Pie Chart");
                 btDisplayTable = new JButton("Display Table");
 
+                jlMessage = new JLabel("Message Board");
+                taMessage = new JTextArea(7, 40);
+                taMessage.setEditable(false);
+                JScrollPane scroll = new JScrollPane(taMessage);
+
                 JPanel buttons = new JPanel(new GridBagLayout());
+                JPanel messageBoard = new JPanel(new GridBagLayout());
 
                 buttons.add(btAddCostItem, gbc);
                 buttons.add(btAddCategory, gbc);
                 buttons.add(btDisplayPie, gbc);
                 buttons.add(btDisplayTable, gbc);
+
+                messageBoard.add(jlMessage, gbc);
+                messageBoard.add(scroll, gbc);
 
                 btAddCostItem.addActionListener(new ActionListener() {
                     @Override
@@ -167,19 +234,23 @@ public class View implements IView {
                 });
 
                 gbc.weighty = 1;
-                add(buttons, gbc);
+                this.add(buttons, gbc);
+                this.add(messageBoard, gbc);
+            }
+
+            public void updateMessageBoard(String message) {
+                this.taMessage.append(message + "\n");
             }
 
         }
 
-        /*
+        /**
          * This inner class implements the add cost panel by extending JPanel
          * it shows a form to fill that its details will be sent to the model as new entry in DB.
          *
-         * @Methods  AddCostPanel() - class C'tor to initiate all swing items.
-         *           cleanInputs() - A method to clean all previous inputs in text boxes.
-         *           updateCategories() - A method to add a new category added to the Combo box when added durring app run time.s
-         *
+         * @Methods AddCostPanel() - class C'tor to initiate all swing items.
+         * cleanInputs() - A method to clean all previous inputs in text boxes.
+         * updateCategories() - A method to add a new category added to the Combo box when added durring app run time.s
          */
 
         public class AddCostPanel extends JPanel {
@@ -214,6 +285,7 @@ public class View implements IView {
 
                 JPanel homePanel = new JPanel(new GridBagLayout());
                 btBackToMainMenu = new JButton("Home");
+                btSubmit = new JButton("Submit");
                 gbc.weightx = 1;
                 gbc.anchor = GridBagConstraints.WEST;
                 homePanel.add(btBackToMainMenu, gbc);
@@ -224,6 +296,48 @@ public class View implements IView {
                     public void actionPerformed(ActionEvent e) {
                         ApplicationUI.this.replaceScreen(ApplicationUI.this.mainPanel);
                     }
+                });
+
+                btSubmit.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        //Collecting data from user inputs and creatin new Cost Item
+
+                        String category = cbChooseCategory.getSelectedItem().toString();
+                        String currencyStr = cbChooseCurrency.getSelectedItem().toString();
+                        Currency currencyEnum;
+                        switch (currencyStr) {
+                            case "ILS":
+                                currencyEnum = Currency.ILS;
+                            case "USD":
+                                currencyEnum = Currency.USD;
+                            case "NZD":
+                                currencyEnum = Currency.NZD;
+                            case "GBP":
+                                currencyEnum = Currency.GBP;
+                            case "EURO":
+                                currencyEnum = Currency.EURO;
+                            default:
+                                currencyEnum = Currency.USD;
+                        }
+                        double amount = Double.parseDouble(tfEnterAmount.getText());
+                        String description = tfEnterDescription.getText();
+                        String date = tfDate.getText();
+
+                        try {
+                            //Trying to add data to DB
+                            CostItem cs = new CostItem(new Category(category), amount, currencyEnum, description, date);
+                            View.this.vm.addCostItem(cs);
+                        } catch (CostManagerException err) {
+
+                            View.this.ui.updateMessageBoard(err.getMessage());
+                        }
+
+                        //Rendering the Main Panel window.
+                        ApplicationUI.this.replaceScreen(ApplicationUI.this.mainPanel);
+
+                    }
+
                 });
 
                 gbc.weightx = 0;
@@ -264,8 +378,6 @@ public class View implements IView {
                 jlDate = new JLabel("Enter date (yyyy-MM-dd):");
                 tfDate = new JFormattedTextField(format);
                 tfDate.setFont(myFont);
-                btSubmit = new JButton("Submit");
-
 
                 JPanel form = new JPanel(new GridBagLayout());
                 JPanel submit = new JPanel(new GridBagLayout());
@@ -305,12 +417,13 @@ public class View implements IView {
                 this.cbChooseCategory.setSelectedIndex(-1);
             }
 
-            /*
+            /**
              * Inner class to control the combo box of the category combo box element
              *
              * @Methods MyComboBoxRenderer(String title) - constructor, receive  a parameter to set the combo box title (will be shown when combo box closed)
-             *          getListCellRendererComponent() - ListCellRenderer methods override to implement adding data to the combo box
+             * getListCellRendererComponent() - ListCellRenderer methods override to implement adding data to the combo box
              */
+
             class MyComboBoxRenderer extends JLabel implements ListCellRenderer {
                 private String _title;
 
@@ -328,13 +441,12 @@ public class View implements IView {
 
         }
 
-        /*
+        /**
          * This inner class implements the add category panel by extending JPanel
          * it shows a form to fill that its details will be sent to the model as new entry in DB.
          *
-         * @Methods  AddCategoryPanel() - class C'tor to initiate all swing items.
-         *           cleanInputs() - A method to clean all previous inputs in text boxes.
-         *
+         * @Methods AddCategoryPanel() - class C'tor to initiate all swing items.
+         * cleanInputs() - A method to clean all previous inputs in text boxes.
          */
 
         public class AddCategoryPanel extends JPanel {
@@ -417,16 +529,15 @@ public class View implements IView {
 
         }
 
-        /*
+        /**
          * This inner class implements the the date choosing panel by extending JPanel
          * it shows a form to fill that its details will be sent as quirey to the DB and will be implemented.
          * this panel is used once for the sending dates to render the date panel and once for the pie chart panel.
          *
          * @Methods DateChoosePanel() - class C'tor to initiate all swing items.
-         *          cleanInputs() - A method to clean all previous inputs in text boxes.
-         *          updateButton() - because this class is used to pass data for the table panel once and once for the pie chart
-         *                           the action listner that renders this panel will call first this method to set a different button each time.
-         *
+         * cleanInputs() - A method to clean all previous inputs in text boxes.
+         * updateButton() - because this class is used to pass data for the table panel once and once for the pie chart
+         * the action listner that renders this panel will call first this method to set a different button each time.
          */
 
         class DatesChoosePanel extends JPanel {
@@ -452,6 +563,7 @@ public class View implements IView {
 
                 JPanel homePanel = new JPanel(new GridBagLayout());
                 btBackToMainMenu = new JButton("Home");
+                btSubmit = new JButton("Submit");
                 gbc.weightx = 1;
                 gbc.anchor = GridBagConstraints.WEST;
                 homePanel.add(btBackToMainMenu, gbc);
@@ -464,6 +576,22 @@ public class View implements IView {
                     }
                 });
 
+                btSubmit.addActionListener(e -> {
+                    if (buttonName.equals("table")) {
+                        //reading dates from text box
+                        String fromDate = tfFromDate.getText();
+                        String toDate = tfToDate.getText();
+
+                        //sending dates to viewmodel for query the model and presnting in app
+                        View.this.vm.getCostsForTable(fromDate, toDate);
+
+                        //rendering the table panel
+                        ApplicationUI.this.replaceScreen(ApplicationUI.this.tablePanel);
+
+                    } else if (buttonName.equals("pie chart")) {
+                        //replace to pie char screen
+                    }
+                });
                 gbc.weightx = 0;
 
                 JPanel headerPanel = new JPanel(new GridBagLayout());
@@ -475,18 +603,16 @@ public class View implements IView {
                 JPanel form = new JPanel(new GridBagLayout());
                 JPanel submit = new JPanel(new GridBagLayout());
 
-                jlFromDate = new JLabel("<html><h3><strong><i>From date:</i></strong></h3></html>");
-                jlToDate = new JLabel("<html><h3><strong><i>To date:</i></strong></h3></html>");
+                jlFromDate = new JLabel("<html><h3><strong><i>From date: yyyy-MM-dd</i></strong></h3></html>");
+                jlToDate = new JLabel("<html><h3><strong><i>To date: yyyy-MM-dd</i></strong></h3></html>");
 
                 Font myFont = new Font("Default", Font.PLAIN, 12);
 
-                DateFormat format = new SimpleDateFormat("yyyy-MM");
+                DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                 tfFromDate = new JFormattedTextField(format);
                 tfToDate = new JFormattedTextField(format);
                 tfFromDate.setFont(myFont);
                 tfToDate.setFont(myFont);
-
-                btSubmit = new JButton("Submit");
 
                 gbc.fill = GridBagConstraints.HORIZONTAL;
 
@@ -498,38 +624,6 @@ public class View implements IView {
                 form.add(tfToDate, gbc);
                 submit.add(btSubmit, gbc);
 
-                btSubmit.addActionListener(e -> {
-                    if (buttonName.equals("table")) {
-                        //When ViewModel will be implemented, the tableData will be gained through it.
-                        //At the moment the data is fake and only for View example.
-                        String[][] tableData = {
-                                {"This", "data", "is", "only", "for example"},
-                                {"2019-12", "Food", "780", "ILS", "Rami Levi"},
-                                {"2019-12", "Food", "780", "ILS", "Rami Levi"},
-                                {"2019-12", "Food", "780", "ILS", "Rami Levi"},
-                                {"2019-12", "Food", "780", "ILS", "Rami Levi"},
-                                {"2019-12", "Food", "780", "ILS", "Rami Levi"},
-                                {"2019-12", "Food", "780", "ILS", "Rami Levi"},
-                                {"2019-12", "Food", "780", "ILS", "Rami Levi"},
-                                {"2019-12", "Food", "780", "ILS", "Rami Levi"},
-                                {"2019-12", "Food", "780", "ILS", "Rami Levi"},
-                                {"2019-12", "Food", "780", "ILS", "Rami Levi"},
-                                {"2019-12", "Food", "780", "ILS", "Rami Levi"},
-                                {"2019-12", "Food", "780", "ILS", "Rami Levi"},
-                                {"2019-12", "Food", "780", "ILS", "Rami Levi"},
-                                {"2019-12", "Food", "780", "ILS", "Rami Levi"},
-                                {"2019-12", "Food", "780", "ILS", "Rami Levi"},
-                                {"2020-01", "Food", "600", "ILS", "Rami Levi"},
-                                {"2020-02", "Entrainment", "120", "ILS", "Movies"},
-                                {"2020-03", "Food", "500", "ILS", "Rami Levi"},
-                                {"2020-04", "Food", "580", "ILS", "Rami Levi"}
-                        };
-                        ApplicationUI.this.tablePanel.updateTableData(tableData);
-                        ApplicationUI.this.replaceScreen(ApplicationUI.this.tablePanel);
-                    } else if (buttonName.equals("pie chart")) {
-                        //replace to pie char screen
-                    }
-                });
 
                 gbc.weighty = 1;
                 add(form, gbc);
@@ -548,14 +642,13 @@ public class View implements IView {
 
         }
 
-        /*
+        /**
          * This inner class implements the the date choosing panel by extending JPanel
          * it shows a form to fill that its details will be sent as quirey to the DB and will be implemented.
          * this panel is used once for the sending dates to render the date panel and once for the pie chart panel.
          *
          * @Methods TablePanel() - class C'tor to initiate all swing items.
-         *          updateTableInputs() - This method will be called each time before this panel is rendered to update the table due to the last query sent to model.
-         *
+         * updateTableInputs() - This method will be called each time before this panel is rendered to update the table due to the last query sent to model.
          */
 
         class TablePanel extends JPanel {
@@ -611,31 +704,19 @@ public class View implements IView {
                 tableCosts = new JTable(data, this.colNames);
                 tableCosts.setPreferredScrollableViewportSize(new Dimension(600, 300));
                 tableCosts.setFillsViewportHeight(true);
+                tableCosts.setEnabled(false);
                 scrolledTable = new JScrollPane(tableCosts);
+                tableCosts.validate();
+                tableCosts.repaint();
+                ApplicationUI.this.frame.validate();
+                ApplicationUI.this.frame.repaint();
                 table.removeAll();
                 table.add(scrolledTable, gbc);
+
             }
         }
 
 
-        public void displayMainMenu() {
-            this.current = mainPanel;
-            frame.getContentPane().add(this.current);
-            frame.setVisible(true);
-        }
-
-
-        public void replaceScreen(JPanel next) {
-            frame.remove(this.current);
-            frame.repaint();
-            this.current = next;
-            frame.add(this.current);
-            frame.setVisible(true);
-        }
-
-        public void start() {
-            displayMainMenu();
-        }
     }
 }
 

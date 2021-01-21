@@ -23,6 +23,7 @@ import java.util.concurrent.Executors;
  *          getCategories() - getting all the updated categories from the model
  *          getCurrencies() - returning al Currency enum members.
  */
+
 public class ViewModel implements IViewModel {
     private IModel model;
     private IView view;
@@ -47,13 +48,14 @@ public class ViewModel implements IViewModel {
         pool.submit(new Runnable() {
             @Override
             public void run() {
+                String message = "";
                 try {
                     model.addCategory(category);
-                    // Maybe add a message window in view to say the item was added.
+                    message = "Category: " + category.toString() + "  was added successfully";
                 } catch (CostManagerException e) {
-                    // At the moment a console message, maybe error message should
-                    // be displayed for the user.
-                    System.out.println(e.getMessage());
+                    message = "Error adding " + category.toString() + " category";
+                } finally {
+                    view.showMessage(message);
                 }
             }
         });
@@ -64,46 +66,43 @@ public class ViewModel implements IViewModel {
         pool.submit(new Runnable() {
             @Override
             public void run() {
+                String message = "";
                 try {
                     model.addCostItem(item);
-                    // Maybe add a message window in view to say the item was added.
+                    message = "New cost: " + item.toString() + "  was added successfully";
                 } catch (CostManagerException e) {
-                    // At the moment a console message, maybe error message should
-                    // be displayed for the user.
-                    System.out.println(e.getMessage());
+                    message = "Error with cost item:  " + item.toString();
+                } finally {
+                    view.showMessage(message);
                 }
             }
         });
     }
 
     @Override
-    public void getCostsForChart(String dateFrom, String dateTo) {
+    public void getCostsForTable(String dateFrom, String dateTo) {
         pool.submit(new Runnable() {
             @Override
             public void run() {
                 try {
-                    model.getCostItemsBetweenDates(dateFrom, dateTo);
-                    // Maybe add a message window in view to say the item was added.
+                    List<CostItem> tableInfo = model.getCostItemsBetweenDates(dateFrom, dateTo);
+                    view.displayCostItemTable(tableInfo);
+
                 } catch (CostManagerException e) {
-                    // At the moment a console message, maybe error message should
-                    // be displayed for the user.
-                    System.out.println(e.getMessage());
+                    view.showMessage(e.getMessage());
                 }
             }
         });
     }
 
     @Override
-    public void getCostsForPie(String dateFrom, String dateTo) {
+    public void getCostsForPieChart(String dateFrom, String dateTo) {
         pool.submit(new Runnable() {
             @Override
             public void run() {
                 try {
                     model.getCategorySumBetweenDates(dateFrom, dateTo);
-                    // Maybe add a message window in view to say the item was added.
                 } catch (CostManagerException e) {
-                    // At the moment a console message, maybe error message should
-                    // be displayed for the user.
                     System.out.println(e.getMessage());
                 }
             }
@@ -120,8 +119,6 @@ public class ViewModel implements IViewModel {
             }
             return categoriesNames;
         } catch (CostManagerException e) {
-            // At the moment a console message, maybe error message should
-            // be displayed for the user.
             System.out.println(e.getMessage());
         }
         return new String[0];
