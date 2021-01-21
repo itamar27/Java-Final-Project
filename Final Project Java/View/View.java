@@ -1,15 +1,12 @@
 package View;
 
-import Model.Category;
-import Model.CostItem;
-import Model.CostManagerException;
-import Model.Currency;
+import Model.*;
 import ViewModel.IViewModel;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.*;
 import java.text.DateFormat;
@@ -95,6 +92,7 @@ public class View implements IView {
         private AddCategoryPanel addCategoryPanel;
         private DatesChoosePanel dateChoosePanel;
         private TablePanel tablePanel;
+        private PieChartPanel chartPanel;
 
         public ApplicationUI() {
 
@@ -104,6 +102,7 @@ public class View implements IView {
             addCategoryPanel = new AddCategoryPanel();
             dateChoosePanel = new DatesChoosePanel();
             tablePanel = new TablePanel();
+            chartPanel = new PieChartPanel();
 
             //general common components setup
             frame = new JFrame("CostManager");
@@ -578,11 +577,11 @@ public class View implements IView {
                 });
 
                 btSubmit.addActionListener(e -> {
-                    if (buttonName.equals("table")) {
-                        //reading dates from text box
-                        String fromDate = tfFromDate.getText();
-                        String toDate = tfToDate.getText();
+                    //reading dates from text box
+                    String fromDate = tfFromDate.getText();
+                    String toDate = tfToDate.getText();
 
+                    if (buttonName.equals("table")) {
                         //sending dates to viewmodel for query the model and presnting in app
                         View.this.vm.getCostsForTable(fromDate, toDate);
 
@@ -590,7 +589,11 @@ public class View implements IView {
                         ApplicationUI.this.replaceScreen(ApplicationUI.this.tablePanel);
 
                     } else if (buttonName.equals("pie chart")) {
-                        //replace to pie char screen
+                        //sending dates to viewmodel for query the model and presnting in app
+                        View.this.vm.getCostsForPieChart(fromDate, toDate);
+
+                        //rendering the pie chart panel
+                        ApplicationUI.this.replaceScreen(ApplicationUI.this.chartPanel);
                     }
                 });
                 gbc.weightx = 0;
@@ -653,13 +656,13 @@ public class View implements IView {
          */
 
         class TablePanel extends JPanel {
-            JPanel table;
-            GridBagConstraints gbc;
-            JScrollPane scrolledTable;
+            private JPanel table;
+            private GridBagConstraints gbc;
+            private JScrollPane scrolledTable;
             private JButton btBackToMainMenu;
             private JLabel jlHeader;
             private JTable tableCosts;
-            String[] colNames = {"Date", "Category", "Amount", "Currency", "Description"};
+            private String[] colNames = {"Date", "Category", "Amount", "Currency", "Description"};
 
             public TablePanel() {
 
@@ -703,14 +706,6 @@ public class View implements IView {
 
             public void updateTableData(String[][] data) {
                 tableCosts = new JTable(data, this.colNames);
-//                DefaultTableModel tableModel = (DefaultTableModel) tableCosts.getModel();
-//                tableModel.setColumnIdentifiers(this.colNames);
-//
-//                for(int i = 0; i < data.length; i++){
-//                    tableModel.addRow(data[i]);
-//                }
-//                tableModel.fireTableDataChanged();
-
                 tableCosts.setPreferredScrollableViewportSize(new Dimension(600, 300));
                 tableCosts.setFillsViewportHeight(true);
                 tableCosts.setEnabled(false);
@@ -718,10 +713,110 @@ public class View implements IView {
                 table.removeAll();
                 table.add(scrolledTable, gbc);
 
+                ApplicationUI.this.replaceScreen(tablePanel);
             }
         }
 
+        class PieChartPanel extends JPanel {
+            private JPanel chart;
+            private GridBagConstraints gbc;
+            private JButton btBackToMainMenu;
+            private JLabel jlHeader;
+            private PieChartComponent pieChart;
 
+            public PieChartPanel() {
+
+                setBorder(new EmptyBorder(10, 10, 10, 10));
+                setLayout(new GridBagLayout());
+                gbc = new GridBagConstraints();
+
+                gbc.gridwidth = GridBagConstraints.REMAINDER;
+                gbc.insets = new Insets(5, 5, 5, 5);
+
+                JPanel homePanel = new JPanel(new GridBagLayout());
+                btBackToMainMenu = new JButton("Home");
+                gbc.weightx = 1;
+                gbc.anchor = GridBagConstraints.WEST;
+                homePanel.add(btBackToMainMenu, gbc);
+                add(homePanel, gbc);
+
+                btBackToMainMenu.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        ApplicationUI.this.replaceScreen(ApplicationUI.this.mainPanel);
+                    }
+                });
+
+                gbc.weightx = 0;
+
+                JPanel headerPanel = new JPanel(new GridBagLayout());
+                jlHeader = new JLabel("<html><h1><strong><i>Pie chart for category sum:</i></strong></h1><hr></html>");
+                gbc.anchor = GridBagConstraints.CENTER;
+                headerPanel.add(jlHeader, gbc);
+                add(headerPanel, gbc);
+
+                chart = new JPanel(new GridBagLayout());
+                Slice[] slices = {new Slice(1, Color.BLACK), new Slice(2, Color.RED)};
+                pieChart = new PieChartComponent(slices);
+                chart.add(pieChart,gbc);
+
+                gbc.fill = GridBagConstraints.BOTH;
+
+                gbc.weighty = 1;
+                add(chart, gbc);
+                gbc.weighty = 0;
+            }
+
+            public void updateChart(List<Pair> chartData) {
+                Slice[] slices = new Slice[chartData.size()];
+                Color[] colors = {Color.BLACK, Color.RED, Color.BLUE, Color.YELLOW, Color.GREEN};
+                for(int i=0; i< slices.length; i++) {
+                    slices[i] = new Slice(chartData.get(i).amount, colors[i]);
+                }
+
+                chart.removeAll();
+                chart.add(new PieChartComponent(slices));
+            }
+
+            class Slice {
+                double value;
+                Color color;
+
+                public Slice(double value, Color color) {
+                    this.value = value;
+                    this.color = color;
+                }
+            }
+
+            class PieChartComponent extends JComponent {
+                Slice[] slices;
+
+                PieChartComponent(Slice[] slices) {
+                    this.slices = slices;
+                }
+                public void paint(Graphics g) {
+                    drawPie((Graphics2D) g, getBounds(), slices);
+                }
+
+                void drawPie(Graphics2D g, Rectangle area, Slice[] slices) {
+                    double total = 0.0D;
+                    for (int i = 0; i < slices.length; i++) {
+                        total += slices[i].value;
+                    }
+
+                    double curValue = 0.0D;
+                    int startAngle = 0;
+                    for (int i = 0; i < slices.length; i++) {
+                        startAngle = (int) (curValue * 360 / total);
+                        int arcAngle = (int) (slices[i].value * 360 / total);
+
+                        g.setColor(slices[i].color);
+                        g.fillArc(area.x, area.y, area.width, area.height, startAngle, arcAngle);
+                        curValue += slices[i].value;
+                    }
+                }
+            }
+        }
     }
 }
 
