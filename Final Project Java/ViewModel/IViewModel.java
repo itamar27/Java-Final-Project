@@ -6,6 +6,11 @@ import Model.IModel;
 import View.IView;
 import Model.CostItem;
 
+
+/*
+ *  Interface to set functionality for every ViewModel that will implement it.
+ *
+ */
 public interface IViewModel {
 
     public void setView(IView view);
