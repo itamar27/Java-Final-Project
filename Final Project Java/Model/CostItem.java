@@ -123,13 +123,6 @@ public class CostItem {
 
     @Override
     public String toString() {
-        return "CostItem {" +
-                "id=" + id +
-                "," + category +
-                ", amount=" + amount +
-                ", currency=" + currency +
-                ", description='" + description +
-                "', date="+ date +
-                '}';
+        return category.toString() + " with amount of " + amount ;
     }
 }

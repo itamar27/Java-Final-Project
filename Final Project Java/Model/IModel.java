@@ -6,16 +6,11 @@ import java.util.Objects;
 
 public interface IModel {
 
-    /*
-     * DB general methods
-     */
-
     public void createConnection() throws CostManagerException;
-
     public void createDB() throws CostManagerException;
 
 
-    /*
+    /**
      * Cost item DB execution
      *
      * API -
@@ -25,12 +20,10 @@ public interface IModel {
      */
 
     public void addCostItem(CostItem item) throws CostManagerException;
-
     public List<CostItem> getCostItemsBetweenDates(String fromDate, String toDate) throws CostManagerException;
-
     public List<Pair> getCategorySumBetweenDates(String fromDate, String toDate) throws CostManagerException;
 
-    /*
+    /**
      * Category DB execution
      *
      * @Post (addCategory) - add new category to  DB.
@@ -38,6 +31,5 @@ public interface IModel {
      */
 
     public void addCategory(Category category) throws CostManagerException;
-
     public List<Category> getAllCategory() throws CostManagerException;
 }
