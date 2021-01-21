@@ -9,6 +9,7 @@ import ViewModel.IViewModel;
 import java.util.List;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.*;
 import java.text.DateFormat;
@@ -661,9 +662,9 @@ public class View implements IView {
             String[] colNames = {"Date", "Category", "Amount", "Currency", "Description"};
 
             public TablePanel() {
+
                 setBorder(new EmptyBorder(10, 10, 10, 10));
                 setLayout(new GridBagLayout());
-
                 gbc = new GridBagConstraints();
 
                 gbc.gridwidth = GridBagConstraints.REMAINDER;
@@ -702,14 +703,18 @@ public class View implements IView {
 
             public void updateTableData(String[][] data) {
                 tableCosts = new JTable(data, this.colNames);
+//                DefaultTableModel tableModel = (DefaultTableModel) tableCosts.getModel();
+//                tableModel.setColumnIdentifiers(this.colNames);
+//
+//                for(int i = 0; i < data.length; i++){
+//                    tableModel.addRow(data[i]);
+//                }
+//                tableModel.fireTableDataChanged();
+
                 tableCosts.setPreferredScrollableViewportSize(new Dimension(600, 300));
                 tableCosts.setFillsViewportHeight(true);
                 tableCosts.setEnabled(false);
                 scrolledTable = new JScrollPane(tableCosts);
-                tableCosts.validate();
-                tableCosts.repaint();
-                ApplicationUI.this.frame.validate();
-                ApplicationUI.this.frame.repaint();
                 table.removeAll();
                 table.add(scrolledTable, gbc);
 
