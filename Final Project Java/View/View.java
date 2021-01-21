@@ -19,7 +19,7 @@ import java.text.SimpleDateFormat;
  * @params IViewModel vm
  *         ApplicationUI ui
  * @Methods setViewModel() - setting the viewmodel data member
- *          View() - To intiate all data members and start the program/
+ *          View() - To initiate all data members and start the program/
  */
 public class View implements IView {
 
@@ -49,7 +49,8 @@ public class View implements IView {
      *          addCostPanel - functionality of the add cost panel
      *          addCategoryPanel - functionality of the add category panel
      *          dateChoosePanel - functionality of the date choose category panel
-     *@Methods  displayMainMenu()  - application method  to show the home screen
+     *@Methods  ApplicationUI() - Constructor to initiate all class panels that will be rendered.
+     *          displayMainMenu()  - application method  to show the home screen
      *          replaceScreen() - application method to render different screens in the frame
      *          cleanTextInputs() - application method to clean all the inputs from the different screens
      *
@@ -89,7 +90,11 @@ public class View implements IView {
         }
 
         /*
-         * Inner class to implement the main panel of the program
+         * This inner class implements the main panel (window) by extending the JPanel swing class
+         *
+         * @Methods  MainPanel() - class C'tor to initiate all swing properties
+         *                         and define the class action listenrs for each functional button
+         *
          */
 
         public class MainPanel extends JPanel {
@@ -168,7 +173,13 @@ public class View implements IView {
         }
 
         /*
-         * Inner class to implement the add cost panel of the program
+         * This inner class implements the add cost panel by extending JPanel
+         * it shows a form to fill that its details will be sent to the model as new entry in DB.
+         *
+         * @Methods  AddCostPanel() - class C'tor to initiate all swing items.
+         *           cleanInputs() - A method to clean all previous inputs in text boxes.
+         *           updateCategories() - A method to add a new category added to the Combo box when added durring app run time.s
+         *
          */
 
         public class AddCostPanel extends JPanel {
@@ -296,6 +307,9 @@ public class View implements IView {
 
             /*
              * Inner class to control the combo box of the category combo box element
+             *
+             * @Methods MyComboBoxRenderer(String title) - constructor, receive  a parameter to set the combo box title (will be shown when combo box closed)
+             *          getListCellRendererComponent() - ListCellRenderer methods override to implement adding data to the combo box
              */
             class MyComboBoxRenderer extends JLabel implements ListCellRenderer {
                 private String _title;
@@ -315,7 +329,12 @@ public class View implements IView {
         }
 
         /*
-         * Inner class to implement the add new category panel
+         * This inner class implements the add category panel by extending JPanel
+         * it shows a form to fill that its details will be sent to the model as new entry in DB.
+         *
+         * @Methods  AddCategoryPanel() - class C'tor to initiate all swing items.
+         *           cleanInputs() - A method to clean all previous inputs in text boxes.
+         *
          */
 
         public class AddCategoryPanel extends JPanel {
@@ -399,7 +418,15 @@ public class View implements IView {
         }
 
         /*
-         * Inner class to implement the date cut for pie chart or table
+         * This inner class implements the the date choosing panel by extending JPanel
+         * it shows a form to fill that its details will be sent as quirey to the DB and will be implemented.
+         * this panel is used once for the sending dates to render the date panel and once for the pie chart panel.
+         *
+         * @Methods DateChoosePanel() - class C'tor to initiate all swing items.
+         *          cleanInputs() - A method to clean all previous inputs in text boxes.
+         *          updateButton() - because this class is used to pass data for the table panel once and once for the pie chart
+         *                           the action listner that renders this panel will call first this method to set a different button each time.
+         *
          */
 
         class DatesChoosePanel extends JPanel {
@@ -522,7 +549,13 @@ public class View implements IView {
         }
 
         /*
-         * Inner class to implement the tablePanel by the dates choosen in datesChoose
+         * This inner class implements the the date choosing panel by extending JPanel
+         * it shows a form to fill that its details will be sent as quirey to the DB and will be implemented.
+         * this panel is used once for the sending dates to render the date panel and once for the pie chart panel.
+         *
+         * @Methods TablePanel() - class C'tor to initiate all swing items.
+         *          updateTableInputs() - This method will be called each time before this panel is rendered to update the table due to the last query sent to model.
+         *
          */
 
         class TablePanel extends JPanel {
