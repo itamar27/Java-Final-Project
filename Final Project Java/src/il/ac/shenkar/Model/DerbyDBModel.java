@@ -21,9 +21,11 @@ public class DerbyDBModel implements IModel {
     public DerbyDBModel() throws CostManagerException {
 
         try {
+            //this driver as an available driver for DriverManager
+            Class.forName(driver);
             createDB();
 
-        } catch (CostManagerException e) {
+        } catch (CostManagerException | ClassNotFoundException e) {
             e.printStackTrace();
             throw new CostManagerException("Could not create DerbyDBModel");
         }
@@ -50,11 +52,9 @@ public class DerbyDBModel implements IModel {
     public void createConnection() throws CostManagerException {
 
         try {
-            //this driver as an available driver for DriverManager
-            Class.forName(driver);
             //Getting a connection by calling getConnection
             connection = DriverManager.getConnection(connectionString + "CostMangerDB;create=true");
-        } catch (ClassNotFoundException | SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
             throw new CostManagerException("Could not create a connection to derbyDB");
         }
