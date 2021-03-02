@@ -69,8 +69,6 @@
  * 
  */
 
-package org.jfree.chart.renderer;
-
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
@@ -89,12 +87,12 @@ import java.util.List;
 
 import javax.swing.event.EventListenerList;
 
-import org.jfree.chart.event.RendererChangeEvent;
-import org.jfree.chart.event.RendererChangeListener;
-import org.jfree.chart.labels.ItemLabelAnchor;
-import org.jfree.chart.labels.ItemLabelPosition;
-import org.jfree.chart.plot.DrawingSupplier;
-import org.jfree.chart.plot.PlotOrientation;
+import RendererChangeEvent;
+import RendererChangeListener;
+import ItemLabelAnchor;
+import ItemLabelPosition;
+import DrawingSupplier;
+import PlotOrientation;
 import org.jfree.io.SerialUtilities;
 import org.jfree.ui.TextAnchor;
 import org.jfree.util.BooleanList;

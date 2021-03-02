@@ -40,9 +40,7 @@
  *
  */
 
-package org.jfree.chart.urls;
-
-import org.jfree.data.xy.XYZDataset;
+import XYZDataset;
 
 /**
  * Interface for a URL generator for plots that uses data from an 

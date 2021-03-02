@@ -39,8 +39,6 @@
  * 14-Jan-2005 : Added standard header (DG);
  */
 
-package org.jfree.chart.renderer.xy;
-
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Paint;
@@ -48,7 +46,7 @@ import java.awt.Shape;
 import java.io.Serializable;
 
 import org.jfree.chart.Effect3D;
-import org.jfree.chart.event.RendererChangeEvent;
+import RendererChangeEvent;
 
 /**
  * A XYLineAndShapeRenderer that adds a shadow line to the graph

@@ -71,8 +71,6 @@
  *
  */
 
-package org.jfree.chart;
-
 import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Rectangle2D;
@@ -84,15 +82,15 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 
-import org.jfree.chart.imagemap.ImageMapUtilities;
-import org.jfree.chart.imagemap.OverLIBToolTipTagFragmentGenerator;
-import org.jfree.chart.imagemap.StandardToolTipTagFragmentGenerator;
-import org.jfree.chart.imagemap.StandardURLTagFragmentGenerator;
-import org.jfree.chart.imagemap.ToolTipTagFragmentGenerator;
-import org.jfree.chart.imagemap.URLTagFragmentGenerator;
+import ImageMapUtilities;
+import OverLIBToolTipTagFragmentGenerator;
+import StandardToolTipTagFragmentGenerator;
+import StandardURLTagFragmentGenerator;
+import ToolTipTagFragmentGenerator;
+import URLTagFragmentGenerator;
 
-import org.jfree.chart.encoders.EncoderUtil;
-import org.jfree.chart.encoders.ImageFormat;
+import EncoderUtil;
+import ImageFormat;
 
 /**
  * A collection of utility methods for JFreeChart.  Includes methods for 

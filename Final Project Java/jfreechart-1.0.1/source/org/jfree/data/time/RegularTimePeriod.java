@@ -49,8 +49,6 @@
  *
  */
 
-package org.jfree.data.time;
-
 import java.lang.reflect.Constructor;
 import java.util.Calendar;
 import java.util.Date;

@@ -53,8 +53,6 @@
  *
  */
 
-package org.jfree.chart.plot;
-
 import java.awt.Graphics2D;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
@@ -64,9 +62,9 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.jfree.chart.LegendItemCollection;
-import org.jfree.chart.axis.AxisSpace;
-import org.jfree.chart.axis.AxisState;
-import org.jfree.chart.axis.CategoryAxis;
+import AxisSpace;
+import AxisState;
+import CategoryAxis;
 import org.jfree.chart.event.PlotChangeEvent;
 import org.jfree.chart.event.PlotChangeListener;
 import org.jfree.ui.RectangleEdge;

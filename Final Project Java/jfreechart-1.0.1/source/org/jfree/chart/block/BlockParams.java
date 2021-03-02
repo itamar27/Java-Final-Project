@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.chart.block;
-
 /**
  * A standard parameter object that can be passed to the draw() method defined
  * by the {@link Block} class.

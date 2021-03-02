@@ -103,8 +103,6 @@
  * 
  */
 
-package org.jfree.data.general;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -118,12 +116,12 @@ import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.category.IntervalCategoryDataset;
 import org.jfree.data.function.Function2D;
-import org.jfree.data.xy.OHLCDataset;
-import org.jfree.data.xy.IntervalXYDataset;
-import org.jfree.data.xy.TableXYDataset;
-import org.jfree.data.xy.XYDataset;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
+import OHLCDataset;
+import IntervalXYDataset;
+import TableXYDataset;
+import XYDataset;
+import XYSeries;
+import XYSeriesCollection;
 import org.jfree.util.ArrayUtilities;
 
 /**

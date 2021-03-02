@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.data.function;
-
 
 /**
  * A function in the form y = a + bx.

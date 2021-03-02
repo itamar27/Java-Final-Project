@@ -45,8 +45,6 @@
  *               com.jrefinery.data.time package, implemented Serializable (DG)
  */
 
-package org.jfree.data.time;
-
 import java.io.Serializable;
 
 /**

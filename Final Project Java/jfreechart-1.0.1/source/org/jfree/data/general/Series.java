@@ -51,8 +51,6 @@
  *
  */
 
-package org.jfree.data.general;
-
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.io.Serializable;

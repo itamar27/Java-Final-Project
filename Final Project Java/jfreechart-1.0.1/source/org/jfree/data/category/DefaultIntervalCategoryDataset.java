@@ -41,8 +41,6 @@
  *
  */
 
-package org.jfree.data.category;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -50,7 +48,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import org.jfree.data.DataUtilities;
-import org.jfree.data.general.AbstractSeriesDataset;
+import AbstractSeriesDataset;
 
 /**
  * A convenience class that provides a default implementation of the

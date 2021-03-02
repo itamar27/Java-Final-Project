@@ -40,8 +40,6 @@
  * 
  */
 
-package org.jfree.data.statistics;
-
 import java.io.ObjectStreamException;
 import java.io.Serializable;
     

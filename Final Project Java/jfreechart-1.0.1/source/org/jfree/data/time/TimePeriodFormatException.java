@@ -40,8 +40,6 @@
  * 13-Mar-2003 : Moved to com.jrefinery.data.time package (DG);
  */
 
-package org.jfree.data.time;
-
 /**
  * An exception that indicates an invalid format in a string representing a 
  * time period.

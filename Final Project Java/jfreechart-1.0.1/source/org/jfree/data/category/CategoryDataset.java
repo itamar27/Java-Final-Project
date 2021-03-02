@@ -52,10 +52,8 @@
  *
  */
 
-package org.jfree.data.category;
-
 import org.jfree.data.KeyedValues2D;
-import org.jfree.data.general.Dataset;
+import Dataset;
 
 /**
  * The interface for a dataset with one or more series, and values associated 

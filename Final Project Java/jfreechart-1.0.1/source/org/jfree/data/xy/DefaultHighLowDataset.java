@@ -45,8 +45,6 @@
  *
  */
 
-package org.jfree.data.xy;
-
 import java.util.Date;
 
 /**

@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.chart.plot;
-
 import org.jfree.text.TextBox;
 
 /**

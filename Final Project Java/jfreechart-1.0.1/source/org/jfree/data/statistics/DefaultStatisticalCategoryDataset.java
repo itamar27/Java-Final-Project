@@ -50,14 +50,12 @@
  *
  */
 
-package org.jfree.data.statistics;
-
 import java.util.List;
 
 import org.jfree.data.KeyedObjects2D;
-import org.jfree.data.Range;
+import Range;
 import org.jfree.data.RangeInfo;
-import org.jfree.data.general.AbstractDataset;
+import AbstractDataset;
 
 /**
  * A convenience class that provides a default implementation of the

@@ -44,8 +44,6 @@
  *
  */
 
-package org.jfree.chart.renderer;
-
 import java.awt.AlphaComposite;
 import java.awt.Composite;
 import java.awt.Graphics2D;
@@ -60,12 +58,12 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.jfree.chart.LegendItem;
-import org.jfree.chart.axis.NumberTick;
-import org.jfree.chart.axis.ValueAxis;
-import org.jfree.chart.plot.DrawingSupplier;
-import org.jfree.chart.plot.PlotRenderingInfo;
-import org.jfree.chart.plot.PolarPlot;
-import org.jfree.data.xy.XYDataset;
+import NumberTick;
+import ValueAxis;
+import DrawingSupplier;
+import PlotRenderingInfo;
+import PolarPlot;
+import XYDataset;
 import org.jfree.text.TextUtilities;
 import org.jfree.ui.TextAnchor;
 import org.jfree.util.BooleanList;

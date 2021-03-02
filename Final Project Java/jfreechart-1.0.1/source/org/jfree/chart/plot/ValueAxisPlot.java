@@ -41,10 +41,8 @@
  *
  */
 
-package org.jfree.chart.plot;
-
-import org.jfree.chart.axis.ValueAxis;
-import org.jfree.data.Range;
+import ValueAxis;
+import Range;
 
 /**
  * An interface that is implemented by plots that use a {@link ValueAxis}, 

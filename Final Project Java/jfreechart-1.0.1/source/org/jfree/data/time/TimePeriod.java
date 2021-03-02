@@ -42,8 +42,6 @@
  *
  */
 
-package org.jfree.data.time;
-
 import java.util.Date;
 
 /**

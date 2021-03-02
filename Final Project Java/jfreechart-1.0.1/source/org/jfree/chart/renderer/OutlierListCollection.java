@@ -42,8 +42,6 @@
  *
  */
 
-package org.jfree.chart.renderer;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -56,7 +54,7 @@ import java.util.List;
  * one or more outliers, determined by whether overlaps have
  * occurred. Overlapping outliers are grouped in the same list.
  *
- * @see org.jfree.chart.renderer.OutlierList
+ * @see OutlierList
  *
  * @author David Browning
  */

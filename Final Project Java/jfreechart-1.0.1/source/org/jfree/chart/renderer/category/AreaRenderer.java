@@ -63,8 +63,6 @@
  * 
  */
 
-package org.jfree.chart.renderer.category;
-
 import java.awt.Graphics2D;
 import java.awt.Paint;
 import java.awt.Shape;
@@ -74,20 +72,20 @@ import java.awt.geom.Rectangle2D;
 import java.io.Serializable;
 
 import org.jfree.chart.LegendItem;
-import org.jfree.chart.axis.CategoryAxis;
-import org.jfree.chart.axis.ValueAxis;
-import org.jfree.chart.entity.EntityCollection;
-import org.jfree.chart.event.RendererChangeEvent;
-import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.PlotOrientation;
+import CategoryAxis;
+import ValueAxis;
+import EntityCollection;
+import RendererChangeEvent;
+import CategoryPlot;
+import PlotOrientation;
 import org.jfree.chart.renderer.AreaRendererEndType;
-import org.jfree.data.category.CategoryDataset;
+import CategoryDataset;
 import org.jfree.ui.RectangleEdge;
 import org.jfree.util.PublicCloneable;
 
 /**
  * A category item renderer that draws area charts.  You can use this renderer 
- * with the {@link org.jfree.chart.plot.CategoryPlot} class.
+ * with the {@link CategoryPlot} class.
  *
  * @author Jon Iles
  */

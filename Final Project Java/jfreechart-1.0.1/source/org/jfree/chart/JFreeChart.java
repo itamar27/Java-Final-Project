@@ -127,8 +127,6 @@
  * 
  */
 
-package org.jfree.chart;
-
 import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -160,28 +158,28 @@ import javax.swing.UIManager;
 import javax.swing.event.EventListenerList;
 
 import org.jfree.JCommon;
-import org.jfree.chart.block.BlockBorder;
-import org.jfree.chart.block.BlockParams;
-import org.jfree.chart.block.EntityBlockResult;
-import org.jfree.chart.block.LengthConstraintType;
-import org.jfree.chart.block.RectangleConstraint;
-import org.jfree.chart.entity.EntityCollection;
-import org.jfree.chart.event.ChartChangeEvent;
-import org.jfree.chart.event.ChartChangeListener;
-import org.jfree.chart.event.ChartProgressEvent;
-import org.jfree.chart.event.ChartProgressListener;
-import org.jfree.chart.event.PlotChangeEvent;
-import org.jfree.chart.event.PlotChangeListener;
-import org.jfree.chart.event.TitleChangeEvent;
-import org.jfree.chart.event.TitleChangeListener;
-import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.Plot;
-import org.jfree.chart.plot.PlotRenderingInfo;
-import org.jfree.chart.plot.XYPlot;
-import org.jfree.chart.title.LegendTitle;
-import org.jfree.chart.title.TextTitle;
-import org.jfree.chart.title.Title;
-import org.jfree.data.Range;
+import BlockBorder;
+import BlockParams;
+import EntityBlockResult;
+import LengthConstraintType;
+import RectangleConstraint;
+import EntityCollection;
+import ChartChangeEvent;
+import ChartChangeListener;
+import ChartProgressEvent;
+import ChartProgressListener;
+import PlotChangeEvent;
+import PlotChangeListener;
+import TitleChangeEvent;
+import TitleChangeListener;
+import CategoryPlot;
+import Plot;
+import PlotRenderingInfo;
+import XYPlot;
+import LegendTitle;
+import TextTitle;
+import Title;
+import Range;
 import org.jfree.io.SerialUtilities;
 import org.jfree.ui.Align;
 import org.jfree.ui.Drawable;
@@ -204,7 +202,7 @@ import org.jfree.util.PaintUtilities;
  * JFreeChart coordinates several objects to achieve its aim of being able to
  * draw a chart on a Java 2D graphics device: a list of {@link Title} objects
  * (which often includes the chart's legend), a {@link Plot} and a 
- * {@link org.jfree.data.general.Dataset} (the plot in turn manages a 
+ * {@link Dataset} (the plot in turn manages a
  * domain axis and a range axis).
  * <P>
  * You should use a {@link ChartPanel} to display a chart in a GUI.

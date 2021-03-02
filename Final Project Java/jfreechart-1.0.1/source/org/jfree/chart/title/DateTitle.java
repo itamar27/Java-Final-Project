@@ -45,8 +45,6 @@
  *
  */
 
-package org.jfree.chart.title;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Paint;

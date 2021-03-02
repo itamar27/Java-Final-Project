@@ -51,8 +51,6 @@
  *
  */
 
-package org.jfree.data;
-
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.Iterator;

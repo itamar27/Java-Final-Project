@@ -39,8 +39,6 @@
  * 10-Jul-2003 : Version 1 contributed by Barak Naveh (DG);
  *
  */
- 
-package org.jfree.data.xy;
 
 
 /**
@@ -91,7 +89,7 @@ public class NormalizedMatrixSeries extends MatrixSeries {
      * 
      * @return The value.
      * 
-     * @see org.jfree.data.xy.MatrixSeries#getItem(int)
+     * @see MatrixSeries#getItem(int)
      */
     public Number getItem(int itemIndex) {
         int i = getItemRow(itemIndex);
@@ -128,7 +126,7 @@ public class NormalizedMatrixSeries extends MatrixSeries {
 
 
     /**
-     * @see org.jfree.data.xy.MatrixSeries#update(int, int, double)
+     * @see MatrixSeries#update(int, int, double)
      */
     public void update(int i, int j, double mij) {
         this.m_totalSum -= get(i, j);
@@ -138,7 +136,7 @@ public class NormalizedMatrixSeries extends MatrixSeries {
     }
 
     /**
-     * @see org.jfree.data.xy.MatrixSeries#zeroAll()
+     * @see MatrixSeries#zeroAll()
      */
     public void zeroAll() {
         this.m_totalSum = 0;

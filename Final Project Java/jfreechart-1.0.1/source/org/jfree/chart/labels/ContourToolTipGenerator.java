@@ -40,9 +40,7 @@
  *
  */
 
-package org.jfree.chart.labels;
-
-import org.jfree.data.contour.ContourDataset;
+import ContourDataset;
 
 /**
  * Interface for a tooltip generator for plots that use data from a 

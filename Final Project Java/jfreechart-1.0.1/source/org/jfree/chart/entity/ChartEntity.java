@@ -64,8 +64,6 @@
  *
  */
 
-package org.jfree.chart.entity;
-
 import java.awt.Shape;
 import java.awt.geom.PathIterator;
 import java.awt.geom.Rectangle2D;

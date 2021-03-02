@@ -42,8 +42,6 @@
  *
  */
 
-package org.jfree.chart.event;
-
 import java.util.EventListener;
 
 /**

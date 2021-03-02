@@ -40,15 +40,13 @@
  *
  */
 
-package org.jfree.chart.block.junit;
-
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 import org.jfree.chart.block.LengthConstraintType;
 import org.jfree.chart.block.RectangleConstraint;
-import org.jfree.data.Range;
+import Range;
 import org.jfree.ui.Size2D;
 
 /**

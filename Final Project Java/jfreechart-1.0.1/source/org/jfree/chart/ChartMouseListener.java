@@ -43,8 +43,6 @@
  *
  */
 
-package org.jfree.chart;
-
 import java.util.EventListener;
 
 /**

@@ -44,8 +44,6 @@
  * 
  */
 
-package org.jfree.data;
-
 import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;

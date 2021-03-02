@@ -44,8 +44,6 @@
  *
  */
 
-package org.jfree.data.xy;
-
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;

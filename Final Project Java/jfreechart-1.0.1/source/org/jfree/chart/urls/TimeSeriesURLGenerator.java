@@ -45,13 +45,11 @@
  *
  */
 
-package org.jfree.chart.urls;
-
 import java.io.Serializable;
 import java.text.DateFormat;
 import java.util.Date;
 
-import org.jfree.data.xy.XYDataset;
+import XYDataset;
 
 /**
  * A URL generator.

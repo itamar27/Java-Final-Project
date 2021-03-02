@@ -41,8 +41,6 @@
  *
  */
 
-package org.jfree.chart.urls.junit;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInput;
@@ -55,7 +53,7 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 import org.jfree.chart.urls.StandardPieURLGenerator;
-import org.jfree.data.general.DefaultPieDataset;
+import DefaultPieDataset;
 
 /**
  * Tests for the {@link StandardPieURLGenerator} class.

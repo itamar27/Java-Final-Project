@@ -67,8 +67,6 @@
  * 
  */
 
-package org.jfree.data.jdbc;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -82,9 +80,9 @@ import java.util.Date;
 import org.jfree.data.Range;
 import org.jfree.data.RangeInfo;
 import org.jfree.data.general.Dataset;
-import org.jfree.data.xy.AbstractXYDataset;
-import org.jfree.data.xy.TableXYDataset;
-import org.jfree.data.xy.XYDataset;
+import AbstractXYDataset;
+import TableXYDataset;
+import XYDataset;
 import org.jfree.util.Log;
 
 /**

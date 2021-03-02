@@ -40,9 +40,7 @@
  *
  */
 
-package org.jfree.chart.labels;
-
-import org.jfree.data.xy.XYDataset;
+import XYDataset;
 
 /**
  * A generator that creates labels for the series in an {@link XYDataset}.

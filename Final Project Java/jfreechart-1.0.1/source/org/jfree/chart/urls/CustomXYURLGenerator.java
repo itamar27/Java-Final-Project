@@ -43,13 +43,11 @@
  *
  */
 
-package org.jfree.chart.urls;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.jfree.data.xy.XYDataset;
+import XYDataset;
 
 /**
  * A custom URL generator.

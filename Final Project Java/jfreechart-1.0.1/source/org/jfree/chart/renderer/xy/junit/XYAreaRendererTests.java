@@ -41,8 +41,6 @@
  *
  */
 
-package org.jfree.chart.renderer.xy.junit;
-
 import java.awt.geom.Rectangle2D;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -56,11 +54,11 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.axis.NumberAxis;
-import org.jfree.chart.plot.XYPlot;
+import NumberAxis;
+import XYPlot;
 import org.jfree.chart.renderer.xy.XYAreaRenderer;
-import org.jfree.data.xy.DefaultTableXYDataset;
-import org.jfree.data.xy.XYSeries;
+import DefaultTableXYDataset;
+import XYSeries;
 
 /**
  * Tests for the {@link XYAreaRenderer} class.

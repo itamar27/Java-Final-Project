@@ -46,8 +46,6 @@
  *
  */
 
-package org.jfree.data.xy;
-
 import org.jfree.data.DefaultKeyedValues2D;
 import org.jfree.data.DomainInfo;
 import org.jfree.data.Range;

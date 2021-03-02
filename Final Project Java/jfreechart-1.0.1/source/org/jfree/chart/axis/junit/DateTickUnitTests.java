@@ -41,8 +41,6 @@
  *
  */
 
-package org.jfree.chart.axis.junit;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInput;

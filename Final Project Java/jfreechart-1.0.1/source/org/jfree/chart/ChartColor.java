@@ -43,8 +43,6 @@
  *
  */
 
-package org.jfree.chart;
-
 import java.awt.Color;
 import java.awt.Paint;
 

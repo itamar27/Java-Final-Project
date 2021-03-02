@@ -41,8 +41,6 @@
  *
  */
 
-package org.jfree.chart;
-
 /**
  * An interface that should be implemented by renderers that use a 3D effect.  
  * This allows the axes to mirror the same effect by querying the renderer.

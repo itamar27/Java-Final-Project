@@ -44,8 +44,6 @@
  *
  */
 
-package org.jfree.chart.needle;
-
 import java.awt.Graphics2D;
 import java.awt.geom.Arc2D;
 import java.awt.geom.Area;
@@ -54,7 +52,7 @@ import java.awt.geom.Rectangle2D;
 import java.io.Serializable;
 
 /**
- * A needle for use with the {@link org.jfree.chart.plot.CompassPlot} class.
+ * A needle for use with the {@link CompassPlot} class.
  *
  * @author Bryan Scott
  */

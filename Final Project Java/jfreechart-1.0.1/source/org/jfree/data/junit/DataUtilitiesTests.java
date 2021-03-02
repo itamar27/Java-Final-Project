@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.data.junit;
-
 import junit.framework.TestCase;
 
 import org.jfree.data.DataUtilities;

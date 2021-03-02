@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.data.xml;
-
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.xml.sax.Attributes;

@@ -42,9 +42,7 @@
  *
  */
 
-package org.jfree.chart.labels;
-
-import org.jfree.data.xy.XYDataset;
+import XYDataset;
 
 /**
  * Interface for a tooltip generator for plots that use data from an 

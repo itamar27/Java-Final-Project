@@ -41,8 +41,6 @@
  *
  */
 
-package org.jfree.data;
-
 /**
  * An interface through which (single-dimension) data values can be accessed.
  */

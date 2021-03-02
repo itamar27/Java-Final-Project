@@ -45,8 +45,6 @@
  *               release (DG);
  * 
  */
- 
-package org.jfree.chart.axis;
 
 import java.awt.geom.Rectangle2D;
 import java.io.Serializable;

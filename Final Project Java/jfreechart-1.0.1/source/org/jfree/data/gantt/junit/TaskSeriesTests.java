@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.data.gantt.junit;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInput;

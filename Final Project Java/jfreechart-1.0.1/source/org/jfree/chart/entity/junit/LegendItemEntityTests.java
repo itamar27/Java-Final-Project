@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.chart.entity.junit;
-
 import java.awt.geom.Rectangle2D;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

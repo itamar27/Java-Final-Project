@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.chart.axis;
-
 import java.text.DateFormat;
 import java.text.DateFormatSymbols;
 import java.text.FieldPosition;
@@ -55,7 +53,7 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.TimeZone;
 
-import org.jfree.data.time.Month;
+import Month;
 
 /**
  * A formatter that formats dates to show the initial letter(s) of the month

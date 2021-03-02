@@ -68,8 +68,6 @@
  * 
  */
 
-package org.jfree.data.time;
-
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Collections;

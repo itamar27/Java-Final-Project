@@ -53,12 +53,10 @@
  *
  */
 
-package org.jfree.chart.entity;
-
 import java.awt.Shape;
 import java.io.Serializable;
 
-import org.jfree.data.general.PieDataset;
+import PieDataset;
 
 /**
  * A chart entity that represents one section within a pie plot.

@@ -41,8 +41,6 @@
  * 
  */
 
-package org.jfree.chart.labels;
-
 import java.awt.Font;
 import java.awt.Paint;
 import java.awt.font.TextAttribute;
@@ -50,7 +48,7 @@ import java.io.Serializable;
 import java.text.AttributedString;
 import java.text.NumberFormat;
 
-import org.jfree.data.general.PieDataset;
+import PieDataset;
 import org.jfree.util.ObjectList;
 
 /**

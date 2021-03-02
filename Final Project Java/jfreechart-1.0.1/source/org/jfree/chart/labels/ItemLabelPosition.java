@@ -43,8 +43,6 @@
  *
  */
 
-package org.jfree.chart.labels;
-
 import java.io.Serializable;
 
 import org.jfree.ui.TextAnchor;

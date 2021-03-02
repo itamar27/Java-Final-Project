@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.chart.axis.junit;
-
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Stroke;
@@ -55,9 +53,9 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.axis.ValueAxis;
 import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.Range;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
+import Range;
+import XYSeries;
+import XYSeriesCollection;
 
 /**
  * Tests for the {@link ValueAxis} class.

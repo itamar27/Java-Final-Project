@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.chart.renderer.category.junit;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInput;
@@ -54,11 +52,11 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.axis.CategoryAxis;
-import org.jfree.chart.axis.NumberAxis;
-import org.jfree.chart.plot.CategoryPlot;
+import CategoryAxis;
+import NumberAxis;
+import CategoryPlot;
 import org.jfree.chart.renderer.category.IntervalBarRenderer;
-import org.jfree.data.category.DefaultIntervalCategoryDataset;
+import DefaultIntervalCategoryDataset;
 
 /**
  * Tests for the {@link IntervalBarRenderer} class.

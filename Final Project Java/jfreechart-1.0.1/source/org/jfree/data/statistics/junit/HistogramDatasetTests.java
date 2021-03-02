@@ -41,8 +41,6 @@
  *
  */
 
-package org.jfree.data.statistics.junit;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInput;

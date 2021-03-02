@@ -38,14 +38,12 @@
  *
  */
 
-package org.jfree.chart.plot;
-
 import java.io.ObjectStreamException;
 import java.io.Serializable;
 
 /**
  * Defines the tokens that indicate the rendering order for series in a
- * {@link org.jfree.chart.plot.XYPlot}.
+ * {@link XYPlot}.
  */
 public final class SeriesRenderingOrder implements Serializable {
 

@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.chart.axis;
-
 /**
  * An interface used by the {@link DateAxis} and {@link NumberAxis} classes to 
  * obtain a suitable {@link TickUnit}.

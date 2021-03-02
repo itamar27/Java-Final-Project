@@ -36,8 +36,6 @@
  *
  */
 
-package org.jfree.chart.resources;
-
 import java.util.ListResourceBundle;
 
 /**

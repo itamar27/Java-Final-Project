@@ -44,15 +44,13 @@
  *
  */
 
-package org.jfree.chart.title;
-
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
 import java.io.Serializable;
 
-import org.jfree.chart.block.BlockContainer;
-import org.jfree.chart.block.BorderArrangement;
-import org.jfree.chart.block.RectangleConstraint;
+import BlockContainer;
+import BorderArrangement;
+import RectangleConstraint;
 import org.jfree.ui.Size2D;
 
 /**

@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.data.general;
-
 import org.jfree.data.Value;
 
 /**

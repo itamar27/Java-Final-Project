@@ -41,8 +41,6 @@
  *
  */
 
-package org.jfree.chart.axis;
-
 import org.jfree.text.TextBlock;
 import org.jfree.text.TextBlockAnchor;
 import org.jfree.ui.TextAnchor;

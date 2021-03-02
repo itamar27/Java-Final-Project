@@ -42,8 +42,6 @@
  *
  */
 
-package org.jfree.chart.labels.junit;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInput;
@@ -59,7 +57,7 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 import org.jfree.chart.labels.StandardCategoryItemLabelGenerator;
-import org.jfree.data.category.DefaultCategoryDataset;
+import DefaultCategoryDataset;
 
 /**
  * Tests for the {@link StandardCategoryItemLabelGenerator} class.

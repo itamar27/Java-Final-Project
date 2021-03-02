@@ -41,8 +41,6 @@
  * 
  */
 
-package org.jfree.chart.axis;
-
 import java.util.Date;
 
 /**
@@ -55,7 +53,7 @@ import java.util.Date;
  * {@link org.jfree.chart.axis.SegmentedTimeline}.
  * <P>
  * A timeline can be used as parameter to a 
- * {@link org.jfree.chart.axis.DateAxis} to define the values that this axis 
+ * {@link DateAxis} to define the values that this axis
  * supports. As an example, the {@link org.jfree.chart.axis.SegmentedTimeline} 
  * implements a timeline formed by segments of equal length (ex. days, hours, 
  * minutes) where some segments can be included in the timeline and others 
@@ -70,7 +68,7 @@ import java.util.Date;
  * defined by the getTime() method of {@link java.util.Date}.
  *
  * @see org.jfree.chart.axis.SegmentedTimeline
- * @see org.jfree.chart.axis.DateAxis
+ * @see DateAxis
  *
  * @author Bill Kelemen
  */

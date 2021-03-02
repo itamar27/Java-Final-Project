@@ -49,33 +49,31 @@
  * 
  */
 
-package org.jfree.chart.renderer.xy;
-
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
 import java.io.Serializable;
 
-import org.jfree.chart.axis.ValueAxis;
-import org.jfree.chart.entity.EntityCollection;
-import org.jfree.chart.entity.XYItemEntity;
-import org.jfree.chart.labels.XYToolTipGenerator;
-import org.jfree.chart.plot.CrosshairState;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.plot.PlotRenderingInfo;
-import org.jfree.chart.plot.XYPlot;
-import org.jfree.data.Range;
-import org.jfree.data.general.DatasetUtilities;
-import org.jfree.data.xy.IntervalXYDataset;
-import org.jfree.data.xy.TableXYDataset;
-import org.jfree.data.xy.XYDataset;
+import ValueAxis;
+import EntityCollection;
+import XYItemEntity;
+import XYToolTipGenerator;
+import CrosshairState;
+import PlotOrientation;
+import PlotRenderingInfo;
+import XYPlot;
+import Range;
+import DatasetUtilities;
+import IntervalXYDataset;
+import TableXYDataset;
+import XYDataset;
 import org.jfree.ui.RectangleEdge;
 
 /**
  * A bar renderer that displays the series items stacked.
  * The dataset used together with this renderer must be a
- * {@link org.jfree.data.xy.IntervalXYDataset} and a
- * {@link org.jfree.data.xy.TableXYDataset}. For example, the
- * dataset class {@link org.jfree.data.xy.CategoryTableXYDataset}
+ * {@link IntervalXYDataset} and a
+ * {@link TableXYDataset}. For example, the
+ * dataset class {@link CategoryTableXYDataset}
  * implements both interfaces.
  *
  * @author andreas.schroeder

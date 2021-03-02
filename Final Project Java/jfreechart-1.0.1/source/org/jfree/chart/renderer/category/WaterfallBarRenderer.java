@@ -52,8 +52,6 @@
  * 09-Jun-2005 : Use addItemEntity() from superclass (DG);
  */
 
-package org.jfree.chart.renderer.category;
-
 import java.awt.Color;
 import java.awt.GradientPaint;
 import java.awt.Graphics2D;
@@ -65,17 +63,17 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-import org.jfree.chart.axis.CategoryAxis;
-import org.jfree.chart.axis.ValueAxis;
-import org.jfree.chart.entity.EntityCollection;
-import org.jfree.chart.event.RendererChangeEvent;
-import org.jfree.chart.labels.CategoryItemLabelGenerator;
-import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.PlotOrientation;
+import CategoryAxis;
+import ValueAxis;
+import EntityCollection;
+import RendererChangeEvent;
+import CategoryItemLabelGenerator;
+import CategoryPlot;
+import PlotOrientation;
 import org.jfree.chart.renderer.AbstractRenderer;
-import org.jfree.data.Range;
-import org.jfree.data.category.CategoryDataset;
-import org.jfree.data.general.DatasetUtilities;
+import Range;
+import CategoryDataset;
+import DatasetUtilities;
 import org.jfree.io.SerialUtilities;
 import org.jfree.ui.GradientPaintTransformType;
 import org.jfree.ui.RectangleEdge;

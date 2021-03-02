@@ -59,8 +59,6 @@
  * 
  */
 
-package org.jfree.chart.title;
-
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
 import java.io.IOException;
@@ -70,10 +68,10 @@ import java.io.Serializable;
 
 import javax.swing.event.EventListenerList;
 
-import org.jfree.chart.block.AbstractBlock;
-import org.jfree.chart.block.Block;
-import org.jfree.chart.event.TitleChangeEvent;
-import org.jfree.chart.event.TitleChangeListener;
+import AbstractBlock;
+import Block;
+import TitleChangeEvent;
+import TitleChangeListener;
 import org.jfree.ui.HorizontalAlignment;
 import org.jfree.ui.RectangleEdge;
 import org.jfree.ui.RectangleInsets;

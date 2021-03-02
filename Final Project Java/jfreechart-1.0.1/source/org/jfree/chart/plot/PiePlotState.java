@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.chart.plot;
-
 import java.awt.geom.Rectangle2D;
 
 import org.jfree.chart.renderer.RendererState;

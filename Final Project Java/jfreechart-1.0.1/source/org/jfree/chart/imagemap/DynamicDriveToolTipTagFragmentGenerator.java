@@ -38,8 +38,6 @@
  * 12-Aug-2003 : Version 1 (RA);
  * 
  */
- 
-package org.jfree.chart.imagemap;
 
 /**
  * Generates tooltips using the Dynamic Drive DHTML Tip Message 

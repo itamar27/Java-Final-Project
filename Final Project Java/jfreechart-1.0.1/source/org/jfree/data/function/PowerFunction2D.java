@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.data.function;
-
 
 /**
  * A function of the form y = a * x ^ b.

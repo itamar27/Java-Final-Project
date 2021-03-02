@@ -43,8 +43,6 @@
  * 08-Jun-2005 : Implemented Cloneable (DG);
  */
 
-package org.jfree.chart.needle;
-
 import java.awt.Graphics2D;
 import java.awt.Shape;
 import java.awt.geom.GeneralPath;

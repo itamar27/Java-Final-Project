@@ -57,15 +57,13 @@
  *
  */
 
-package org.jfree.data.statistics;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.jfree.data.Range;
+import Range;
 import org.jfree.data.RangeInfo;
-import org.jfree.data.xy.AbstractXYDataset;
+import AbstractXYDataset;
 
 /**
  * A simple implementation of the {@link BoxAndWhiskerXYDataset}.  The dataset

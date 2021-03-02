@@ -41,8 +41,6 @@
  *
  */
 
-package org.jfree.chart.axis.junit;
-
 import java.awt.geom.Rectangle2D;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -62,7 +60,7 @@ import org.jfree.chart.axis.DateAxis;
 import org.jfree.chart.axis.DateTickMarkPosition;
 import org.jfree.chart.axis.DateTickUnit;
 import org.jfree.chart.axis.SegmentedTimeline;
-import org.jfree.data.time.DateRange;
+import DateRange;
 import org.jfree.ui.RectangleEdge;
 
 /**

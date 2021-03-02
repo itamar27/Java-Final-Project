@@ -40,8 +40,6 @@
  * 06-Jun-2005 : Fixed equals() method to handle GradientPaint (DG);
  * 
  */
- 
-package org.jfree.chart.annotations;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -54,11 +52,11 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-import org.jfree.chart.axis.ValueAxis;
-import org.jfree.chart.plot.Plot;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.plot.PlotRenderingInfo;
-import org.jfree.chart.plot.XYPlot;
+import ValueAxis;
+import Plot;
+import PlotOrientation;
+import PlotRenderingInfo;
+import XYPlot;
 import org.jfree.io.SerialUtilities;
 import org.jfree.ui.RectangleEdge;
 import org.jfree.util.ObjectUtilities;

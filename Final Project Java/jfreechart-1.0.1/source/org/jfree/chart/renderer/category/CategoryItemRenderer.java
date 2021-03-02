@@ -87,8 +87,6 @@
  * 
  */
 
-package org.jfree.chart.renderer.category;
-
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.Paint;
@@ -98,20 +96,20 @@ import java.awt.geom.Rectangle2D;
 
 import org.jfree.chart.LegendItem;
 import org.jfree.chart.LegendItemSource;
-import org.jfree.chart.axis.CategoryAxis;
-import org.jfree.chart.axis.ValueAxis;
-import org.jfree.chart.event.RendererChangeEvent;
-import org.jfree.chart.event.RendererChangeListener;
-import org.jfree.chart.labels.CategoryItemLabelGenerator;
-import org.jfree.chart.labels.CategoryToolTipGenerator;
-import org.jfree.chart.labels.ItemLabelPosition;
-import org.jfree.chart.plot.CategoryMarker;
-import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.Marker;
-import org.jfree.chart.plot.PlotRenderingInfo;
-import org.jfree.chart.urls.CategoryURLGenerator;
-import org.jfree.data.Range;
-import org.jfree.data.category.CategoryDataset;
+import CategoryAxis;
+import ValueAxis;
+import RendererChangeEvent;
+import RendererChangeListener;
+import CategoryItemLabelGenerator;
+import CategoryToolTipGenerator;
+import ItemLabelPosition;
+import CategoryMarker;
+import CategoryPlot;
+import Marker;
+import PlotRenderingInfo;
+import CategoryURLGenerator;
+import Range;
+import CategoryDataset;
 
 /**
  * A plug-in object that is used by the {@link CategoryPlot} class to display 
@@ -871,7 +869,7 @@ public interface CategoryItemRenderer extends LegendItemSource {
 
     /**
      * Sets the tool tip generator for ALL series and sends a 
-     * {@link org.jfree.chart.event.RendererChangeEvent} to all registered 
+     * {@link RendererChangeEvent} to all registered
      * listeners.
      * 
      * @param generator  the generator (<code>null</code> permitted).
@@ -890,7 +888,7 @@ public interface CategoryItemRenderer extends LegendItemSource {
 
     /**
      * Sets the tool tip generator for a series and sends a 
-     * {@link org.jfree.chart.event.RendererChangeEvent} to all registered 
+     * {@link RendererChangeEvent} to all registered
      * listeners.
      *
      * @param series  the series index (zero-based).
@@ -908,7 +906,7 @@ public interface CategoryItemRenderer extends LegendItemSource {
 
     /**
      * Sets the base tool tip generator and sends a 
-     * {@link org.jfree.chart.event.RendererChangeEvent} to all registered 
+     * {@link RendererChangeEvent} to all registered
      * listeners.
      *
      * @param generator  the generator (<code>null</code> permitted).

@@ -42,8 +42,6 @@
  *
  */
 
-package org.jfree.chart.editor;
-
 import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -63,13 +61,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
-import org.jfree.chart.axis.Axis;
-import org.jfree.chart.axis.ColorBar;
-import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.ContourPlot;
-import org.jfree.chart.plot.Plot;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.plot.XYPlot;
+import Axis;
+import ColorBar;
+import CategoryPlot;
+import ContourPlot;
+import Plot;
+import PlotOrientation;
+import XYPlot;
 import org.jfree.chart.renderer.category.CategoryItemRenderer;
 import org.jfree.chart.renderer.category.LineAndShapeRenderer;
 import org.jfree.chart.renderer.xy.StandardXYItemRenderer;

@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.chart.renderer.xy.junit;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInput;
@@ -55,12 +53,12 @@ import junit.framework.TestSuite;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.axis.NumberAxis;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.plot.XYPlot;
+import NumberAxis;
+import PlotOrientation;
+import XYPlot;
 import org.jfree.chart.renderer.xy.StackedXYAreaRenderer2;
-import org.jfree.data.Range;
-import org.jfree.data.xy.TableXYDataset;
+import Range;
+import TableXYDataset;
 
 /**
  * Tests for the {@link StackedXYAreaRenderer2} class.

@@ -42,11 +42,9 @@
  *
  */
 
-package org.jfree.chart.plot;
-
-import org.jfree.data.Range;
-import org.jfree.data.contour.ContourDataset;
-import org.jfree.data.contour.DefaultContourDataset;
+import Range;
+import ContourDataset;
+import DefaultContourDataset;
 
 /**
  * Some utility methods for the {@link ContourPlot} class.

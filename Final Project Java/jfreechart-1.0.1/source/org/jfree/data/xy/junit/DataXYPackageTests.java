@@ -44,8 +44,6 @@
  *
  */
 
-package org.jfree.data.xy.junit;
-
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;

@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.chart.block;
-
 import org.jfree.chart.entity.EntityCollection;
 
 /**

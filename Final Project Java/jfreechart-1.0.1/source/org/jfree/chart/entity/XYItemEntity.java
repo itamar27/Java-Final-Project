@@ -50,15 +50,13 @@
  *
  */
 
-package org.jfree.chart.entity;
-
 import java.awt.Shape;
 
-import org.jfree.data.xy.XYDataset;
+import XYDataset;
 
 /**
  * A chart entity that represents one item within an 
- * {@link org.jfree.chart.plot.XYPlot}.
+ * {@link XYPlot}.
  */
 public class XYItemEntity extends ChartEntity {
 

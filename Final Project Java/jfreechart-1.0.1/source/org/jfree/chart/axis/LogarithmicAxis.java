@@ -89,8 +89,6 @@
  *
  */
 
-package org.jfree.chart.axis;
-
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
 import java.text.DecimalFormat;
@@ -99,7 +97,7 @@ import java.util.List;
 
 import org.jfree.chart.plot.Plot;
 import org.jfree.chart.plot.ValueAxisPlot;
-import org.jfree.data.Range;
+import Range;
 import org.jfree.ui.RectangleEdge;
 import org.jfree.ui.TextAnchor;
 

@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.chart.event;
-
 import org.jfree.chart.JFreeChart;
 
 /**

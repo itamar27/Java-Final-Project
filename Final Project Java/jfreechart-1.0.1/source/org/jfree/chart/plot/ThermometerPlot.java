@@ -75,8 +75,6 @@
  * 
  */
 
-package org.jfree.chart.plot;
-
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
@@ -100,13 +98,13 @@ import java.util.Arrays;
 import java.util.ResourceBundle;
 
 import org.jfree.chart.LegendItemCollection;
-import org.jfree.chart.axis.NumberAxis;
-import org.jfree.chart.axis.ValueAxis;
+import NumberAxis;
+import ValueAxis;
 import org.jfree.chart.event.PlotChangeEvent;
-import org.jfree.data.Range;
-import org.jfree.data.general.DatasetChangeEvent;
-import org.jfree.data.general.DefaultValueDataset;
-import org.jfree.data.general.ValueDataset;
+import Range;
+import DatasetChangeEvent;
+import DefaultValueDataset;
+import ValueDataset;
 import org.jfree.io.SerialUtilities;
 import org.jfree.ui.RectangleEdge;
 import org.jfree.ui.RectangleInsets;

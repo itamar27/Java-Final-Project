@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.data.xy;
-
 /**
  * Represent a data set where X is a symbolic values. Each symbolic value is
  * linked with an Integer.

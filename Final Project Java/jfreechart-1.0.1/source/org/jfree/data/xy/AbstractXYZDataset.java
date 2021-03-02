@@ -41,8 +41,6 @@
  *
  */
 
-package org.jfree.data.xy;
-
 
 /**
  * An base class that you can use to create new implementations of the 

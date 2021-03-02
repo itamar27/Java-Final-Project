@@ -41,8 +41,6 @@
  *
  */
 
-package org.jfree.chart.plot.junit;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GradientPaint;
@@ -61,8 +59,8 @@ import junit.framework.TestSuite;
 import org.jfree.chart.plot.DialShape;
 import org.jfree.chart.plot.MeterInterval;
 import org.jfree.chart.plot.MeterPlot;
-import org.jfree.data.Range;
-import org.jfree.data.general.DefaultValueDataset;
+import Range;
+import DefaultValueDataset;
 
 /**
  * Tests for the {@link MeterPlot} class.

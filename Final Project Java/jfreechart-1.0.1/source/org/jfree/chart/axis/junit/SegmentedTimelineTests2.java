@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.chart.axis.junit;
-
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;

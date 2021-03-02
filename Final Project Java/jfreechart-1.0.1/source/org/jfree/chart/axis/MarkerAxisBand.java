@@ -47,8 +47,6 @@
  *
  */
 
-package org.jfree.chart.axis;
-
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Composite;

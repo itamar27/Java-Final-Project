@@ -42,15 +42,13 @@
  *
  */
 
-package org.jfree.chart.labels;
-
 import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.MessageFormat;
 import java.text.NumberFormat;
 
-import org.jfree.data.DataUtilities;
-import org.jfree.data.category.CategoryDataset;
+import DataUtilities;
+import CategoryDataset;
 import org.jfree.util.ObjectUtilities;
 import org.jfree.util.PublicCloneable;
 

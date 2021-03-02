@@ -44,8 +44,6 @@
  * 
  */
 
-package org.jfree.chart.needle;
-
 import java.awt.Graphics2D;
 import java.awt.geom.Area;
 import java.awt.geom.Ellipse2D;

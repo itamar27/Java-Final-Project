@@ -41,8 +41,6 @@
  *
  */
 
- package org.jfree.data.gantt;
-
 import org.jfree.data.category.IntervalCategoryDataset;
 
 /**

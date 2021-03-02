@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.chart.plot.junit;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GradientPaint;
@@ -57,7 +55,7 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 import org.jfree.chart.plot.CompassPlot;
-import org.jfree.data.general.DefaultValueDataset;
+import DefaultValueDataset;
 
 /**
  * Tests for the {@link CompassPlot} class.

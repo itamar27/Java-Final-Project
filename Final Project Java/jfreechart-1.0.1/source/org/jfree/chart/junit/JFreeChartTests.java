@@ -44,8 +44,6 @@
  *
  */
 
-package org.jfree.chart.junit;
-
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
@@ -64,17 +62,17 @@ import junit.framework.TestSuite;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.PiePlot;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.plot.RingPlot;
+import PiePlot;
+import PlotOrientation;
+import RingPlot;
 import org.jfree.chart.title.LegendTitle;
 import org.jfree.chart.title.TextTitle;
-import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.data.general.DefaultPieDataset;
-import org.jfree.data.time.Day;
-import org.jfree.data.time.RegularTimePeriod;
-import org.jfree.data.time.TimeSeries;
-import org.jfree.data.time.TimeSeriesCollection;
+import DefaultCategoryDataset;
+import DefaultPieDataset;
+import Day;
+import RegularTimePeriod;
+import TimeSeries;
+import TimeSeriesCollection;
 import org.jfree.ui.Align;
 import org.jfree.ui.RectangleInsets;
 

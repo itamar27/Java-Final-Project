@@ -47,17 +47,15 @@
  *
  */
 
-package org.jfree.chart;
-
 import java.awt.geom.Rectangle2D;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-import org.jfree.chart.entity.EntityCollection;
-import org.jfree.chart.entity.StandardEntityCollection;
-import org.jfree.chart.plot.PlotRenderingInfo;
+import EntityCollection;
+import StandardEntityCollection;
+import PlotRenderingInfo;
 import org.jfree.io.SerialUtilities;
 import org.jfree.util.ObjectUtilities;
 

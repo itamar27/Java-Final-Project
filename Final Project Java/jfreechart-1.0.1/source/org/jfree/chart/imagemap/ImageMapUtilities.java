@@ -43,14 +43,12 @@
  * 
  */
 
-package org.jfree.chart.imagemap;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 
 import org.jfree.chart.ChartRenderingInfo;
-import org.jfree.chart.entity.ChartEntity;
-import org.jfree.chart.entity.EntityCollection;
+import ChartEntity;
+import EntityCollection;
 import org.jfree.util.StringUtils;
 
 /**

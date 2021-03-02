@@ -59,28 +59,26 @@
  * 
  */
 
-package org.jfree.chart.renderer.category;
-
 import java.awt.Graphics2D;
 import java.awt.Polygon;
 import java.awt.Shape;
 import java.awt.geom.Rectangle2D;
 import java.io.Serializable;
 
-import org.jfree.chart.axis.CategoryAxis;
-import org.jfree.chart.axis.ValueAxis;
-import org.jfree.chart.entity.EntityCollection;
-import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.Range;
-import org.jfree.data.category.CategoryDataset;
-import org.jfree.data.general.DatasetUtilities;
+import CategoryAxis;
+import ValueAxis;
+import EntityCollection;
+import CategoryPlot;
+import PlotOrientation;
+import Range;
+import CategoryDataset;
+import DatasetUtilities;
 import org.jfree.ui.RectangleEdge;
 import org.jfree.util.PublicCloneable;
 
 /**
  * A renderer that draws stacked area charts for a 
- * {@link org.jfree.chart.plot.CategoryPlot}.
+ * {@link CategoryPlot}.
  *
  * @author Dan Rivett
  */

@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.data.statistics.junit;
-
 import java.util.ArrayList;
 import java.util.List;
 

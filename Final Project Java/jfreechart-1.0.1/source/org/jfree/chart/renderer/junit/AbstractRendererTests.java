@@ -41,8 +41,6 @@
  *
  */
 
-package org.jfree.chart.renderer.junit;
-
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
@@ -62,9 +60,9 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
-import org.jfree.chart.event.RendererChangeEvent;
-import org.jfree.chart.labels.ItemLabelAnchor;
-import org.jfree.chart.labels.ItemLabelPosition;
+import RendererChangeEvent;
+import ItemLabelAnchor;
+import ItemLabelPosition;
 import org.jfree.chart.renderer.AbstractRenderer;
 import org.jfree.chart.renderer.category.BarRenderer;
 import org.jfree.ui.TextAnchor;

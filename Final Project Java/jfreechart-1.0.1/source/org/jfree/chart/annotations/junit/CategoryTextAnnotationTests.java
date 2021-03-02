@@ -41,8 +41,6 @@
  *
  */
 
-package org.jfree.chart.annotations.junit;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInput;
@@ -55,7 +53,7 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 import org.jfree.chart.annotations.CategoryTextAnnotation;
-import org.jfree.chart.axis.CategoryAnchor;
+import CategoryAnchor;
 
 /**
  * Tests for the {@link CategoryTextAnnotation} class.

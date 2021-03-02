@@ -40,10 +40,8 @@
  *
  */
 
-package org.jfree.chart.renderer.junit;
-
-import org.jfree.chart.event.RendererChangeEvent;
-import org.jfree.chart.event.RendererChangeListener;
+import RendererChangeEvent;
+import RendererChangeListener;
 
 /**
  * A simple class for detecting whether or not a renderer has generated 

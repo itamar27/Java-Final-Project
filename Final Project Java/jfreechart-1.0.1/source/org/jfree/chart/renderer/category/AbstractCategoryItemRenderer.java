@@ -81,8 +81,6 @@
  * 
  */
 
-package org.jfree.chart.renderer.category;
-
 import java.awt.Font;
 import java.awt.GradientPaint;
 import java.awt.Graphics2D;
@@ -96,29 +94,29 @@ import java.io.Serializable;
 
 import org.jfree.chart.LegendItem;
 import org.jfree.chart.LegendItemCollection;
-import org.jfree.chart.axis.CategoryAxis;
-import org.jfree.chart.axis.ValueAxis;
-import org.jfree.chart.entity.CategoryItemEntity;
-import org.jfree.chart.entity.EntityCollection;
-import org.jfree.chart.event.RendererChangeEvent;
-import org.jfree.chart.labels.CategoryItemLabelGenerator;
-import org.jfree.chart.labels.CategorySeriesLabelGenerator;
-import org.jfree.chart.labels.CategoryToolTipGenerator;
-import org.jfree.chart.labels.ItemLabelPosition;
-import org.jfree.chart.labels.StandardCategorySeriesLabelGenerator;
-import org.jfree.chart.plot.CategoryMarker;
-import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.DrawingSupplier;
-import org.jfree.chart.plot.IntervalMarker;
-import org.jfree.chart.plot.Marker;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.plot.PlotRenderingInfo;
-import org.jfree.chart.plot.ValueMarker;
+import CategoryAxis;
+import ValueAxis;
+import CategoryItemEntity;
+import EntityCollection;
+import RendererChangeEvent;
+import CategoryItemLabelGenerator;
+import CategorySeriesLabelGenerator;
+import CategoryToolTipGenerator;
+import ItemLabelPosition;
+import StandardCategorySeriesLabelGenerator;
+import CategoryMarker;
+import CategoryPlot;
+import DrawingSupplier;
+import IntervalMarker;
+import Marker;
+import PlotOrientation;
+import PlotRenderingInfo;
+import ValueMarker;
 import org.jfree.chart.renderer.AbstractRenderer;
-import org.jfree.chart.urls.CategoryURLGenerator;
-import org.jfree.data.Range;
-import org.jfree.data.category.CategoryDataset;
-import org.jfree.data.general.DatasetUtilities;
+import CategoryURLGenerator;
+import Range;
+import CategoryDataset;
+import DatasetUtilities;
 import org.jfree.text.TextUtilities;
 import org.jfree.ui.GradientPaintTransformer;
 import org.jfree.ui.LengthAdjustmentType;
@@ -367,7 +365,7 @@ public abstract class AbstractCategoryItemRenderer extends AbstractRenderer
     
     /**
      * Sets the tool tip generator for ALL series and sends a 
-     * {@link org.jfree.chart.event.RendererChangeEvent} to all registered 
+     * {@link RendererChangeEvent} to all registered
      * listeners.
      * 
      * @param generator  the generator (<code>null</code> permitted).
@@ -391,7 +389,7 @@ public abstract class AbstractCategoryItemRenderer extends AbstractRenderer
 
     /**
      * Sets the tool tip generator for a series and sends a 
-     * {@link org.jfree.chart.event.RendererChangeEvent} to all registered 
+     * {@link RendererChangeEvent} to all registered
      * listeners.
      *
      * @param series  the series index (zero-based).
@@ -414,7 +412,7 @@ public abstract class AbstractCategoryItemRenderer extends AbstractRenderer
 
     /**
      * Sets the base tool tip generator and sends a 
-     * {@link org.jfree.chart.event.RendererChangeEvent} to all registered 
+     * {@link RendererChangeEvent} to all registered
      * listeners.
      *
      * @param generator  the generator (<code>null</code> permitted).

@@ -49,15 +49,13 @@
  *
  */
 
-package org.jfree.data.gantt;
-
 import java.io.Serializable;
 import java.util.Iterator;
 import java.util.List;
 
 import org.jfree.data.general.AbstractSeriesDataset;
 import org.jfree.data.general.SeriesChangeEvent;
-import org.jfree.data.time.TimePeriod;
+import TimePeriod;
 import org.jfree.util.ObjectUtilities;
 import org.jfree.util.PublicCloneable;
 

@@ -42,17 +42,15 @@
  *
  */
 
-package org.jfree.chart.annotations;
-
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
 import java.io.Serializable;
 
-import org.jfree.chart.axis.ValueAxis;
-import org.jfree.chart.plot.Plot;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.plot.PlotRenderingInfo;
-import org.jfree.chart.plot.XYPlot;
+import ValueAxis;
+import Plot;
+import PlotOrientation;
+import PlotRenderingInfo;
+import XYPlot;
 import org.jfree.ui.Drawable;
 import org.jfree.ui.RectangleEdge;
 import org.jfree.util.ObjectUtilities;
@@ -60,7 +58,7 @@ import org.jfree.util.PublicCloneable;
 
 /**
  * A general annotation that can be placed on 
- * an {@link org.jfree.chart.plot.XYPlot}.
+ * an {@link XYPlot}.
  */
 public class XYDrawableAnnotation extends AbstractXYAnnotation
                                   implements Cloneable, PublicCloneable, 

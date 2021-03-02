@@ -50,8 +50,6 @@
  *   
  */
 
-package org.jfree.data.xy;
-
 import java.io.Serializable;
 
 import org.jfree.data.DomainInfo;

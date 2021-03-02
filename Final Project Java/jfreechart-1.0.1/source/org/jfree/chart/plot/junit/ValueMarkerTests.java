@@ -42,8 +42,6 @@
  *
  */
 
-package org.jfree.chart.plot.junit;
-
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;

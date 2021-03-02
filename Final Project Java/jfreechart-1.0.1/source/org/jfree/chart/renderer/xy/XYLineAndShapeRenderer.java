@@ -57,8 +57,6 @@
  *
  */
 
-package org.jfree.chart.renderer.xy;
-
 import java.awt.Graphics2D;
 import java.awt.Paint;
 import java.awt.Shape;
@@ -72,14 +70,14 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 import org.jfree.chart.LegendItem;
-import org.jfree.chart.axis.ValueAxis;
-import org.jfree.chart.entity.EntityCollection;
-import org.jfree.chart.event.RendererChangeEvent;
-import org.jfree.chart.plot.CrosshairState;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.plot.PlotRenderingInfo;
-import org.jfree.chart.plot.XYPlot;
-import org.jfree.data.xy.XYDataset;
+import ValueAxis;
+import EntityCollection;
+import RendererChangeEvent;
+import CrosshairState;
+import PlotOrientation;
+import PlotRenderingInfo;
+import XYPlot;
+import XYDataset;
 import org.jfree.io.SerialUtilities;
 import org.jfree.ui.RectangleEdge;
 import org.jfree.util.BooleanList;

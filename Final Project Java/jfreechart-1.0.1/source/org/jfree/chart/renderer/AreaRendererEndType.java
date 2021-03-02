@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.chart.renderer;
-
 import java.io.ObjectStreamException;
 import java.io.Serializable;
 

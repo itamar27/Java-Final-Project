@@ -55,8 +55,6 @@
  * 
  */
 
-package org.jfree.chart.renderer.category;
-
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Component;
@@ -76,14 +74,14 @@ import java.io.ObjectOutputStream;
 
 import javax.swing.Icon;
 
-import org.jfree.chart.axis.CategoryAxis;
-import org.jfree.chart.axis.ValueAxis;
-import org.jfree.chart.entity.CategoryItemEntity;
-import org.jfree.chart.entity.EntityCollection;
-import org.jfree.chart.event.RendererChangeEvent;
-import org.jfree.chart.labels.CategoryToolTipGenerator;
-import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.data.category.CategoryDataset;
+import CategoryAxis;
+import ValueAxis;
+import CategoryItemEntity;
+import EntityCollection;
+import RendererChangeEvent;
+import CategoryToolTipGenerator;
+import CategoryPlot;
+import CategoryDataset;
 import org.jfree.io.SerialUtilities;
 
 /**
@@ -91,7 +89,7 @@ import org.jfree.io.SerialUtilities;
  * the same category in the same x position using <code>objectIcon</code> and 
  * a line from the maximum value to the minimum value.
  * <p>
- * For use with the {@link org.jfree.chart.plot.CategoryPlot} class.
+ * For use with the {@link CategoryPlot} class.
  *
  * @author Tomer Peretz
  */

@@ -41,8 +41,6 @@
  *
  */
 
-package org.jfree.chart.axis.junit;
-
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
@@ -62,8 +60,8 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 import org.jfree.chart.axis.PeriodAxisLabelInfo;
-import org.jfree.data.time.Day;
-import org.jfree.data.time.Month;
+import Day;
+import Month;
 import org.jfree.ui.RectangleInsets;
 
 /**

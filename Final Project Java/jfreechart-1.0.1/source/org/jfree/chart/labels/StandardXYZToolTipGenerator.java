@@ -41,15 +41,13 @@
  *
  */
 
-package org.jfree.chart.labels;
-
 import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.MessageFormat;
 import java.text.NumberFormat;
 
-import org.jfree.data.xy.XYDataset;
-import org.jfree.data.xy.XYZDataset;
+import XYDataset;
+import XYZDataset;
 import org.jfree.util.ObjectUtilities;
 
 /**

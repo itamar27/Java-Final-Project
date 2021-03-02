@@ -41,8 +41,6 @@
  *               testing XYStepAreaRenderer (MR);
  */
 
-package org.jfree.chart.renderer.xy.junit;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInput;
@@ -55,11 +53,11 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.axis.NumberAxis;
-import org.jfree.chart.plot.XYPlot;
+import NumberAxis;
+import XYPlot;
 import org.jfree.chart.renderer.xy.XYStepAreaRenderer;
-import org.jfree.data.xy.DefaultTableXYDataset;
-import org.jfree.data.xy.XYSeries;
+import DefaultTableXYDataset;
+import XYSeries;
 
 /**
  * Tests for the {@link XYStepAreaRenderer} class.

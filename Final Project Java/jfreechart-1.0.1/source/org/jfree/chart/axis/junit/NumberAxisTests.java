@@ -46,8 +46,6 @@
  *
  */
 
-package org.jfree.chart.axis.junit;
-
 
 import java.awt.geom.Rectangle2D;
 import java.io.ByteArrayInputStream;
@@ -69,9 +67,9 @@ import org.jfree.chart.axis.NumberTickUnit;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
-import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
+import DefaultCategoryDataset;
+import XYSeries;
+import XYSeriesCollection;
 import org.jfree.ui.RectangleEdge;
 
 /**

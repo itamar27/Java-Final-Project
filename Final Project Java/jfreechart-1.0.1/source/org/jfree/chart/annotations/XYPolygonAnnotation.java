@@ -39,8 +39,6 @@
  * 09-Feb-2005 : Version 1 (DG);
  * 
  */
- 
-package org.jfree.chart.annotations;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -55,11 +53,11 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.Arrays;
 
-import org.jfree.chart.axis.ValueAxis;
-import org.jfree.chart.plot.Plot;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.plot.PlotRenderingInfo;
-import org.jfree.chart.plot.XYPlot;
+import ValueAxis;
+import Plot;
+import PlotOrientation;
+import PlotRenderingInfo;
+import XYPlot;
 import org.jfree.io.SerialUtilities;
 import org.jfree.ui.RectangleEdge;
 import org.jfree.util.ObjectUtilities;

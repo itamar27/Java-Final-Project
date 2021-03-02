@@ -41,8 +41,6 @@
  *
  */
 
-package org.jfree.chart.editor;
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
@@ -61,8 +59,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.title.Title;
-import org.jfree.chart.title.TextTitle;
+import Title;
+import TextTitle;
 import org.jfree.layout.LCBLayout;
 import org.jfree.ui.FontChooserPanel;
 import org.jfree.ui.FontDisplayField;

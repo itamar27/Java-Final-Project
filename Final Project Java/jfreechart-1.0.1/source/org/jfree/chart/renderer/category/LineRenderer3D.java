@@ -46,8 +46,6 @@
  * 
  */
 
-package org.jfree.chart.renderer.category;
-
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Composite;
@@ -62,17 +60,17 @@ import java.awt.geom.Rectangle2D;
 import java.io.Serializable;
 
 import org.jfree.chart.Effect3D;
-import org.jfree.chart.axis.CategoryAxis;
-import org.jfree.chart.axis.ValueAxis;
-import org.jfree.chart.entity.EntityCollection;
-import org.jfree.chart.event.RendererChangeEvent;
-import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.Marker;
-import org.jfree.chart.plot.Plot;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.plot.ValueMarker;
-import org.jfree.data.Range;
-import org.jfree.data.category.CategoryDataset;
+import CategoryAxis;
+import ValueAxis;
+import EntityCollection;
+import RendererChangeEvent;
+import CategoryPlot;
+import Marker;
+import Plot;
+import PlotOrientation;
+import ValueMarker;
+import Range;
+import CategoryDataset;
 import org.jfree.util.ShapeUtilities;
 
 /**

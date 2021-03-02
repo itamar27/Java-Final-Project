@@ -46,8 +46,6 @@
  *
  */
 
-package org.jfree.chart.plot;
-
 import java.awt.geom.Point2D;
 
 /**

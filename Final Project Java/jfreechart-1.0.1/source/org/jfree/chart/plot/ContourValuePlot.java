@@ -40,9 +40,7 @@
  *
  */
 
-package org.jfree.chart.plot;
-
-import org.jfree.data.Range;
+import Range;
 
 /**
  * An interface defining methods related to contour plots.

@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.data;
-
 
 /**
  * Used to indicate the type of a {@link KeyedValueComparator} : 'by key' or 

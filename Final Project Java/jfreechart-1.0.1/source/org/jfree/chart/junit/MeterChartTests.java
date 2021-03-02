@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.chart.junit;
-
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
@@ -51,10 +49,10 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.MeterInterval;
-import org.jfree.chart.plot.MeterPlot;
-import org.jfree.data.Range;
-import org.jfree.data.general.DefaultValueDataset;
+import MeterInterval;
+import MeterPlot;
+import Range;
+import DefaultValueDataset;
 
 /**
  * Miscellaneous checks for meter charts.

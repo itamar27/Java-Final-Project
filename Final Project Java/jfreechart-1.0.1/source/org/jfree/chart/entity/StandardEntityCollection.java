@@ -47,8 +47,6 @@
  *
  */
 
-package org.jfree.chart.entity;
-
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Collections;

@@ -41,8 +41,6 @@
  *
  */
 
-package org.jfree.data.xy;
-
 
 /**
  * Interface for a dataset that supplies wind intensity and direction values

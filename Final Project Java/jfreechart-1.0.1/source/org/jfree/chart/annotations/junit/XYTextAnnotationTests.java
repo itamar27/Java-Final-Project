@@ -42,8 +42,6 @@
  *
  */
 
-package org.jfree.chart.annotations.junit;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GradientPaint;

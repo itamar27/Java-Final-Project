@@ -42,8 +42,6 @@
  *
  */
 
-package org.jfree.data;
-
 import java.util.Comparator;
 
 import org.jfree.util.SortOrder;

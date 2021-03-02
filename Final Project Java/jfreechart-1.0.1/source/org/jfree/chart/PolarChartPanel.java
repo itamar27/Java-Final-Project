@@ -40,16 +40,14 @@
  *
  */
 
-package org.jfree.chart;
-
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 
-import org.jfree.chart.plot.Plot;
-import org.jfree.chart.plot.PolarPlot;
+import Plot;
+import PolarPlot;
 
 /**
  * <code>PolarChartPanel</code> is the top level object for using the 

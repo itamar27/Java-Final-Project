@@ -42,8 +42,6 @@
  *
  */
 
-package org.jfree.chart.renderer.xy.junit;
-
 import java.awt.Color;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

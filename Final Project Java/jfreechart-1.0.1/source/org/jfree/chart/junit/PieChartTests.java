@@ -41,18 +41,16 @@
  *
  */
 
-package org.jfree.chart.junit;
-
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.event.ChartChangeEvent;
-import org.jfree.chart.event.ChartChangeListener;
-import org.jfree.chart.plot.PiePlot;
-import org.jfree.data.general.DefaultPieDataset;
+import ChartChangeEvent;
+import ChartChangeListener;
+import PiePlot;
+import DefaultPieDataset;
 
 /**
  * Tests for a pie chart.

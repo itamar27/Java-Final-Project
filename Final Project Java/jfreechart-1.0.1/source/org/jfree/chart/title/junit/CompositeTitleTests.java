@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.chart.title.junit;
-
 import java.awt.Color;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -54,8 +52,8 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
-import org.jfree.chart.block.BlockBorder;
-import org.jfree.chart.block.BlockContainer;
+import BlockBorder;
+import BlockContainer;
 import org.jfree.chart.title.CompositeTitle;
 import org.jfree.chart.title.TextTitle;
 import org.jfree.ui.RectangleInsets;

@@ -41,8 +41,6 @@
  *
  */
 
-package org.jfree.data.statistics;
-
 import java.io.Serializable;
 
 import org.jfree.util.ObjectUtilities;

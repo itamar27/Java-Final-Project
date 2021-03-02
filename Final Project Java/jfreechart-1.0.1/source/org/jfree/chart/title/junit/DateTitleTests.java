@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.chart.title.junit;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.io.ByteArrayInputStream;

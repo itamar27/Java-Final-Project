@@ -46,25 +46,23 @@
  *
  */
 
-package org.jfree.chart.annotations;
-
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
 import java.io.Serializable;
 
-import org.jfree.chart.axis.CategoryAnchor;
-import org.jfree.chart.axis.CategoryAxis;
-import org.jfree.chart.axis.ValueAxis;
-import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.Plot;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.category.CategoryDataset;
+import CategoryAnchor;
+import CategoryAxis;
+import ValueAxis;
+import CategoryPlot;
+import Plot;
+import PlotOrientation;
+import CategoryDataset;
 import org.jfree.text.TextUtilities;
 import org.jfree.ui.RectangleEdge;
 
 /**
  * A text annotation that can be placed on a 
- * {@link org.jfree.chart.plot.CategoryPlot}.
+ * {@link CategoryPlot}.
  */
 public class CategoryTextAnnotation extends TextAnnotation
                                     implements CategoryAnnotation, 

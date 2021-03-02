@@ -44,9 +44,7 @@
  * 
  */
 
-package org.jfree.chart.block;
-
-import org.jfree.data.Range;
+import Range;
 import org.jfree.ui.Size2D;
 
 /**

@@ -43,11 +43,9 @@
  *
  */
 
-package org.jfree.data.statistics;
-
 import java.util.List;
 
-import org.jfree.data.category.CategoryDataset;
+import CategoryDataset;
 
 /**
  * A category dataset that defines various medians, outliers and an average 

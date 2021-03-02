@@ -54,17 +54,15 @@
  * 
  */
 
-package org.jfree.data.statistics;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.jfree.data.general.DatasetChangeEvent;
-import org.jfree.data.xy.AbstractIntervalXYDataset;
-import org.jfree.data.xy.IntervalXYDataset;
+import DatasetChangeEvent;
+import AbstractIntervalXYDataset;
+import IntervalXYDataset;
 import org.jfree.util.ObjectUtilities;
 import org.jfree.util.PublicCloneable;
 

@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.chart.editor;
-
 import java.awt.BasicStroke;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -55,7 +53,7 @@ import javax.swing.JComponent;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 
-import org.jfree.chart.plot.ColorPalette;
+import ColorPalette;
 
 
 /**

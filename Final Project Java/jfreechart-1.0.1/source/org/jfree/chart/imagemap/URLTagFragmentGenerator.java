@@ -38,8 +38,6 @@
  * 12-Aug-2003 : Version 1 (RA);
  * 
  */
- 
-package org.jfree.chart.imagemap;
 
 /**
  * Interface for generating the URL fragment of an HTML image map area tag.

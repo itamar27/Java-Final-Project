@@ -55,8 +55,6 @@
  * 
  */
 
-package org.jfree.chart.axis;
-
 import java.io.Serializable;
 import java.text.NumberFormat;
 import java.util.ArrayList;

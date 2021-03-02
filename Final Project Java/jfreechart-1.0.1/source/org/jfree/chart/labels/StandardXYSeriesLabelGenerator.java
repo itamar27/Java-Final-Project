@@ -40,17 +40,15 @@
  *
  */
 
-package org.jfree.chart.labels;
-
 import java.io.Serializable;
 import java.text.MessageFormat;
 
-import org.jfree.data.xy.XYDataset;
+import XYDataset;
 import org.jfree.util.PublicCloneable;
 
 /**
  * A standard series label generator for plots that use data from 
- * an {@link org.jfree.data.xy.XYDataset}.
+ * an {@link XYDataset}.
  */
 public class StandardXYSeriesLabelGenerator implements XYSeriesLabelGenerator, 
                                                        Cloneable, 

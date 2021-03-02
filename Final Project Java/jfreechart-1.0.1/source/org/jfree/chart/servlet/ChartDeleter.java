@@ -40,7 +40,6 @@
  * 17-Oct-2002 : Fixed errors reported by Checkstyle (DG);
  *
  */
-package org.jfree.chart.servlet;
 
 import java.io.File;
 import java.util.Iterator;

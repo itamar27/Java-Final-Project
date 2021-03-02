@@ -44,8 +44,6 @@
  *
  */
 
-package org.jfree.chart.renderer.category.junit;
-
 import java.awt.Color;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -58,11 +56,11 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
-import org.jfree.chart.labels.ItemLabelAnchor;
-import org.jfree.chart.labels.ItemLabelPosition;
-import org.jfree.chart.labels.StandardCategoryItemLabelGenerator;
+import ItemLabelAnchor;
+import ItemLabelPosition;
+import StandardCategoryItemLabelGenerator;
 import org.jfree.chart.renderer.category.BarRenderer;
-import org.jfree.chart.renderer.junit.RendererChangeDetector;
+import RendererChangeDetector;
 import org.jfree.ui.GradientPaintTransformType;
 import org.jfree.ui.StandardGradientPaintTransformer;
 import org.jfree.ui.TextAnchor;

@@ -47,8 +47,6 @@
  * 
  */
 
-package org.jfree.data.xy;
-
 import org.jfree.data.DomainOrder;
 import org.jfree.data.general.SeriesDataset;
 

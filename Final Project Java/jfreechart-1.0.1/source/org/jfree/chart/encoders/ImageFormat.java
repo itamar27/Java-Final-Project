@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.chart.encoders;
-
 /**
  * Interface used for referencing different image formats.
  *

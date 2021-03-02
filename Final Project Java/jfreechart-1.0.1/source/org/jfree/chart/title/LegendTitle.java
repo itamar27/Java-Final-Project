@@ -51,8 +51,6 @@
  * 
  */
 
-package org.jfree.chart.title;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
@@ -66,16 +64,16 @@ import java.io.Serializable;
 import org.jfree.chart.LegendItem;
 import org.jfree.chart.LegendItemCollection;
 import org.jfree.chart.LegendItemSource;
-import org.jfree.chart.block.Arrangement;
-import org.jfree.chart.block.Block;
-import org.jfree.chart.block.BlockContainer;
-import org.jfree.chart.block.BorderArrangement;
-import org.jfree.chart.block.CenterArrangement;
-import org.jfree.chart.block.ColumnArrangement;
-import org.jfree.chart.block.FlowArrangement;
-import org.jfree.chart.block.LabelBlock;
-import org.jfree.chart.block.RectangleConstraint;
-import org.jfree.chart.event.TitleChangeEvent;
+import Arrangement;
+import Block;
+import BlockContainer;
+import BorderArrangement;
+import CenterArrangement;
+import ColumnArrangement;
+import FlowArrangement;
+import LabelBlock;
+import RectangleConstraint;
+import TitleChangeEvent;
 import org.jfree.io.SerialUtilities;
 import org.jfree.ui.RectangleAnchor;
 import org.jfree.ui.RectangleEdge;
@@ -490,7 +488,7 @@ public class LegendTitle extends Title
      * @param area  the area.
      * @param params  ignored (<code>null</code> permitted).
      * 
-     * @return An {@link org.jfree.chart.block.EntityBlockResult} or 
+     * @return An {@link EntityBlockResult} or
      *         <code>null</code>.
      */
     public Object draw(Graphics2D g2, Rectangle2D area, Object params) {

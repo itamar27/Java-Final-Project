@@ -49,30 +49,28 @@
  *
  */
 
-package org.jfree.chart.junit;
-
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 import org.jfree.chart.annotations.junit.AnnotationsPackageTests;
-import org.jfree.chart.axis.junit.AxisPackageTests;
-import org.jfree.chart.block.junit.BlockPackageTests;
+import AxisPackageTests;
+import BlockPackageTests;
 import org.jfree.chart.entity.junit.EntityPackageTests;
 import org.jfree.chart.labels.junit.LabelsPackageTests;
 import org.jfree.chart.needle.junit.NeedlePackageTests;
-import org.jfree.chart.plot.junit.PlotPackageTests;
+import PlotPackageTests;
 import org.jfree.chart.renderer.category.junit.RendererCategoryPackageTests;
 import org.jfree.chart.renderer.junit.RendererPackageTests;
 import org.jfree.chart.renderer.xy.junit.RendererXYPackageTests;
 import org.jfree.chart.title.junit.TitlePackageTests;
-import org.jfree.chart.urls.junit.UrlsPackageTests;
-import org.jfree.data.category.junit.DataCategoryPackageTests;
-import org.jfree.data.gantt.junit.DataGanttPackageTests;
-import org.jfree.data.junit.DataPackageTests;
-import org.jfree.data.statistics.junit.DataStatisticsPackageTests;
-import org.jfree.data.time.junit.DataTimePackageTests;
-import org.jfree.data.xy.junit.DataXYPackageTests;
+import UrlsPackageTests;
+import DataCategoryPackageTests;
+import DataGanttPackageTests;
+import DataPackageTests;
+import DataStatisticsPackageTests;
+import DataTimePackageTests;
+import DataXYPackageTests;
 
 /**
  * A test suite for the JFreeChart class library that can be run using

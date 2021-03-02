@@ -49,8 +49,6 @@
  *
  */
 
-package org.jfree.data.general;
-
 /**
  * The base interface for data sets.
  * <P>

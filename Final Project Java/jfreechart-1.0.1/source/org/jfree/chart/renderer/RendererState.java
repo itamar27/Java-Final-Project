@@ -42,11 +42,9 @@
  *
  */
 
-package org.jfree.chart.renderer;
-
 import org.jfree.chart.ChartRenderingInfo;
-import org.jfree.chart.entity.EntityCollection;
-import org.jfree.chart.plot.PlotRenderingInfo;
+import EntityCollection;
+import PlotRenderingInfo;
 
 /**
  * Represents the current state of a renderer.

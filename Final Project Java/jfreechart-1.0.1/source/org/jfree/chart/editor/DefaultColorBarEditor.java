@@ -45,8 +45,6 @@
  *
  */
 
-package org.jfree.chart.editor;
-
 import java.awt.event.ActionEvent;
 import java.util.ResourceBundle;
 
@@ -58,10 +56,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
-import org.jfree.chart.axis.ColorBar;
-import org.jfree.chart.axis.NumberAxis;
-import org.jfree.chart.plot.GreyPalette;
-import org.jfree.chart.plot.RainbowPalette;
+import ColorBar;
+import NumberAxis;
+import GreyPalette;
+import RainbowPalette;
 import org.jfree.layout.LCBLayout;
 
 

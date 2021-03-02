@@ -40,18 +40,16 @@
  *
  */
 
-package org.jfree.chart.renderer.xy.junit;
-
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 import org.jfree.chart.renderer.xy.AbstractXYItemRenderer;
 import org.jfree.chart.renderer.xy.StandardXYItemRenderer;
-import org.jfree.data.Range;
-import org.jfree.data.xy.XYDataset;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
+import Range;
+import XYDataset;
+import XYSeries;
+import XYSeriesCollection;
 
 /**
  * Tests for the {@link AbstractXYItemRenderer} class.

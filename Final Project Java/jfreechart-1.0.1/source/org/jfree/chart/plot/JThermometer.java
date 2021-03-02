@@ -44,8 +44,6 @@
  *
  */
 
-package org.jfree.chart.plot;
-
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Font;
@@ -57,10 +55,10 @@ import javax.swing.JPanel;
 
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.axis.ValueAxis;
+import ValueAxis;
 import org.jfree.chart.title.TextTitle;
 import org.jfree.chart.title.Title;
-import org.jfree.data.general.DefaultValueDataset;
+import DefaultValueDataset;
 import org.jfree.ui.RectangleInsets;
 
 /**

@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.data.xy.junit;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInput;

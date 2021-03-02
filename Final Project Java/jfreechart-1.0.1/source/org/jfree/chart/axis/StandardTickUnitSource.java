@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.chart.axis;
-
 import java.text.DecimalFormat;
 
 /**

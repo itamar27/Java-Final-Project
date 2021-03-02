@@ -42,8 +42,6 @@
  *
  */
 
-package org.jfree.chart;
-
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.WindowConstants;

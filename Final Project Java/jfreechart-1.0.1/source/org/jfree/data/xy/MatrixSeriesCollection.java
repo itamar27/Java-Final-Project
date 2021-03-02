@@ -41,8 +41,6 @@
  * 15-Jul-2004 : Switched getZ() and getZValue() methods (DG);
  *
  */
- 
-package org.jfree.data.xy;
 
 import java.io.Serializable;
 import java.util.List;
@@ -55,7 +53,7 @@ import org.jfree.util.ObjectUtilities;
  *
  * @author Barak Naveh
  *
- * @see org.jfree.data.xy.MatrixSeries
+ * @see MatrixSeries
  */
 public class MatrixSeriesCollection extends AbstractXYZDataset
                                     implements XYZDataset, Serializable {
@@ -151,7 +149,7 @@ public class MatrixSeriesCollection extends AbstractXYZDataset
      *
      * @return The j index value for the specified matrix item.
      *
-     * @see org.jfree.data.xy.XYDataset#getXValue(int, int)
+     * @see XYDataset#getXValue(int, int)
      */
     public Number getX(int seriesIndex, int itemIndex) {
         MatrixSeries series = (MatrixSeries) this.seriesList.get(seriesIndex);
@@ -170,7 +168,7 @@ public class MatrixSeriesCollection extends AbstractXYZDataset
      *
      * @return The i index value for the specified matrix item.
      *
-     * @see org.jfree.data.xy.XYDataset#getYValue(int, int)
+     * @see XYDataset#getYValue(int, int)
      */
     public Number getY(int seriesIndex, int itemIndex) {
         MatrixSeries series = (MatrixSeries) this.seriesList.get(seriesIndex);
@@ -189,7 +187,7 @@ public class MatrixSeriesCollection extends AbstractXYZDataset
      *
      * @return The Mij item value for the specified matrix item.
      *
-     * @see org.jfree.data.xy.XYZDataset#getZValue(int, int)
+     * @see XYZDataset#getZValue(int, int)
      */
     public Number getZ(int seriesIndex, int itemIndex) {
         MatrixSeries series = (MatrixSeries) this.seriesList.get(seriesIndex);

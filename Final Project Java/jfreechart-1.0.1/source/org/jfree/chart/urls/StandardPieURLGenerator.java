@@ -46,12 +46,10 @@
  * 13-Jan-2005 : Fixed for compliance with XHTML 1.0 (DG):
  *
  */
- 
-package org.jfree.chart.urls;
 
 import java.io.Serializable;
 
-import org.jfree.data.general.PieDataset;
+import PieDataset;
 
 /**
  * A URL generator for pie charts.

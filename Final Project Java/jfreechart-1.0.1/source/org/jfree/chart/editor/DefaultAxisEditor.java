@@ -41,8 +41,6 @@
  *
  */
 
-package org.jfree.chart.editor;
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
@@ -61,8 +59,8 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
-import org.jfree.chart.axis.Axis;
-import org.jfree.chart.axis.NumberAxis;
+import Axis;
+import NumberAxis;
 import org.jfree.layout.LCBLayout;
 import org.jfree.ui.FontChooserPanel;
 import org.jfree.ui.FontDisplayField;

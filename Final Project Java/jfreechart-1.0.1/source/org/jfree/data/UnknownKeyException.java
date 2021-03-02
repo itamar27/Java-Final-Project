@@ -40,8 +40,6 @@
  * 
  */
 
-package org.jfree.data;
-
 /**
  * An exception that indicates an unknown key value.
  */

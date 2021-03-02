@@ -40,8 +40,6 @@
  * 
  */
 
-package org.jfree.chart.plot.junit;
-
 import org.jfree.chart.event.PlotChangeEvent;
 import org.jfree.chart.event.PlotChangeListener;
 

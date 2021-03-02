@@ -43,8 +43,6 @@
  *
  */
 
-package org.jfree.chart.renderer.xy.junit;
-
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.GradientPaint;
@@ -62,18 +60,18 @@ import junit.framework.TestSuite;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.axis.CategoryAxis;
-import org.jfree.chart.axis.NumberAxis;
-import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.plot.XYPlot;
+import CategoryAxis;
+import NumberAxis;
+import CategoryPlot;
+import PlotOrientation;
+import XYPlot;
 import org.jfree.chart.renderer.category.LayeredBarRenderer;
 import org.jfree.chart.renderer.xy.StackedXYAreaRenderer;
-import org.jfree.data.Range;
-import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.data.xy.DefaultTableXYDataset;
-import org.jfree.data.xy.TableXYDataset;
-import org.jfree.data.xy.XYSeries;
+import Range;
+import DefaultCategoryDataset;
+import DefaultTableXYDataset;
+import TableXYDataset;
+import XYSeries;
 
 /**
  * Tests for the {@link StackedXYAreaRenderer} class.

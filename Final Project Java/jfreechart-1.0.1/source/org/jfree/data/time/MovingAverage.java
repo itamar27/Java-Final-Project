@@ -48,11 +48,9 @@
  *
  */
 
-package org.jfree.data.time;
-
-import org.jfree.data.xy.XYDataset;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
+import XYDataset;
+import XYSeries;
+import XYSeriesCollection;
 
 /**
  * A utility class for calculating moving averages of time series data.

@@ -41,8 +41,6 @@
  * 
  */
 
-package org.jfree.chart.title.junit;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GradientPaint;
@@ -57,7 +55,7 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
-import org.jfree.chart.plot.XYPlot;
+import XYPlot;
 import org.jfree.chart.title.LegendTitle;
 import org.jfree.ui.RectangleAnchor;
 import org.jfree.ui.RectangleEdge;

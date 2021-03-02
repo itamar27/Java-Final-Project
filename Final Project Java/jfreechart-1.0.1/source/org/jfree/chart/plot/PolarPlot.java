@@ -44,8 +44,6 @@
  *
  */
 
-package org.jfree.chart.plot;
-
 import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -70,17 +68,17 @@ import java.util.ResourceBundle;
 
 import org.jfree.chart.LegendItem;
 import org.jfree.chart.LegendItemCollection;
-import org.jfree.chart.axis.AxisState;
-import org.jfree.chart.axis.NumberTick;
-import org.jfree.chart.axis.ValueAxis;
+import AxisState;
+import NumberTick;
+import ValueAxis;
 import org.jfree.chart.event.PlotChangeEvent;
 import org.jfree.chart.event.RendererChangeEvent;
 import org.jfree.chart.event.RendererChangeListener;
 import org.jfree.chart.renderer.PolarItemRenderer;
-import org.jfree.data.Range;
-import org.jfree.data.general.DatasetChangeEvent;
-import org.jfree.data.general.DatasetUtilities;
-import org.jfree.data.xy.XYDataset;
+import Range;
+import DatasetChangeEvent;
+import DatasetUtilities;
+import XYDataset;
 import org.jfree.io.SerialUtilities;
 import org.jfree.text.TextUtilities;
 import org.jfree.ui.RectangleEdge;

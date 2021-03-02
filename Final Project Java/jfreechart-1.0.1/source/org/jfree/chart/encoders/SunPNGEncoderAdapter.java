@@ -39,7 +39,6 @@
  * 01-Aug-2004 : Initial version (RA);
  *
  */
-package org.jfree.chart.encoders;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;

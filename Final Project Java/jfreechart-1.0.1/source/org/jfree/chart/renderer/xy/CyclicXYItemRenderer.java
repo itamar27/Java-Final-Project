@@ -44,23 +44,21 @@
  * 
  */
 
-package org.jfree.chart.renderer.xy;
-
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
 import java.io.Serializable;
 
-import org.jfree.chart.axis.CyclicNumberAxis;
-import org.jfree.chart.axis.ValueAxis;
-import org.jfree.chart.labels.XYToolTipGenerator;
-import org.jfree.chart.plot.CrosshairState;
-import org.jfree.chart.plot.PlotRenderingInfo;
-import org.jfree.chart.plot.XYPlot;
-import org.jfree.chart.urls.XYURLGenerator;
-import org.jfree.data.DomainOrder;
-import org.jfree.data.general.DatasetChangeListener;
-import org.jfree.data.general.DatasetGroup;
-import org.jfree.data.xy.XYDataset;
+import CyclicNumberAxis;
+import ValueAxis;
+import XYToolTipGenerator;
+import CrosshairState;
+import PlotRenderingInfo;
+import XYPlot;
+import XYURLGenerator;
+import DomainOrder;
+import DatasetChangeListener;
+import DatasetGroup;
+import XYDataset;
 
 /**
  * The Cyclic XY item renderer is specially designed to handle cyclic axis. 

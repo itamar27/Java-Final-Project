@@ -41,8 +41,6 @@
  *
  */
 
-package org.jfree.chart.plot.junit;
-
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
@@ -59,7 +57,7 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
-import org.jfree.chart.axis.NumberAxis;
+import NumberAxis;
 import org.jfree.chart.plot.PolarPlot;
 
 /**

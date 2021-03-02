@@ -47,8 +47,6 @@
  * 
  */
 
-package org.jfree.chart.renderer.xy;
-
 import java.awt.Graphics2D;
 import java.awt.Paint;
 import java.awt.Polygon;
@@ -57,17 +55,17 @@ import java.awt.Stroke;
 import java.awt.geom.Rectangle2D;
 import java.io.Serializable;
 
-import org.jfree.chart.axis.ValueAxis;
-import org.jfree.chart.entity.EntityCollection;
-import org.jfree.chart.entity.XYItemEntity;
-import org.jfree.chart.event.RendererChangeEvent;
-import org.jfree.chart.labels.XYToolTipGenerator;
-import org.jfree.chart.plot.CrosshairState;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.plot.PlotRenderingInfo;
-import org.jfree.chart.plot.XYPlot;
-import org.jfree.chart.urls.XYURLGenerator;
-import org.jfree.data.xy.XYDataset;
+import ValueAxis;
+import EntityCollection;
+import XYItemEntity;
+import RendererChangeEvent;
+import XYToolTipGenerator;
+import CrosshairState;
+import PlotOrientation;
+import PlotRenderingInfo;
+import XYPlot;
+import XYURLGenerator;
+import XYDataset;
 import org.jfree.util.PublicCloneable;
 import org.jfree.util.ShapeUtilities;
 

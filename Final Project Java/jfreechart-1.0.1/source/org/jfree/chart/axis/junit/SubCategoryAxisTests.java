@@ -41,8 +41,6 @@
  *
  */
 
-package org.jfree.chart.axis.junit;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.io.ByteArrayInputStream;

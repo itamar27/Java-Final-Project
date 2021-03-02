@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.chart.labels.junit;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInput;
@@ -58,8 +56,8 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 import org.jfree.chart.labels.BubbleXYItemLabelGenerator;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
+import XYSeries;
+import XYSeriesCollection;
 
 /**
  * Tests for the {@link BubbleXYItemLabelGenerator} class.

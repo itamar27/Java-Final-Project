@@ -48,8 +48,6 @@
  *
  */
 
-package org.jfree.chart.axis;
-
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
@@ -67,7 +65,7 @@ import java.util.List;
 
 import org.jfree.chart.plot.Plot;
 import org.jfree.chart.plot.PlotRenderingInfo;
-import org.jfree.data.Range;
+import Range;
 import org.jfree.io.SerialUtilities;
 import org.jfree.text.TextUtilities;
 import org.jfree.ui.RectangleEdge;
@@ -855,7 +853,7 @@ public class CyclicNumberAxis extends NumberAxis {
      * @param size  the size.
      * @param notify  notify?
      * 
-     * @see org.jfree.chart.axis.ValueAxis#setAutoRangeMinimumSize(double, 
+     * @see ValueAxis#setAutoRangeMinimumSize(double,
      *      boolean)
      */
     public void setAutoRangeMinimumSize(double size, boolean notify) {
@@ -871,7 +869,7 @@ public class CyclicNumberAxis extends NumberAxis {
      * 
      * @param length  the length.
      * 
-     * @see org.jfree.chart.axis.ValueAxis#setFixedAutoRange(double)
+     * @see ValueAxis#setFixedAutoRange(double)
      */
     public void setFixedAutoRange(double length) {
         this.period = length;
@@ -886,7 +884,7 @@ public class CyclicNumberAxis extends NumberAxis {
      * @param turnOffAutoRange  switch off the auto range.
      * @param notify notify?
      * 
-     * @see org.jfree.chart.axis.ValueAxis#setRange(Range, boolean, boolean) 
+     * @see ValueAxis#setRange(Range, boolean, boolean)
      */
     public void setRange(Range range, boolean turnOffAutoRange, 
                          boolean notify) {

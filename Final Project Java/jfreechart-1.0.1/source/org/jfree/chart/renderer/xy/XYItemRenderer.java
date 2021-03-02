@@ -79,8 +79,6 @@
  *
  */
 
-package org.jfree.chart.renderer.xy;
-
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.Paint;
@@ -91,20 +89,20 @@ import java.awt.geom.Rectangle2D;
 import org.jfree.chart.LegendItem;
 import org.jfree.chart.LegendItemSource;
 import org.jfree.chart.annotations.XYAnnotation;
-import org.jfree.chart.axis.ValueAxis;
-import org.jfree.chart.event.RendererChangeEvent;
-import org.jfree.chart.event.RendererChangeListener;
-import org.jfree.chart.labels.ItemLabelPosition;
-import org.jfree.chart.labels.XYItemLabelGenerator;
-import org.jfree.chart.labels.XYSeriesLabelGenerator;
-import org.jfree.chart.labels.XYToolTipGenerator;
-import org.jfree.chart.plot.CrosshairState;
-import org.jfree.chart.plot.Marker;
-import org.jfree.chart.plot.PlotRenderingInfo;
-import org.jfree.chart.plot.XYPlot;
-import org.jfree.chart.urls.XYURLGenerator;
-import org.jfree.data.Range;
-import org.jfree.data.xy.XYDataset;
+import ValueAxis;
+import RendererChangeEvent;
+import RendererChangeListener;
+import ItemLabelPosition;
+import XYItemLabelGenerator;
+import XYSeriesLabelGenerator;
+import XYToolTipGenerator;
+import CrosshairState;
+import Marker;
+import PlotRenderingInfo;
+import XYPlot;
+import XYURLGenerator;
+import Range;
+import XYDataset;
 import org.jfree.ui.Layer;
 
 /**

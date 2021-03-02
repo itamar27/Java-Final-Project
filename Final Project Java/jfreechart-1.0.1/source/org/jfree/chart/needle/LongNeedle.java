@@ -43,8 +43,6 @@
  * 16-Mar-2004 : Implemented Rotation
  */
 
-package org.jfree.chart.needle;
-
 import java.awt.Graphics2D;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Point2D;

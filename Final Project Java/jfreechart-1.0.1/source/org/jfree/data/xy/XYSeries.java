@@ -69,8 +69,6 @@
  * 
  */
 
-package org.jfree.data.xy;
-
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;

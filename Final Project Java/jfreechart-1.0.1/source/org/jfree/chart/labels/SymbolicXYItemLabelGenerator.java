@@ -47,15 +47,13 @@
  *
  */
 
-package org.jfree.chart.labels;
-
 import java.io.Serializable;
 
-import org.jfree.data.time.RegularTimePeriod;
-import org.jfree.data.time.TimeSeriesCollection;
-import org.jfree.data.xy.XYDataset;
-import org.jfree.data.xy.XisSymbolic;
-import org.jfree.data.xy.YisSymbolic;
+import RegularTimePeriod;
+import TimeSeriesCollection;
+import XYDataset;
+import XisSymbolic;
+import YisSymbolic;
 import org.jfree.util.PublicCloneable;
 
 /**

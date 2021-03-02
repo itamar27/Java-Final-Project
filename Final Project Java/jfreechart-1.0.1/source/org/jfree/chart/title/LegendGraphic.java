@@ -45,8 +45,6 @@
  * 
  */
 
-package org.jfree.chart.title;
-
 import java.awt.Graphics2D;
 import java.awt.Paint;
 import java.awt.Shape;
@@ -57,10 +55,10 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-import org.jfree.chart.block.AbstractBlock;
-import org.jfree.chart.block.Block;
-import org.jfree.chart.block.LengthConstraintType;
-import org.jfree.chart.block.RectangleConstraint;
+import AbstractBlock;
+import Block;
+import LengthConstraintType;
+import RectangleConstraint;
 import org.jfree.io.SerialUtilities;
 import org.jfree.ui.RectangleAnchor;
 import org.jfree.ui.Size2D;

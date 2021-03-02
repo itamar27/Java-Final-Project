@@ -39,8 +39,6 @@
  * 24-Nov-2005 : Version 1, based on NumberAxisPropertyEditor (DG);
  */
 
-package org.jfree.chart.editor;
-
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -57,8 +55,8 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
-import org.jfree.chart.axis.Axis;
-import org.jfree.chart.axis.NumberAxis;
+import Axis;
+import NumberAxis;
 import org.jfree.layout.LCBLayout;
 import org.jfree.ui.PaintSample;
 import org.jfree.ui.StrokeChooserPanel;

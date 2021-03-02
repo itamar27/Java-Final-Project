@@ -42,8 +42,6 @@
  *
  */
 
-package org.jfree.data.time.junit;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInput;

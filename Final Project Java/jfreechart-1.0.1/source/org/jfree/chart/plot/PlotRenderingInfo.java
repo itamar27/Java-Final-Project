@@ -42,8 +42,6 @@
  * 01-Nov-2005 : Made 'owner' non-transient to fix bug 1344048 (DG);
  *
  */
- 
-package org.jfree.chart.plot;
 
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;

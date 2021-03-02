@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.chart.axis.junit;
-
 import java.awt.Color;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

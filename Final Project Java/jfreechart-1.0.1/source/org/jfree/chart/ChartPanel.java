@@ -124,8 +124,6 @@
  *
  */
 
-package org.jfree.chart;
-
 import java.awt.AWTEvent;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -161,19 +159,19 @@ import javax.swing.JPopupMenu;
 import javax.swing.ToolTipManager;
 import javax.swing.event.EventListenerList;
 
-import org.jfree.chart.editor.ChartEditor;
-import org.jfree.chart.editor.ChartEditorManager;
-import org.jfree.chart.entity.ChartEntity;
-import org.jfree.chart.entity.EntityCollection;
-import org.jfree.chart.event.ChartChangeEvent;
-import org.jfree.chart.event.ChartChangeListener;
-import org.jfree.chart.event.ChartProgressEvent;
-import org.jfree.chart.event.ChartProgressListener;
-import org.jfree.chart.plot.Plot;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.plot.PlotRenderingInfo;
-import org.jfree.chart.plot.ValueAxisPlot;
-import org.jfree.chart.plot.Zoomable;
+import ChartEditor;
+import ChartEditorManager;
+import ChartEntity;
+import EntityCollection;
+import ChartChangeEvent;
+import ChartChangeListener;
+import ChartProgressEvent;
+import ChartProgressListener;
+import Plot;
+import PlotOrientation;
+import PlotRenderingInfo;
+import ValueAxisPlot;
+import Zoomable;
 import org.jfree.ui.ExtensionFileFilter;
 
 /**

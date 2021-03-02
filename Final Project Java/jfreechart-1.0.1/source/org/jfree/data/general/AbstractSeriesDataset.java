@@ -44,8 +44,6 @@
  *
  */
 
-package org.jfree.data.general;
-
 import java.io.Serializable;
 
 /**

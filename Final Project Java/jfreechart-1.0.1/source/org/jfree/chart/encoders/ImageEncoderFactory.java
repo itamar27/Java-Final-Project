@@ -43,8 +43,6 @@
  *
  */
 
-package org.jfree.chart.encoders;
-
 import java.util.Hashtable;
 
 /**

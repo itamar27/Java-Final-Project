@@ -42,10 +42,8 @@
  *
  */
 
-package org.jfree.data.contour;
-
 import org.jfree.data.Range;
-import org.jfree.data.xy.XYZDataset;
+import XYZDataset;
 
 /**
  * The interface through which JFreeChart obtains data in the form of (x, y, z) 

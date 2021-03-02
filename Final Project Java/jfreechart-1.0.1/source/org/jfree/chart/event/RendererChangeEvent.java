@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.chart.event;
-
 /**
  * An event that can be forwarded to any 
  * {@link org.jfree.chart.event.RendererChangeListener} to signal a change to 

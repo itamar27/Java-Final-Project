@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.data.contour;
-
 import org.jfree.data.Range;
 
 /**

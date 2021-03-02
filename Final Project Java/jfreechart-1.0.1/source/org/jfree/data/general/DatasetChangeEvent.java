@@ -47,8 +47,6 @@
  *
  */
 
-package org.jfree.data.general;
-
 /**
  * A change event that encapsulates information about a change to a dataset.
  */

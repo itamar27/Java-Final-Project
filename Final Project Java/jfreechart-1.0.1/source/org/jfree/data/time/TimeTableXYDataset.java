@@ -50,8 +50,6 @@
  *
  */
 
-package org.jfree.data.time;
-
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
@@ -61,16 +59,16 @@ import org.jfree.data.DefaultKeyedValues2D;
 import org.jfree.data.DomainInfo;
 import org.jfree.data.Range;
 import org.jfree.data.general.DatasetChangeEvent;
-import org.jfree.data.xy.AbstractIntervalXYDataset;
-import org.jfree.data.xy.IntervalXYDataset;
-import org.jfree.data.xy.TableXYDataset;
+import AbstractIntervalXYDataset;
+import IntervalXYDataset;
+import TableXYDataset;
 import org.jfree.util.PublicCloneable;
 
 /**
  * A dataset for regular time periods that implements the 
  * {@link TableXYDataset} interface.
  * 
- * @see org.jfree.data.xy.TableXYDataset
+ * @see TableXYDataset
  * @author andreas.schroeder
  */
 public class TimeTableXYDataset extends AbstractIntervalXYDataset
@@ -97,7 +95,7 @@ public class TimeTableXYDataset extends AbstractIntervalXYDataset
     
     /** 
      * The point within each time period that is used for the X value when this
-     * collection is used as an {@link org.jfree.data.xy.XYDataset}.  This can 
+     * collection is used as an {@link XYDataset}.  This can
      * be the start, middle or end of the time period.   
      */
     private TimePeriodAnchor xPosition;

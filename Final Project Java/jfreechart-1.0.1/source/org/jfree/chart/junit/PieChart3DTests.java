@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.chart.junit;
-
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
@@ -52,11 +50,11 @@ import junit.framework.TestSuite;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.event.ChartChangeEvent;
-import org.jfree.chart.event.ChartChangeListener;
-import org.jfree.chart.plot.PiePlot;
-import org.jfree.data.general.DefaultPieDataset;
-import org.jfree.data.general.PieDataset;
+import ChartChangeEvent;
+import ChartChangeListener;
+import PiePlot;
+import DefaultPieDataset;
+import PieDataset;
 
 /**
  * Tests for a pie chart with a 3D effect.

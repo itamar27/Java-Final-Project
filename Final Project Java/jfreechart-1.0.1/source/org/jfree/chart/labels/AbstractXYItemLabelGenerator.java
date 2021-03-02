@@ -48,15 +48,13 @@
  * 26-Jan-2006 : Minor API doc update (DG);
  */
 
-package org.jfree.chart.labels;
-
 import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.MessageFormat;
 import java.text.NumberFormat;
 import java.util.Date;
 
-import org.jfree.data.xy.XYDataset;
+import XYDataset;
 import org.jfree.util.ObjectUtilities;
 
 /**

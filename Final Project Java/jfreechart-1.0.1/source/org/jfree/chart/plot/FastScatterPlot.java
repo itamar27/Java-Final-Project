@@ -56,8 +56,6 @@
  *
  */
 
-package org.jfree.chart.plot;
-
 import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -77,12 +75,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import org.jfree.chart.axis.AxisSpace;
-import org.jfree.chart.axis.AxisState;
-import org.jfree.chart.axis.ValueAxis;
-import org.jfree.chart.axis.ValueTick;
+import AxisSpace;
+import AxisState;
+import ValueAxis;
+import ValueTick;
 import org.jfree.chart.event.PlotChangeEvent;
-import org.jfree.data.Range;
+import Range;
 import org.jfree.io.SerialUtilities;
 import org.jfree.ui.RectangleEdge;
 import org.jfree.ui.RectangleInsets;

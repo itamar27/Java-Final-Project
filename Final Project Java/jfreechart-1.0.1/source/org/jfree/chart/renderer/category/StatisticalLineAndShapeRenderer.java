@@ -42,8 +42,6 @@
  *  
  */
 
-package org.jfree.chart.renderer.category;
-
 import java.awt.Graphics2D;
 import java.awt.Paint;
 import java.awt.Shape;
@@ -54,16 +52,16 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-import org.jfree.chart.axis.CategoryAxis;
-import org.jfree.chart.axis.ValueAxis;
-import org.jfree.chart.entity.CategoryItemEntity;
-import org.jfree.chart.entity.EntityCollection;
-import org.jfree.chart.event.RendererChangeEvent;
-import org.jfree.chart.labels.CategoryToolTipGenerator;
-import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.category.CategoryDataset;
-import org.jfree.data.statistics.StatisticalCategoryDataset;
+import CategoryAxis;
+import ValueAxis;
+import CategoryItemEntity;
+import EntityCollection;
+import RendererChangeEvent;
+import CategoryToolTipGenerator;
+import CategoryPlot;
+import PlotOrientation;
+import CategoryDataset;
+import StatisticalCategoryDataset;
 import org.jfree.io.SerialUtilities;
 import org.jfree.ui.RectangleEdge;
 import org.jfree.util.PaintUtilities;

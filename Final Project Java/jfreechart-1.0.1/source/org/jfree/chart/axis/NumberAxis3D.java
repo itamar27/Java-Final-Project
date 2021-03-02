@@ -67,8 +67,6 @@
  *
  */
 
-package org.jfree.chart.axis;
-
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
 import java.io.Serializable;

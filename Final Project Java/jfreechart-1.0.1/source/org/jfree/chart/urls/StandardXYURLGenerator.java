@@ -46,11 +46,9 @@
  *
  */
 
-package org.jfree.chart.urls;
-
 import java.io.Serializable;
 
-import org.jfree.data.xy.XYDataset;
+import XYDataset;
 import org.jfree.util.ObjectUtilities;
 
 /**

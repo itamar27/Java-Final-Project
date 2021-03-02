@@ -41,8 +41,6 @@
  *
  */
 
-package org.jfree.chart.axis.junit;
-
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Stroke;
@@ -62,12 +60,12 @@ import junit.framework.TestSuite;
 
 import org.jfree.chart.axis.PeriodAxis;
 import org.jfree.chart.axis.PeriodAxisLabelInfo;
-import org.jfree.data.time.Day;
-import org.jfree.data.time.Minute;
-import org.jfree.data.time.Month;
-import org.jfree.data.time.Quarter;
-import org.jfree.data.time.Second;
-import org.jfree.data.time.Year;
+import Day;
+import Minute;
+import Month;
+import Quarter;
+import Second;
+import Year;
 
 /**
  * Tests for the {@link PeriodAxis} class.

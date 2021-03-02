@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.chart.block.junit;
-
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
@@ -61,7 +59,7 @@ import org.jfree.chart.block.BorderArrangement;
 import org.jfree.chart.block.EmptyBlock;
 import org.jfree.chart.block.LengthConstraintType;
 import org.jfree.chart.block.RectangleConstraint;
-import org.jfree.data.Range;
+import Range;
 import org.jfree.ui.RectangleEdge;
 import org.jfree.ui.Size2D;
 

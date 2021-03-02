@@ -49,8 +49,6 @@
  *
  */
 
-package org.jfree.chart.axis;
-
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.FontMetrics;
@@ -77,11 +75,11 @@ import org.jfree.chart.event.AxisChangeEvent;
 import org.jfree.chart.plot.Plot;
 import org.jfree.chart.plot.PlotRenderingInfo;
 import org.jfree.chart.plot.ValueAxisPlot;
-import org.jfree.data.Range;
-import org.jfree.data.time.Day;
-import org.jfree.data.time.Month;
-import org.jfree.data.time.RegularTimePeriod;
-import org.jfree.data.time.Year;
+import Range;
+import Day;
+import Month;
+import RegularTimePeriod;
+import Year;
 import org.jfree.io.SerialUtilities;
 import org.jfree.text.TextUtilities;
 import org.jfree.ui.RectangleEdge;
@@ -90,7 +88,7 @@ import org.jfree.util.PublicCloneable;
 
 /**
  * An axis that displays a date scale based on a 
- * {@link org.jfree.data.time.RegularTimePeriod}.  This axis works when
+ * {@link RegularTimePeriod}.  This axis works when
  * displayed across the bottom or top of a plot, but is broken for display at
  * the left or right of charts.
  */

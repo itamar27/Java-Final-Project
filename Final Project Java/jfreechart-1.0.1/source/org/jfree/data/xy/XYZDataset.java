@@ -42,7 +42,6 @@
  * 18-Aug-2004 : Moved from org.jfree.data --> org.jfree.data.xy (DG);
  *
  */
-package org.jfree.data.xy;
 
 
 /**

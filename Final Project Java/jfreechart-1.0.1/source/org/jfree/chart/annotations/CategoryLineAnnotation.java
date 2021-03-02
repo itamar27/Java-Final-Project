@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.chart.annotations;
-
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -53,13 +51,13 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-import org.jfree.chart.axis.CategoryAnchor;
-import org.jfree.chart.axis.CategoryAxis;
-import org.jfree.chart.axis.ValueAxis;
-import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.Plot;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.category.CategoryDataset;
+import CategoryAnchor;
+import CategoryAxis;
+import ValueAxis;
+import CategoryPlot;
+import Plot;
+import PlotOrientation;
+import CategoryDataset;
 import org.jfree.io.SerialUtilities;
 import org.jfree.ui.RectangleEdge;
 import org.jfree.util.ObjectUtilities;
@@ -67,7 +65,7 @@ import org.jfree.util.PaintUtilities;
 
 /**
  * A line annotation that can be placed on a 
- * {@link org.jfree.chart.plot.CategoryPlot}.
+ * {@link CategoryPlot}.
  */
 public class CategoryLineAnnotation implements CategoryAnnotation, 
                                                Cloneable, Serializable {

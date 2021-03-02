@@ -41,11 +41,9 @@
  * 
  */
 
-package org.jfree.chart.renderer.xy;
-
 import java.awt.geom.Line2D;
 
-import org.jfree.chart.plot.PlotRenderingInfo;
+import PlotRenderingInfo;
 import org.jfree.chart.renderer.RendererState;
 
 /**

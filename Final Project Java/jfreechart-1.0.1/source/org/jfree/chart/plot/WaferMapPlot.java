@@ -42,8 +42,6 @@
  * 16-Jun-2005 : Added default constructor and setDataset() method (DG);
  *
  */
- 
-package org.jfree.chart.plot;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -63,8 +61,8 @@ import org.jfree.chart.event.PlotChangeEvent;
 import org.jfree.chart.event.RendererChangeEvent;
 import org.jfree.chart.event.RendererChangeListener;
 import org.jfree.chart.renderer.WaferMapRenderer;
-import org.jfree.data.general.DatasetChangeEvent;
-import org.jfree.data.general.WaferMapDataset;
+import DatasetChangeEvent;
+import WaferMapDataset;
 import org.jfree.ui.RectangleInsets;
 
 /**

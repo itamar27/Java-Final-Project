@@ -44,15 +44,13 @@
  * 
  */
 
-package org.jfree.data.contour;
-
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Vector;
 
 import org.jfree.data.Range;
-import org.jfree.data.xy.AbstractXYZDataset;
-import org.jfree.data.xy.XYDataset;
+import AbstractXYZDataset;
+import XYDataset;
 
 /**
  * A convenience class that provides a default implementation of the 

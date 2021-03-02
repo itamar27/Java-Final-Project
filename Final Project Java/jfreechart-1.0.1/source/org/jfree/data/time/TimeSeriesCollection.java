@@ -77,8 +77,6 @@
  *               redundant.  Fixes bug 1243050 (DG);
  */
 
-package org.jfree.data.time;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -90,14 +88,14 @@ import java.util.TimeZone;
 import org.jfree.data.DomainInfo;
 import org.jfree.data.Range;
 import org.jfree.data.general.DatasetChangeEvent;
-import org.jfree.data.xy.AbstractIntervalXYDataset;
-import org.jfree.data.xy.IntervalXYDataset;
-import org.jfree.data.xy.XYDataset;
+import AbstractIntervalXYDataset;
+import IntervalXYDataset;
+import XYDataset;
 import org.jfree.util.ObjectUtilities;
 
 /**
  * A collection of time series objects.  This class implements the 
- * {@link org.jfree.data.xy.XYDataset} interface, as well as the extended 
+ * {@link XYDataset} interface, as well as the extended
  * {@link IntervalXYDataset} interface.  This makes it a convenient dataset for
  * use with the {@link org.jfree.chart.plot.XYPlot} class.
  */
@@ -118,7 +116,7 @@ public class TimeSeriesCollection extends AbstractIntervalXYDataset
     
     /** 
      * The point within each time period that is used for the X value when this
-     * collection is used as an {@link org.jfree.data.xy.XYDataset}.  This can 
+     * collection is used as an {@link XYDataset}.  This can
      * be the start, middle or end of the time period.   
      */
     private TimePeriodAnchor xPosition;
@@ -217,7 +215,7 @@ public class TimeSeriesCollection extends AbstractIntervalXYDataset
     /**
      * Returns the position within each time period that is used for the X 
      * value when the collection is used as an 
-     * {@link org.jfree.data.xy.XYDataset}.
+     * {@link XYDataset}.
      * 
      * @return The anchor position (never <code>null</code>).
      */

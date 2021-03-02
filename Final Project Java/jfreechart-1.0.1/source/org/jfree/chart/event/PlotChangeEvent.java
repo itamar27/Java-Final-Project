@@ -43,9 +43,7 @@
  *
  */
 
-package org.jfree.chart.event;
-
-import org.jfree.chart.plot.Plot;
+import Plot;
 
 /**
  * An event that can be forwarded to any 

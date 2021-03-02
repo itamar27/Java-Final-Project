@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.chart.plot;
-
 import java.awt.geom.Point2D;
 
 import org.jfree.chart.ChartPanel;

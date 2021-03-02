@@ -73,8 +73,6 @@
  * 
  */
 
-package org.jfree.chart.plot;
-
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Composite;
@@ -98,8 +96,8 @@ import java.util.List;
 import org.jfree.chart.entity.EntityCollection;
 import org.jfree.chart.entity.PieSectionEntity;
 import org.jfree.chart.labels.PieToolTipGenerator;
-import org.jfree.data.general.DatasetUtilities;
-import org.jfree.data.general.PieDataset;
+import DatasetUtilities;
+import PieDataset;
 import org.jfree.ui.RectangleInsets;
 
 /**

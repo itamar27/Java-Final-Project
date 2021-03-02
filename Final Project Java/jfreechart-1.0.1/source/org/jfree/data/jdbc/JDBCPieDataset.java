@@ -54,8 +54,6 @@
  * 04-Dec-2003 : Added missing Javadocs (DG);
  */
 
-package org.jfree.data.jdbc;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;

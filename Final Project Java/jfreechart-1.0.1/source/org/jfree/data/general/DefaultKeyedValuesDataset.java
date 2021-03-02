@@ -41,8 +41,6 @@
  *
  */
 
-package org.jfree.data.general;
-
 /**
  * A default implementation of the {@link KeyedValuesDataset} interface.
  */

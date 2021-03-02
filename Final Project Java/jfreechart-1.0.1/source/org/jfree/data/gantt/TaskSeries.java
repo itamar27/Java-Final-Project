@@ -44,8 +44,6 @@
  *
  */
 
-package org.jfree.data.gantt;
-
 import java.util.Collections;
 import java.util.List;
 

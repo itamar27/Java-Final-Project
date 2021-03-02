@@ -48,9 +48,7 @@
  *
  */
 
-package org.jfree.chart.labels;
-
-import org.jfree.data.xy.XYDataset;
+import XYDataset;
 
 /**
  * Interface for a label generator for plots that use data from an 

@@ -42,8 +42,6 @@
  *
  */
 
-package org.jfree.data.xy;
-
 
 /**
  * An extension of the {@link XYDataset} interface that allows a range of data 

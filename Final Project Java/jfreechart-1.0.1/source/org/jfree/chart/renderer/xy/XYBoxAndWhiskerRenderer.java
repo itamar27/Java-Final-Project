@@ -70,8 +70,6 @@
  * TO EXPERIMENT, USE drawVerticalItem()
  */
 
-package org.jfree.chart.renderer.xy;
-
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Paint;
@@ -90,21 +88,21 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-import org.jfree.chart.axis.ValueAxis;
-import org.jfree.chart.entity.EntityCollection;
-import org.jfree.chart.entity.XYItemEntity;
-import org.jfree.chart.event.RendererChangeEvent;
-import org.jfree.chart.labels.BoxAndWhiskerXYToolTipGenerator;
-import org.jfree.chart.labels.XYToolTipGenerator;
-import org.jfree.chart.plot.CrosshairState;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.plot.PlotRenderingInfo;
-import org.jfree.chart.plot.XYPlot;
+import ValueAxis;
+import EntityCollection;
+import XYItemEntity;
+import RendererChangeEvent;
+import BoxAndWhiskerXYToolTipGenerator;
+import XYToolTipGenerator;
+import CrosshairState;
+import PlotOrientation;
+import PlotRenderingInfo;
+import XYPlot;
 import org.jfree.chart.renderer.Outlier;
 import org.jfree.chart.renderer.OutlierList;
 import org.jfree.chart.renderer.OutlierListCollection;
-import org.jfree.data.statistics.BoxAndWhiskerXYDataset;
-import org.jfree.data.xy.XYDataset;
+import BoxAndWhiskerXYDataset;
+import XYDataset;
 import org.jfree.io.SerialUtilities;
 import org.jfree.ui.RectangleEdge;
 import org.jfree.util.PaintUtilities;

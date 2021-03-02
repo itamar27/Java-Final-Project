@@ -46,8 +46,6 @@
  *
  */
 
-package org.jfree.chart.annotations;
-
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -61,11 +59,11 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-import org.jfree.chart.axis.ValueAxis;
-import org.jfree.chart.plot.Plot;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.plot.PlotRenderingInfo;
-import org.jfree.chart.plot.XYPlot;
+import ValueAxis;
+import Plot;
+import PlotOrientation;
+import PlotRenderingInfo;
+import XYPlot;
 import org.jfree.io.SerialUtilities;
 import org.jfree.text.TextUtilities;
 import org.jfree.ui.RectangleEdge;
@@ -73,7 +71,7 @@ import org.jfree.util.PublicCloneable;
 
 /**
  * An arrow and label that can be placed on an 
- * {@link org.jfree.chart.plot.XYPlot}.  The arrow is drawn at a user-definable 
+ * {@link XYPlot}.  The arrow is drawn at a user-definable
  * angle so that it points towards the (x, y) location for the annotation.  
  * <p>
  * The arrow length (and its offset from the (x, y) location) is controlled by 

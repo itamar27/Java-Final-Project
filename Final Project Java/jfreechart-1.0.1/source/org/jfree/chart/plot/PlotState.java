@@ -39,7 +39,6 @@
  * 30-Oct-2003 : Version 1 (DG);
  *
  */
-package org.jfree.chart.plot;
 
 import java.util.HashMap;
 import java.util.Map;

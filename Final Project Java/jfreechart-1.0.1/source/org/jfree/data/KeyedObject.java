@@ -42,8 +42,6 @@
  *
  */
 
-package org.jfree.data;
-
 import java.io.Serializable;
 
 import org.jfree.util.ObjectUtilities;

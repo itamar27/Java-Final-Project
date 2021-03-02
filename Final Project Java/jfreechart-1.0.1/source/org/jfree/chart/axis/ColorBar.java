@@ -50,8 +50,6 @@
  *
  */
 
-package org.jfree.chart.axis;
-
 import java.awt.BasicStroke;
 import java.awt.Graphics2D;
 import java.awt.Paint;

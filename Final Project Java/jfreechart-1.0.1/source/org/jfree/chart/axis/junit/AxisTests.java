@@ -41,8 +41,6 @@
  * 07-Jan-2005 : Added hashCode() test (DG);
  */
 
-package org.jfree.chart.axis.junit;
-
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;

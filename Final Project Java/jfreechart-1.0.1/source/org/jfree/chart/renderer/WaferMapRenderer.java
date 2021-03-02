@@ -42,8 +42,6 @@
  *
  */
 
-package org.jfree.chart.renderer;
-
 import java.awt.Color;
 import java.awt.Paint;
 import java.awt.Shape;
@@ -57,9 +55,9 @@ import java.util.Set;
 
 import org.jfree.chart.LegendItem;
 import org.jfree.chart.LegendItemCollection;
-import org.jfree.chart.plot.DrawingSupplier;
-import org.jfree.chart.plot.WaferMapPlot;
-import org.jfree.data.general.WaferMapDataset;
+import DrawingSupplier;
+import WaferMapPlot;
+import WaferMapDataset;
 
 /**
  * A renderer for wafer map plots.  Provides color managment facilities.

@@ -42,14 +42,12 @@
  *
  */
 
-package org.jfree.chart.plot;
-
 import java.awt.Color;
 import java.awt.Paint;
 import java.io.Serializable;
 import java.util.Arrays;
 
-import org.jfree.chart.axis.ValueTick;
+import ValueTick;
 
 /**
  * Defines palette used in Contour Plots.

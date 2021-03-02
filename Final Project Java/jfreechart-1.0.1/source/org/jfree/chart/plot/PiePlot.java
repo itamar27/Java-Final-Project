@@ -136,8 +136,6 @@
  *               
  */
 
-package org.jfree.chart.plot;
-
 import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -168,11 +166,11 @@ import org.jfree.chart.labels.PieSectionLabelGenerator;
 import org.jfree.chart.labels.PieToolTipGenerator;
 import org.jfree.chart.labels.StandardPieSectionLabelGenerator;
 import org.jfree.chart.urls.PieURLGenerator;
-import org.jfree.data.DefaultKeyedValues;
-import org.jfree.data.KeyedValues;
-import org.jfree.data.general.DatasetChangeEvent;
-import org.jfree.data.general.DatasetUtilities;
-import org.jfree.data.general.PieDataset;
+import DefaultKeyedValues;
+import KeyedValues;
+import DatasetChangeEvent;
+import DatasetUtilities;
+import PieDataset;
 import org.jfree.io.SerialUtilities;
 import org.jfree.text.G2TextMeasurer;
 import org.jfree.text.TextBlock;
@@ -198,7 +196,7 @@ import org.jfree.util.StrokeList;
  * in a clockwise direction, but these settings can be changed;</li>
  * <li>negative values in the dataset are ignored;</li>
  * <li>there are utility methods for creating a {@link PieDataset} from a
- * {@link org.jfree.data.category.CategoryDataset};</li>
+ * {@link CategoryDataset};</li>
  * </ol>
  *
  * @see Plot

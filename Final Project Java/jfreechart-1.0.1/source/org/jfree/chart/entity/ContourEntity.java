@@ -42,8 +42,6 @@
  *
  */
 
-package org.jfree.chart.entity;
-
 import java.awt.Shape;
 import java.io.Serializable;
 

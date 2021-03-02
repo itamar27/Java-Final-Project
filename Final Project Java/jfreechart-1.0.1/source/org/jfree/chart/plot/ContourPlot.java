@@ -65,8 +65,6 @@
  * 
  */
 
-package org.jfree.chart.plot;
-
 import java.awt.AlphaComposite;
 import java.awt.Composite;
 import java.awt.Graphics2D;
@@ -89,10 +87,10 @@ import java.util.ResourceBundle;
 
 import org.jfree.chart.ClipPath;
 import org.jfree.chart.annotations.XYAnnotation;
-import org.jfree.chart.axis.AxisSpace;
-import org.jfree.chart.axis.ColorBar;
-import org.jfree.chart.axis.NumberAxis;
-import org.jfree.chart.axis.ValueAxis;
+import AxisSpace;
+import ColorBar;
+import NumberAxis;
+import ValueAxis;
 import org.jfree.chart.entity.ContourEntity;
 import org.jfree.chart.entity.EntityCollection;
 import org.jfree.chart.event.AxisChangeEvent;
@@ -100,10 +98,10 @@ import org.jfree.chart.event.PlotChangeEvent;
 import org.jfree.chart.labels.ContourToolTipGenerator;
 import org.jfree.chart.labels.StandardContourToolTipGenerator;
 import org.jfree.chart.urls.XYURLGenerator;
-import org.jfree.data.Range;
-import org.jfree.data.contour.ContourDataset;
-import org.jfree.data.general.DatasetChangeEvent;
-import org.jfree.data.general.DatasetUtilities;
+import Range;
+import ContourDataset;
+import DatasetChangeEvent;
+import DatasetUtilities;
 import org.jfree.ui.RectangleEdge;
 import org.jfree.ui.RectangleInsets;
 import org.jfree.util.ObjectUtilities;
@@ -1878,7 +1876,7 @@ public class ContourPlot extends Plot implements ContourValuePlot,
 
     /** 
      * Extends plot cloning to this plot type
-     * @see org.jfree.chart.plot.Plot#clone()
+     * @see Plot#clone()
      */
     public Object clone() throws CloneNotSupportedException {
         ContourPlot clone = (ContourPlot) super.clone();

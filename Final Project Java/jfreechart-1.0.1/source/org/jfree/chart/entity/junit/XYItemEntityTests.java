@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.chart.entity.junit;
-
 import java.awt.geom.Rectangle2D;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -55,7 +53,7 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 import org.jfree.chart.entity.XYItemEntity;
-import org.jfree.data.time.TimeSeriesCollection;
+import TimeSeriesCollection;
 
 /**
  * Tests for the {@link XYItemEntity} class.

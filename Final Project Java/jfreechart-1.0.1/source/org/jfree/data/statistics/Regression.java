@@ -43,9 +43,7 @@
  *
  */
 
-package org.jfree.data.statistics;
-
-import org.jfree.data.xy.XYDataset;
+import XYDataset;
 
 /**
  * A utility class for fitting regression curves to data.

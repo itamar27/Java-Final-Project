@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.chart.plot.junit;
-
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
@@ -61,7 +59,7 @@ import junit.framework.TestSuite;
 
 import org.jfree.chart.labels.StandardCategoryItemLabelGenerator;
 import org.jfree.chart.plot.SpiderWebPlot;
-import org.jfree.data.category.DefaultCategoryDataset;
+import DefaultCategoryDataset;
 import org.jfree.util.Rotation;
 import org.jfree.util.TableOrder;
 

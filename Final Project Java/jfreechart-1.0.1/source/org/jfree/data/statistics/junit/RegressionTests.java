@@ -41,16 +41,14 @@
  *
  */
 
-package org.jfree.data.statistics.junit;
-
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 import org.jfree.data.statistics.Regression;
-import org.jfree.data.xy.XYDataset;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
+import XYDataset;
+import XYSeries;
+import XYSeriesCollection;
 
 /**
  * Tests for the {@link Regression} class.

@@ -43,14 +43,12 @@
  * 
  */
 
-package org.jfree.chart.labels;
-
 import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import org.jfree.data.contour.ContourDataset;
+import ContourDataset;
 
 /**
  * A standard tooltip generator for plots that use data from an 

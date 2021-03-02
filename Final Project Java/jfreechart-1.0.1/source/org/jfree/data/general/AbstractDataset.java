@@ -57,8 +57,6 @@
  * 
  */
 
-package org.jfree.data.general;
-
 import java.io.IOException;
 import java.io.InvalidObjectException;
 import java.io.ObjectInputStream;

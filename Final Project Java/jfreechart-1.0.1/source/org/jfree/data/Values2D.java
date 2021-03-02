@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.data;
-
 /**
  * A general purpose interface that can be used to access a table of values.
  */

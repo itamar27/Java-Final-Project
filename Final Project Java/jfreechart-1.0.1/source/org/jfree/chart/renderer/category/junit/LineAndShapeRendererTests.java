@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.chart.renderer.category.junit;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInput;

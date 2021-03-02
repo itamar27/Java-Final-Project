@@ -40,8 +40,6 @@
  * 16-Feb-2005 : Added new constructor (DG);
  */
 
-package org.jfree.chart.plot;
-
 import java.awt.Paint;
 import java.awt.Stroke;
 

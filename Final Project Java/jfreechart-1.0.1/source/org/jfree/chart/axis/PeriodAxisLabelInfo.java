@@ -44,8 +44,6 @@
  * 
  */
 
-package org.jfree.chart.axis;
-
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
@@ -60,7 +58,7 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
-import org.jfree.data.time.RegularTimePeriod;
+import RegularTimePeriod;
 import org.jfree.io.SerialUtilities;
 import org.jfree.ui.RectangleInsets;
 

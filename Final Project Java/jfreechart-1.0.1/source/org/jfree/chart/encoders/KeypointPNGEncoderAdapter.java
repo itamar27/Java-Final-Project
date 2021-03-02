@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.chart.encoders;
-
 import com.keypoint.PngEncoder;
 
 import java.awt.image.BufferedImage;

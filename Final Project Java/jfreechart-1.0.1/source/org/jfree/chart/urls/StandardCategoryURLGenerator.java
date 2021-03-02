@@ -51,12 +51,10 @@
  *
  */
 
-package org.jfree.chart.urls;
-
 import java.io.Serializable;
 import java.net.URLEncoder;
 
-import org.jfree.data.category.CategoryDataset;
+import CategoryDataset;
 import org.jfree.util.ObjectUtilities;
 
 /**

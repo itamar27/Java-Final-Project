@@ -43,8 +43,6 @@
  * 
  */
 
-package org.jfree.chart.block;
-
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Paint;

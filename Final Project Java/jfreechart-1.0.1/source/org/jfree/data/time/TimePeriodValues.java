@@ -43,8 +43,6 @@
  *
  */
 
-package org.jfree.data.time;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;

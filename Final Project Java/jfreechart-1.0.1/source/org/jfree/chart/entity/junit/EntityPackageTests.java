@@ -41,8 +41,6 @@
  *
  */
 
-package org.jfree.chart.entity.junit;
-
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;

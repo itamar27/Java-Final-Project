@@ -40,9 +40,7 @@
  *
  */
 
-package org.jfree.chart.labels;
-
-import org.jfree.data.category.CategoryDataset;
+import CategoryDataset;
 
 /**
  * A generator that creates labels for the series in a {@link CategoryDataset}.

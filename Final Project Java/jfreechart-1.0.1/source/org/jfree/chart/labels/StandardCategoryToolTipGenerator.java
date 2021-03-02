@@ -40,13 +40,11 @@
  *
  */
 
-package org.jfree.chart.labels;
-
 import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.NumberFormat;
 
-import org.jfree.data.category.CategoryDataset;
+import CategoryDataset;
 
 /**
  * A standard tool tip generator that can be used with a 

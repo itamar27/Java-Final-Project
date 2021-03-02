@@ -45,22 +45,20 @@
  *
  */
 
-package org.jfree.data.time;
-
 import java.io.Serializable;
 import java.util.Iterator;
 import java.util.List;
 
 import org.jfree.data.DomainInfo;
 import org.jfree.data.Range;
-import org.jfree.data.xy.AbstractIntervalXYDataset;
-import org.jfree.data.xy.IntervalXYDataset;
+import AbstractIntervalXYDataset;
+import IntervalXYDataset;
 import org.jfree.util.ObjectUtilities;
 
 /**
  * A collection of {@link TimePeriodValues} objects.
  * <P>
- * This class implements the {@link org.jfree.data.xy.XYDataset} interface, as 
+ * This class implements the {@link XYDataset} interface, as
  * well as the extended {@link IntervalXYDataset} interface.  This makes it a 
  * convenient dataset for use with the {@link org.jfree.chart.plot.XYPlot} 
  * class.

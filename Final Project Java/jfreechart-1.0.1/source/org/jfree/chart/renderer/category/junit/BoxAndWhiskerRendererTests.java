@@ -41,8 +41,6 @@
  *
  */
 
-package org.jfree.chart.renderer.category.junit;
-
 import java.awt.Color;
 import java.awt.GradientPaint;
 import java.io.ByteArrayInputStream;
@@ -57,12 +55,12 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.axis.CategoryAxis;
-import org.jfree.chart.axis.NumberAxis;
-import org.jfree.chart.plot.CategoryPlot;
+import CategoryAxis;
+import NumberAxis;
+import CategoryPlot;
 import org.jfree.chart.renderer.category.BoxAndWhiskerRenderer;
-import org.jfree.data.statistics.BoxAndWhiskerItem;
-import org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset;
+import BoxAndWhiskerItem;
+import DefaultBoxAndWhiskerCategoryDataset;
 
 /**
  * Tests for the {@link BoxAndWhiskerRenderer} class.

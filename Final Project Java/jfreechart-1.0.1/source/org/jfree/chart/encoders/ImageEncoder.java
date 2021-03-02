@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.chart.encoders;
-
 import java.io.OutputStream;
 import java.io.IOException;
 import java.awt.image.BufferedImage;

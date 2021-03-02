@@ -15,7 +15,7 @@
 <!-- If you have comments about this script, please post a message -->
 <!-- in the JFreeChart forum. -->
 
-<project name="jfreechart" default="all" basedir="..">
+<project name="jfreechart" default="all" basedir="../../../../..">
 
     <!-- Initialisation. -->
     <target name="initialise" description="Initialise required settings.">
@@ -26,15 +26,15 @@
         <property name="jcommon.name" value="jcommon" />
         <property name="jcommon.version" value="1.0.0" />
         <property name="builddir" value="${basedir}/build" />
-        <property name="jcommon.jar" value="${basedir}/lib/${jcommon.name}-${jcommon.version}.jar"/>
-        <property name="servlet.jar" value="${basedir}/lib/servlet.jar"/>
-        <property name="gnujaxp.jar" value="${basedir}/lib/gnujaxp.jar"/>
-        <property name="junit.jar" value="${basedir}/lib/junit.jar"/>
+        <property name="jcommon.jar" value="/jfreechart-1.0.1/lib/jcommon-1.0.0.jar"/>
+        <property name="servlet.jar" value="/jfreechart-1.0.1/lib/servlet.jar"/>
+        <property name="gnujaxp.jar" value="/jfreechart-1.0.1/lib/gnujaxp.jar"/>
+        <property name="junit.jar" value="/jfreechart-1.0.1/lib/junit.jar"/>
         <available classname="javax.imageio.ImageIO" property="ImageIO.present"/>
         <path id="build.classpath">
-            <pathelement location="${jcommon.jar}"/>
-            <pathelement location="${servlet.jar}"/>
-            <pathelement location="${gnujaxp.jar}"/>
+            <pathelement location="../lib/jcommon-1.0.0.jar"/>
+            <pathelement location="../lib/servlet.jar"/>
+            <pathelement location="../lib/gnujaxp.jar"/>
         </path>
 
     </target>
@@ -60,21 +60,21 @@
         </javac>
 
         <!-- copy across gorilla.jpg -->
-        <copy file="${basedir}/source/org/jfree/chart/gorilla.jpg" tofile="${basedir}/build/org/jfree/chart/gorilla.jpg" />
+        <copy file="/jfreechart-1.0.1/source/org/jfree/chart/gorilla.jpg" tofile="${basedir}/build/org/jfree/chart/gorilla.jpg" />
 
         <!-- copy across .properties files -->
         <copy todir="${basedir}/build/org/jfree/chart/">
-            <fileset dir="${basedir}/source/org/jfree/chart">
+            <fileset dir="/jfreechart-1.0.1/source/org/jfree/chart">
                 <include name="*.properties" />
             </fileset>
         </copy>
         <copy todir="${basedir}/build/org/jfree/chart/plot">
-            <fileset dir="${basedir}/source/org/jfree/chart/plot">
+            <fileset dir="/jfreechart-1.0.1/source/org/jfree/chart/plot">
                 <include name="*.properties" />
             </fileset>
         </copy>
         <copy todir="${basedir}/build/org/jfree/chart/editor">
-            <fileset dir="${basedir}/source/org/jfree/chart/editor">
+            <fileset dir="/jfreechart-1.0.1/source/org/jfree/chart/editor">
                 <include name="*.properties" />
             </fileset>
         </copy>
@@ -98,12 +98,12 @@
         <mkdir dir="${basedir}/javadoc" />
         <javadoc destdir="${basedir}/javadoc" 
                  windowtitle="JFreeChart Class Library (version ${jfreechart.version})"
-                 overview="${basedir}/source/overview.html"
+                 overview="/jfreechart-1.0.1/source/overview.html"
                  use="yes"
                  linksource="yes"
                  splitindex="yes">
             <classpath refid="build.classpath" />
-            <packageset dir="${basedir}/source" defaultexcludes="yes">
+            <packageset dir="/jfreechart-1.0.1/source" defaultexcludes="yes">
                 <include name="org/jfree/**"/>
                 <exclude name="org/jfree/**/junit"/>
                 <exclude name="org/jfree/chart/xml/**"/>
@@ -127,31 +127,31 @@
         <mkdir dir="${basedir}/distribution" />
 
         <!-- copy across README and CHANGELOG -->
-        <copy file="${basedir}/README.txt" tofile="${basedir}/distribution/README.txt" />
-        <copy file="${basedir}/CHANGELOG.txt" tofile="${basedir}/distribution/CHANGELOG.txt" />
-        <copy file="${basedir}/ChangeLog" tofile="${basedir}/distribution/ChangeLog" />
-        <copy file="${basedir}/maven-jfreechart-project.xml" tofile="${basedir}/distribution/maven-jfreechart-project.xml" />
+        <copy file="/jfreechart-1.0.1/README.txt" tofile="${basedir}/distribution/README.txt" />
+        <copy file="/jfreechart-1.0.1/CHANGELOG.txt" tofile="${basedir}/distribution/CHANGELOG.txt" />
+        <copy file="/jfreechart-1.0.1/ChangeLog" tofile="${basedir}/distribution/ChangeLog" />
+        <copy file="/jfreechart-1.0.1/maven-jfreechart-project.xml" tofile="${basedir}/distribution/maven-jfreechart-project.xml" />
 
         <!-- copy across LICENCE -->
-        <copy file="${basedir}/licence-LGPL.txt" tofile="${basedir}/distribution/licence-LGPL.txt" />
+        <copy file="/jfreechart-1.0.1/licence-LGPL.txt" tofile="${basedir}/distribution/licence-LGPL.txt" />
 
         <!-- copy across runtime jar file and demo jar file -->
         <copy file="${basedir}/${jfreechart.name}-${jfreechart.version}.jar" tofile="${basedir}/distribution/lib/${jfreechart.name}-${jfreechart.version}.jar" />
-        <copy file="${basedir}/${jfreechart.name}-${jfreechart.version}-demo.jar" tofile="${basedir}/distribution/${jfreechart.name}-${jfreechart.version}-demo.jar" />
+        <copy file="/jfreechart-1.0.1/jfreechart-1.0.1-demo.jar" tofile="${basedir}/distribution/${jfreechart.name}-${jfreechart.version}-demo.jar" />
     
         <!-- copy across source files -->
         <copy todir="${basedir}/distribution/source">
-            <fileset dir="${basedir}/source">
+            <fileset dir="/jfreechart-1.0.1/source">
               <exclude name="**/CVS/*"/>
               <exclude name="org/jfree/chart/xml/**"/>
             </fileset>
         </copy>
 
         <!-- copy across lib files -->
-        <copy file="${jcommon.jar}" tofile="${basedir}/distribution/lib/${jcommon.name}-${jcommon.version}.jar" />
-        <copy file="${servlet.jar}" tofile="${basedir}/distribution/lib/servlet.jar" />
-        <copy file="${gnujaxp.jar}" tofile="${basedir}/distribution/lib/gnujaxp.jar" />
-        <copy file="${junit.jar}" tofile="${basedir}/distribution/lib/junit.jar" />
+        <copy file="../lib/jcommon-1.0.0.jar" tofile="${basedir}/distribution/lib/${jcommon.name}-${jcommon.version}.jar" />
+        <copy file="../lib/servlet.jar" tofile="${basedir}/distribution/lib/servlet.jar" />
+        <copy file="../lib/gnujaxp.jar" tofile="${basedir}/distribution/lib/gnujaxp.jar" />
+        <copy file="../lib/junit.jar" tofile="${basedir}/distribution/lib/junit.jar" />
 
         <!-- copy across ant build file (this file) -->
         <!-- In the distribution, the file is ant/build.xml. -->
@@ -160,16 +160,16 @@
         <available file="${basedir}/ant/jfreechart.xml"
                    property="ant.buildfile"
                    value="jfreechart.xml"/>
-        <copy file="${basedir}/ant/${ant.buildfile}" tofile="${basedir}/distribution/ant/build.xml" />
+        <copy file="/jfreechart-1.0.1/ant/build.xml" tofile="${basedir}/distribution/ant/build.xml" />
 
         <!-- copy across checkstyle property file -->
         <copy todir="${basedir}/distribution/checkstyle">
-            <fileset dir="${basedir}/checkstyle" />
+            <fileset dir="/jfreechart-1.0.1/checkstyle" />
         </copy>
 
         <!-- copy across gjdoc command file -->
         <copy todir="${basedir}/distribution/gjdoc">
-            <fileset dir="${basedir}/gjdoc" />
+            <fileset dir="/jfreechart-1.0.1/gjdoc" />
         </copy>
 
         <!-- convert end-of-line characters in text files -->
@@ -195,31 +195,31 @@
         <mkdir dir="${basedir}/distribution" />
 
         <!-- copy across README -->
-        <copy file="${basedir}/README.txt" tofile="${basedir}/distribution/README.txt" />
-        <copy file="${basedir}/CHANGELOG.txt" tofile="${basedir}/distribution/CHANGELOG.txt" />
-        <copy file="${basedir}/ChangeLog" tofile="${basedir}/distribution/ChangeLog" />
-        <copy file="${basedir}/maven-jfreechart-project.xml" tofile="${basedir}/distribution/maven-jfreechart-project.xml" />
+        <copy file="/jfreechart-1.0.1/README.txt" tofile="${basedir}/distribution/README.txt" />
+        <copy file="/jfreechart-1.0.1/CHANGELOG.txt" tofile="${basedir}/distribution/CHANGELOG.txt" />
+        <copy file="/jfreechart-1.0.1/ChangeLog" tofile="${basedir}/distribution/ChangeLog" />
+        <copy file="/jfreechart-1.0.1/maven-jfreechart-project.xml" tofile="${basedir}/distribution/maven-jfreechart-project.xml" />
 
         <!-- copy across LICENCE -->
-        <copy file="${basedir}/licence-LGPL.txt" tofile="${basedir}/distribution/licence-LGPL.txt" />
+        <copy file="/jfreechart-1.0.1/licence-LGPL.txt" tofile="${basedir}/distribution/licence-LGPL.txt" />
 
         <!-- copy across runtime jar file and demo jar file -->
         <copy file="${basedir}/${jfreechart.name}-${jfreechart.version}.jar" tofile="${basedir}/distribution/lib/${jfreechart.name}-${jfreechart.version}.jar" />
-        <copy file="${basedir}/${jfreechart.name}-${jfreechart.version}-demo.jar" tofile="${basedir}/distribution/${jfreechart.name}-${jfreechart.version}-demo.jar" />
+        <copy file="/jfreechart-1.0.1/jfreechart-1.0.1-demo.jar" tofile="${basedir}/distribution/${jfreechart.name}-${jfreechart.version}-demo.jar" />
     
         <!-- copy across source files -->
         <copy todir="${basedir}/distribution/source">
-            <fileset dir="${basedir}/source">
+            <fileset dir="/jfreechart-1.0.1/source">
               <exclude name="**/CVS/*"/>
               <exclude name="org/jfree/chart/xml/**"/>
             </fileset>
         </copy>
 
         <!-- copy across lib files -->
-        <copy file="${jcommon.jar}" tofile="${basedir}/distribution/lib/${jcommon.name}-${jcommon.version}.jar" />
-        <copy file="${servlet.jar}" tofile="${basedir}/distribution/lib/servlet.jar" />
-        <copy file="${gnujaxp.jar}" tofile="${basedir}/distribution/lib/gnujaxp.jar" />
-        <copy file="${junit.jar}" tofile="${basedir}/distribution/lib/junit.jar" />
+        <copy file="../lib/jcommon-1.0.0.jar" tofile="${basedir}/distribution/lib/${jcommon.name}-${jcommon.version}.jar" />
+        <copy file="../lib/servlet.jar" tofile="${basedir}/distribution/lib/servlet.jar" />
+        <copy file="../lib/gnujaxp.jar" tofile="${basedir}/distribution/lib/gnujaxp.jar" />
+        <copy file="../lib/junit.jar" tofile="${basedir}/distribution/lib/junit.jar" />
 
         <!-- copy across ant build file (this file) -->
         <!-- In the distribution, the file is ant/build.xml. -->
@@ -228,16 +228,16 @@
         <available file="${basedir}/ant/jfreechart.xml"
                    property="ant.buildfile"
                    value="jfreechart.xml"/>
-        <copy file="${basedir}/ant/${ant.buildfile}" tofile="${basedir}/distribution/ant/build.xml" />
+        <copy file="/jfreechart-1.0.1/ant/build.xml" tofile="${basedir}/distribution/ant/build.xml" />
 
         <!-- copy across checkstyle property file -->
         <copy todir="${basedir}/distribution/checkstyle">
-            <fileset dir="${basedir}/checkstyle" />
+            <fileset dir="/jfreechart-1.0.1/checkstyle" />
         </copy>
 
         <!-- copy across gjdoc command file -->
         <copy todir="${basedir}/distribution/gjdoc">
-            <fileset dir="${basedir}/gjdoc" />
+            <fileset dir="/jfreechart-1.0.1/gjdoc" />
         </copy>
 
         <!-- convert end-of-line characters in text files -->
@@ -263,7 +263,7 @@
     <!-- make a temporary distribution directory -->
     <mkdir dir="distribution"/>
     <!-- copy across LICENCE -->
-    <copy file="licence-LGPL.txt" tofile="distribution/LICENSE.txt"/>
+    <copy file="../licence-LGPL.txt" tofile="distribution/LICENSE.txt"/>
     
     <filterchain id="version.filters">
        <replacetokens>
@@ -271,7 +271,7 @@
          <token key="JCOMMON.VERSION" value="${jcommon.version}"/>
        </replacetokens>
     </filterchain>
-    <copy file="maven-jfreechart-project.xml" tofile="distribution/project.xml">
+    <copy file="../maven-jfreechart-project.xml" tofile="distribution/project.xml">
 	<filterchain refid="version.filters"/>
     </copy>
     

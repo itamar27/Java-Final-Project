@@ -53,13 +53,11 @@
  * 
  */
 
-package org.jfree.chart.title;
-
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.geom.Rectangle2D;
 
-import org.jfree.chart.event.TitleChangeEvent;
+import TitleChangeEvent;
 import org.jfree.ui.HorizontalAlignment;
 import org.jfree.ui.RectangleEdge;
 import org.jfree.ui.RectangleInsets;

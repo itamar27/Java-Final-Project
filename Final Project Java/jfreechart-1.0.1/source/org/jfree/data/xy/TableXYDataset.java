@@ -42,8 +42,6 @@
  * 
  */
 
-package org.jfree.data.xy;
-
 
 /**
  * A dataset containing one or more data series containing (x, y) data items, 

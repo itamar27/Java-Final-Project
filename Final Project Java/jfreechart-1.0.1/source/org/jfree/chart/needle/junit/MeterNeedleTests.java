@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.chart.needle.junit;
-
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.GradientPaint;

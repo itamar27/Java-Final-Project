@@ -44,8 +44,6 @@
  *
  */
 
-package org.jfree.data.general.junit;
-
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -57,11 +55,11 @@ import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DatasetUtilities;
 import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.general.PieDataset;
-import org.jfree.data.xy.DefaultTableXYDataset;
-import org.jfree.data.xy.TableXYDataset;
-import org.jfree.data.xy.XYDataset;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
+import DefaultTableXYDataset;
+import TableXYDataset;
+import XYDataset;
+import XYSeries;
+import XYSeriesCollection;
 
 /**
  * Tests for the {@link DatasetUtilities} class.

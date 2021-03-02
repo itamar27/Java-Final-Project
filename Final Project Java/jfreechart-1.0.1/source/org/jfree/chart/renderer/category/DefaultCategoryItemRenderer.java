@@ -40,13 +40,11 @@
  *
  */
 
-package org.jfree.chart.renderer.category;
-
 import java.io.Serializable;
 
 
 /**
- * A default renderer for the {@link org.jfree.chart.plot.CategoryPlot} class.
+ * A default renderer for the {@link CategoryPlot} class.
  */
 public class DefaultCategoryItemRenderer extends LineAndShapeRenderer
                                          implements Serializable {

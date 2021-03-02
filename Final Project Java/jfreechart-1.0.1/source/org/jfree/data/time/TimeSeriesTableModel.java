@@ -43,8 +43,6 @@
  *
  */
 
-package org.jfree.data.time;
-
 import javax.swing.table.AbstractTableModel;
 
 import org.jfree.data.general.SeriesChangeEvent;

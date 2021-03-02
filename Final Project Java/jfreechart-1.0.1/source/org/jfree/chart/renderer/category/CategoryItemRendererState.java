@@ -40,9 +40,7 @@
  *
  */
 
-package org.jfree.chart.renderer.category;
-
-import org.jfree.chart.plot.PlotRenderingInfo;
+import PlotRenderingInfo;
 import org.jfree.chart.renderer.RendererState;
 
 /**

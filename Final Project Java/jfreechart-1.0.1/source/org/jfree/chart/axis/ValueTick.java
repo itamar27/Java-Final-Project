@@ -39,7 +39,6 @@
  * 07-Nov-2003 : Version 1 (DG);
  *
  */
-package org.jfree.chart.axis;
 
 import org.jfree.ui.TextAnchor;
 

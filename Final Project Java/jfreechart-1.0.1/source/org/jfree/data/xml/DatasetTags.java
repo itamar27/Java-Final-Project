@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.data.xml;
-
 /**
  * Constants for the tags that identify the elements in the XML files.
  */

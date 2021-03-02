@@ -44,8 +44,6 @@
  *
  */
 
-package org.jfree.chart.needle;
-
 import java.awt.Graphics2D;
 import java.awt.geom.Arc2D;
 import java.awt.geom.GeneralPath;
@@ -55,7 +53,7 @@ import java.io.Serializable;
 
 /**
  * A needle in the shape of a ship, for use with the 
- * {@link org.jfree.chart.plot.CompassPlot} class.
+ * {@link CompassPlot} class.
  *
  * @author Bryan Scott
  */

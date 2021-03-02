@@ -48,8 +48,6 @@
  * 
  */
 
-package org.jfree.chart.annotations;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Paint;

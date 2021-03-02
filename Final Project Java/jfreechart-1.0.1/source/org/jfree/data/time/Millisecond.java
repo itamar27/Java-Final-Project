@@ -49,8 +49,6 @@
  *
  */
 
-package org.jfree.data.time;
-
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;

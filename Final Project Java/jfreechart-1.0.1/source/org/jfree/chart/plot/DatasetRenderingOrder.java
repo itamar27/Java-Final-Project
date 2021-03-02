@@ -41,15 +41,13 @@
  *
  */
 
-package org.jfree.chart.plot;
-
 import java.io.ObjectStreamException;
 import java.io.Serializable;
 
 /**
  * Defines the tokens that indicate the rendering order for datasets in a 
- * {@link org.jfree.chart.plot.CategoryPlot} or an 
- * {@link org.jfree.chart.plot.XYPlot}.
+ * {@link CategoryPlot} or an
+ * {@link XYPlot}.
  */
 public final class DatasetRenderingOrder implements Serializable {
 

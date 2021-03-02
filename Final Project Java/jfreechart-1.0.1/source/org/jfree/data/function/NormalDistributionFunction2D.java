@@ -41,8 +41,6 @@
  * 
  */
 
-package org.jfree.data.function;
-
 /**
  * A normal distribution function.
  */

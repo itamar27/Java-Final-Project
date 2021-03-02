@@ -48,8 +48,6 @@
  *
  */
 
-package org.jfree.chart.axis;
-
 import java.io.Serializable;
 import java.text.DateFormat;
 import java.util.Calendar;

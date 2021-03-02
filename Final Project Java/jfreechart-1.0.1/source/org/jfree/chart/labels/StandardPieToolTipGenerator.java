@@ -56,12 +56,10 @@
  *
  */
 
-package org.jfree.chart.labels;
-
 import java.io.Serializable;
 import java.text.NumberFormat;
 
-import org.jfree.data.general.PieDataset;
+import PieDataset;
 import org.jfree.util.PublicCloneable;
 
 /**

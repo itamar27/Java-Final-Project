@@ -41,8 +41,6 @@
  *
  */
 
-package org.jfree.data.gantt.junit;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInput;
@@ -58,7 +56,7 @@ import junit.framework.TestSuite;
 import org.jfree.data.gantt.Task;
 import org.jfree.data.gantt.TaskSeries;
 import org.jfree.data.gantt.TaskSeriesCollection;
-import org.jfree.data.time.SimpleTimePeriod;
+import SimpleTimePeriod;
 
 /**
  * Tests for the {@link TaskSeriesCollection} class.

@@ -40,17 +40,15 @@
  *
  */
 
-package org.jfree.chart.labels;
-
 import java.io.Serializable;
 import java.text.MessageFormat;
 
-import org.jfree.data.category.CategoryDataset;
+import CategoryDataset;
 import org.jfree.util.PublicCloneable;
 
 /**
  * A standard series label generator for plots that use data from 
- * a {@link org.jfree.data.category.CategoryDataset}.
+ * a {@link CategoryDataset}.
  */
 public class StandardCategorySeriesLabelGenerator implements 
     CategorySeriesLabelGenerator, Cloneable, PublicCloneable, Serializable {

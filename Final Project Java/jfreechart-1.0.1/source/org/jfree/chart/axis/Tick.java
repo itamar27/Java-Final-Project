@@ -45,8 +45,6 @@
  *
  */
 
-package org.jfree.chart.axis;
-
 import java.io.Serializable;
 
 import org.jfree.ui.TextAnchor;

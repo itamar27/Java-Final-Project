@@ -41,8 +41,6 @@
  * 
  */
 
-package org.jfree.chart.block;
-
 import java.awt.Graphics2D;
 import java.awt.Paint;
 import java.awt.geom.Rectangle2D;

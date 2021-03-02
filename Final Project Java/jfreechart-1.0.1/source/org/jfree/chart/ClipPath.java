@@ -44,8 +44,6 @@
  *
  */
 
-package org.jfree.chart;
-
 import java.awt.BasicStroke;
 import java.awt.Composite;
 import java.awt.Graphics2D;
@@ -54,12 +52,12 @@ import java.awt.Stroke;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Rectangle2D;
 
-import org.jfree.chart.axis.ValueAxis;
+import ValueAxis;
 import org.jfree.ui.RectangleEdge;
 
 /**
  * This class would typically be used with a 
- * {@link org.jfree.chart.plot.ContourPlot}.  It allows the user to define a 
+ * {@link ContourPlot}.  It allows the user to define a
  * <code>GeneralPath</code> curve in plot coordinates.  This curve can then be 
  * used mask off or define regions within the contour plot.  The data must be 
  * sorted.

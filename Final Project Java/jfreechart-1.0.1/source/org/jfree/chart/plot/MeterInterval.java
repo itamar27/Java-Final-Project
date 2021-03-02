@@ -41,8 +41,6 @@
  * 
  */
 
-package org.jfree.chart.plot;
-
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Paint;
@@ -52,7 +50,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-import org.jfree.data.Range;
+import Range;
 import org.jfree.io.SerialUtilities;
 import org.jfree.util.ObjectUtilities;
 import org.jfree.util.PaintUtilities;

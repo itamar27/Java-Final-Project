@@ -41,7 +41,6 @@
  * 28-Aug-2003 : Minor tidy-up including Javadocs (DG);
  *
  */
-package org.jfree.chart.renderer;
 
 import java.awt.geom.Point2D;
 import java.util.ArrayList;

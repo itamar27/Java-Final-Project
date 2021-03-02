@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.chart.entity.junit;
-
 import java.awt.geom.Rectangle2D;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -55,7 +53,7 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 import org.jfree.chart.entity.CategoryItemEntity;
-import org.jfree.data.category.DefaultCategoryDataset;
+import DefaultCategoryDataset;
 
 /**
  * Tests for the {@link CategoryItemEntity} class.

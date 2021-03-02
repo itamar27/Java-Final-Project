@@ -41,8 +41,6 @@
  *
  */
 
-package org.jfree.chart.plot.junit;
-
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
@@ -65,7 +63,7 @@ import org.jfree.chart.labels.StandardPieToolTipGenerator;
 import org.jfree.chart.labels.StandardPieSectionLabelGenerator;
 import org.jfree.chart.plot.PiePlot;
 import org.jfree.chart.urls.StandardPieURLGenerator;
-import org.jfree.data.general.DefaultPieDataset;
+import DefaultPieDataset;
 import org.jfree.util.Rotation;
 
 /**

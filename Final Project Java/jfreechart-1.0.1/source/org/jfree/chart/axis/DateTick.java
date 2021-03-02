@@ -41,8 +41,6 @@
  *
  */
 
-package org.jfree.chart.axis;
-
 import java.util.Date;
 
 import org.jfree.ui.TextAnchor;

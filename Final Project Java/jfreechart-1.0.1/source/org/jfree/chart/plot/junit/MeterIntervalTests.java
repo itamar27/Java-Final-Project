@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.chart.plot.junit;
-
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.io.ByteArrayInputStream;
@@ -56,7 +54,7 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 import org.jfree.chart.plot.MeterInterval;
-import org.jfree.data.Range;
+import Range;
 
 /**
  * Tests for the {@link MeterInterval} class.

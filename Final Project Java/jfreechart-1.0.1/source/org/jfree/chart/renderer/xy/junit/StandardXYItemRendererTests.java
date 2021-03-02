@@ -42,8 +42,6 @@
  * 
  */
 
-package org.jfree.chart.renderer.xy.junit;
-
 import java.awt.geom.Line2D;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

@@ -41,8 +41,6 @@
  *
  */
 
-package org.jfree.data.resources;
-
 import java.util.ListResourceBundle;
 
 /**

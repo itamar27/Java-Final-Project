@@ -77,8 +77,6 @@
  * 08-Jun-2005 : Fixed equals() method to handle GradientPaint (DG);
  */
 
-package org.jfree.chart.axis;
-
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;

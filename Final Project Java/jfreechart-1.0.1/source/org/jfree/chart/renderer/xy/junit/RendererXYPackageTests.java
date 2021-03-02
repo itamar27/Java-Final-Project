@@ -43,16 +43,14 @@
  *
  */
 
-package org.jfree.chart.renderer.xy.junit;
-
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
-import org.jfree.data.xy.DefaultTableXYDataset;
-import org.jfree.data.xy.TableXYDataset;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
+import DefaultTableXYDataset;
+import TableXYDataset;
+import XYSeries;
+import XYSeriesCollection;
 
 /**
  * A collection of tests for the org.jfree.chart.renderer.xy package.

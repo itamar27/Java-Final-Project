@@ -41,8 +41,6 @@
  *
  */
 
-package org.jfree.chart.renderer.xy.junit;
-
 import java.awt.Color;
 import java.awt.GradientPaint;
 import java.awt.geom.Line2D;

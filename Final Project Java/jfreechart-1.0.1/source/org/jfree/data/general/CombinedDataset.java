@@ -53,14 +53,12 @@
  *
  */
 
-package org.jfree.data.general;
-
 import java.util.List;
 
-import org.jfree.data.xy.AbstractIntervalXYDataset;
-import org.jfree.data.xy.OHLCDataset;
-import org.jfree.data.xy.IntervalXYDataset;
-import org.jfree.data.xy.XYDataset;
+import AbstractIntervalXYDataset;
+import OHLCDataset;
+import IntervalXYDataset;
+import XYDataset;
 
 /**
  * This class can combine instances of {@link XYDataset}, {@link OHLCDataset} 

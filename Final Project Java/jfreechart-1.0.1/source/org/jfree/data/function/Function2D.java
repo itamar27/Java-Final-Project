@@ -41,8 +41,6 @@
  * 
  */
 
-package org.jfree.data.function;
-
 /**
  * A function of the form <code>y = f(x)</code>.
  */

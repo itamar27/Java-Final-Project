@@ -40,17 +40,15 @@
  * 
  */
 
-package org.jfree.chart.annotations;
-
 import java.awt.Graphics2D;
 import java.awt.Shape;
 import java.awt.geom.Rectangle2D;
 
-import org.jfree.chart.axis.ValueAxis;
-import org.jfree.chart.entity.EntityCollection;
-import org.jfree.chart.entity.XYAnnotationEntity;
-import org.jfree.chart.plot.PlotRenderingInfo;
-import org.jfree.chart.plot.XYPlot;
+import ValueAxis;
+import EntityCollection;
+import XYAnnotationEntity;
+import PlotRenderingInfo;
+import XYPlot;
 import org.jfree.util.ObjectUtilities;
 
 /**

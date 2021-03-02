@@ -74,8 +74,6 @@
  *
  */
 
-package org.jfree.chart.renderer.category;
-
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Paint;
@@ -83,21 +81,21 @@ import java.awt.geom.GeneralPath;
 import java.awt.geom.Rectangle2D;
 import java.io.Serializable;
 
-import org.jfree.chart.axis.CategoryAxis;
-import org.jfree.chart.axis.ValueAxis;
-import org.jfree.chart.entity.EntityCollection;
-import org.jfree.chart.labels.CategoryItemLabelGenerator;
-import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.Range;
-import org.jfree.data.category.CategoryDataset;
-import org.jfree.data.general.DatasetUtilities;
+import CategoryAxis;
+import ValueAxis;
+import EntityCollection;
+import CategoryItemLabelGenerator;
+import CategoryPlot;
+import PlotOrientation;
+import Range;
+import CategoryDataset;
+import DatasetUtilities;
 import org.jfree.ui.RectangleEdge;
 import org.jfree.util.PublicCloneable;
 
 /**
  * Renders stacked bars with 3D-effect, for use with the 
- * {@link org.jfree.chart.plot.CategoryPlot} class.
+ * {@link CategoryPlot} class.
  */
 public class StackedBarRenderer3D extends BarRenderer3D 
                                   implements Cloneable, PublicCloneable, 

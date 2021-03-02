@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.chart.axis;
-
 import java.util.List;
 
 import org.jfree.ui.RectangleEdge;

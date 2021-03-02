@@ -42,8 +42,6 @@
  *
  */
 
-package org.jfree.chart.servlet;
-
 import java.io.File;
 import java.io.IOException;
 

@@ -41,8 +41,6 @@
  * 
  */
 
-package org.jfree.data.general;
-
 import java.util.Set;
 import java.util.TreeSet;
 

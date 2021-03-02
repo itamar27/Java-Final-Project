@@ -50,12 +50,10 @@
  *
  */
 
-package org.jfree.chart.entity;
-
 import java.awt.Shape;
 import java.io.Serializable;
 
-import org.jfree.data.category.CategoryDataset;
+import CategoryDataset;
 import org.jfree.util.ObjectUtilities;
 
 /**

@@ -57,18 +57,16 @@
  *
  */
 
-package org.jfree.chart.labels;
-
 import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.NumberFormat;
 
-import org.jfree.data.xy.XYDataset;
+import XYDataset;
 import org.jfree.util.PublicCloneable;
 
 /**
  * A standard item label generator for plots that use data from an 
- * {@link org.jfree.data.xy.XYDataset}.
+ * {@link XYDataset}.
  */
 public class StandardXYItemLabelGenerator extends AbstractXYItemLabelGenerator  
                                           implements XYItemLabelGenerator, 

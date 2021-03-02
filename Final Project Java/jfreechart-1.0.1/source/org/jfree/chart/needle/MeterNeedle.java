@@ -47,8 +47,6 @@
  * 
  */
 
-package org.jfree.chart.needle;
-
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -69,7 +67,7 @@ import org.jfree.util.PaintUtilities;
 
 /**
  * The base class used to represent the needle on a 
- * {@link org.jfree.chart.plot.CompassPlot}.
+ * {@link CompassPlot}.
  *
  * @author Bryan Scott
  */

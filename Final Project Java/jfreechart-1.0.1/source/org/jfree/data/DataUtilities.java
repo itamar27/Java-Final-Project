@@ -44,9 +44,7 @@
  * 
  */
 
-package org.jfree.data;
-
-import org.jfree.data.general.DatasetUtilities;
+import DatasetUtilities;
 
 /**
  * Utility methods for use with some of the data classes (but not the datasets, 

@@ -49,9 +49,7 @@
  *
  */
 
-package org.jfree.chart.urls;
-
-import org.jfree.data.category.CategoryDataset;
+import CategoryDataset;
 
 /**
  * A URL generator for items in a {@link CategoryDataset}.

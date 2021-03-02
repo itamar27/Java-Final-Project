@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.chart.renderer.category.junit;
-
 import java.awt.Color;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -55,11 +53,11 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.axis.CategoryAxis;
-import org.jfree.chart.axis.NumberAxis;
-import org.jfree.chart.plot.CategoryPlot;
+import CategoryAxis;
+import NumberAxis;
+import CategoryPlot;
 import org.jfree.chart.renderer.category.StatisticalLineAndShapeRenderer;
-import org.jfree.data.statistics.DefaultStatisticalCategoryDataset;
+import DefaultStatisticalCategoryDataset;
 
 /**
  * Tests for the {@link StatisticalLineAndShapeRenderer} class.

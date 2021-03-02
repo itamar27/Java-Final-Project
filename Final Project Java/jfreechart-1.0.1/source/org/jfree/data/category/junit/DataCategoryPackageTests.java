@@ -41,8 +41,6 @@
  *
  */
 
-package org.jfree.data.category.junit;
-
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;

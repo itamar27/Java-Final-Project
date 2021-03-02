@@ -40,14 +40,12 @@
  *
  */
 
-package org.jfree.chart.renderer.category.junit;
-
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
-import org.jfree.chart.labels.IntervalCategoryItemLabelGenerator;
-import org.jfree.chart.labels.StandardCategoryItemLabelGenerator;
+import IntervalCategoryItemLabelGenerator;
+import StandardCategoryItemLabelGenerator;
 import org.jfree.chart.renderer.category.AbstractCategoryItemRenderer;
 import org.jfree.chart.renderer.category.BarRenderer;
 

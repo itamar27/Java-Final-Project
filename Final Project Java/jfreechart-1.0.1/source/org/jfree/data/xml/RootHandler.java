@@ -40,8 +40,6 @@
  *
  */
 
-package org.jfree.data.xml;
-
 import java.util.Stack;
 
 import org.xml.sax.SAXException;

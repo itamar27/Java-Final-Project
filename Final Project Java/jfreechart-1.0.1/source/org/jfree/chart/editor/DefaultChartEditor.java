@@ -41,8 +41,6 @@
  *
  */
 
-package org.jfree.chart.editor;
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Paint;
@@ -60,8 +58,8 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.Plot;
-import org.jfree.chart.title.Title;
+import Plot;
+import Title;
 import org.jfree.layout.LCBLayout;
 import org.jfree.ui.PaintSample;
 

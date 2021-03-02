@@ -90,8 +90,6 @@
  * 09-Jun-2005 : Use addEntityItem from super class (DG);
  */
 
-package org.jfree.chart.renderer.category;
-
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Composite;
@@ -110,20 +108,20 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 import org.jfree.chart.Effect3D;
-import org.jfree.chart.axis.CategoryAxis;
-import org.jfree.chart.axis.ValueAxis;
-import org.jfree.chart.entity.EntityCollection;
-import org.jfree.chart.labels.CategoryItemLabelGenerator;
-import org.jfree.chart.labels.ItemLabelAnchor;
-import org.jfree.chart.labels.ItemLabelPosition;
-import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.Marker;
-import org.jfree.chart.plot.Plot;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.plot.PlotRenderingInfo;
-import org.jfree.chart.plot.ValueMarker;
-import org.jfree.data.Range;
-import org.jfree.data.category.CategoryDataset;
+import CategoryAxis;
+import ValueAxis;
+import EntityCollection;
+import CategoryItemLabelGenerator;
+import ItemLabelAnchor;
+import ItemLabelPosition;
+import CategoryPlot;
+import Marker;
+import Plot;
+import PlotOrientation;
+import PlotRenderingInfo;
+import ValueMarker;
+import Range;
+import CategoryDataset;
 import org.jfree.io.SerialUtilities;
 import org.jfree.text.TextUtilities;
 import org.jfree.ui.LengthAdjustmentType;
@@ -134,7 +132,7 @@ import org.jfree.util.PublicCloneable;
 
 /**
  * A renderer for bars with a 3D effect, for use with the 
- * {@link org.jfree.chart.plot.CategoryPlot} class.
+ * {@link CategoryPlot} class.
  *
  * @author Serge V. Grachov
  */

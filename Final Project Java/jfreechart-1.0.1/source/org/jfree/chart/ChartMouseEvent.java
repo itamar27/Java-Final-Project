@@ -44,13 +44,11 @@
  *
  */
 
-package org.jfree.chart;
-
 import java.awt.event.MouseEvent;
 import java.io.Serializable;
 import java.util.EventObject;
 
-import org.jfree.chart.entity.ChartEntity;
+import ChartEntity;
 
 /**
  * A mouse event for a chart that is displayed in a {@link ChartPanel}.

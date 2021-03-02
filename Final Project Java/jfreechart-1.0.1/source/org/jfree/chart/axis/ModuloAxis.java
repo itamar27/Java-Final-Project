@@ -40,12 +40,10 @@
  * 
  */
 
-package org.jfree.chart.axis;
-
 import java.awt.geom.Rectangle2D;
 
 import org.jfree.chart.event.AxisChangeEvent;
-import org.jfree.data.Range;
+import Range;
 import org.jfree.ui.RectangleEdge;
 
 /**

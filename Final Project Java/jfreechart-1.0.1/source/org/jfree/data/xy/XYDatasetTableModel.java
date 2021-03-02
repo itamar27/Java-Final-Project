@@ -42,8 +42,6 @@
  * 
  */
 
-package org.jfree.data.xy;
-
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableModel;
 

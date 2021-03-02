@@ -43,9 +43,8 @@
  * 24-Apr-2003 : Switched around PieDataset and KeyedValuesDataset (DG);
  *
  */
-package org.jfree.chart.urls;
 
-import org.jfree.data.general.PieDataset;
+import PieDataset;
 
 /**
  * Interface for a URL generator for plots that use data from a 
