@@ -15,8 +15,8 @@ public class Category {
      */
 
     public Category(String name) {
-        this.name = name;
-        this.id = -1;
+        setName(name);
+        setId(-1);
     }
 
     /**
@@ -27,7 +27,15 @@ public class Category {
      * @params id - the id of the category that is read from the data base.
      */
     public Category(String name, int id){
+        setName(name);
+        setId(id);
+    }
+
+    public void setName(String name) {
         this.name = name;
+    }
+
+    public void setId(int id) {
         this.id = id;
     }
 

@@ -32,12 +32,12 @@ public class CostItem {
 
         if(amount < 0)
             throw new CostManagerException("Not a valid amount");
-        this.date = createDateFromString(date);
-        this.description = description;
-        this.amount = amount;
-        this.currency = currency;
-        this.id  = -1;
-        this.category = category;
+        setDate(createDateFromString(date));
+        setDescription(description);
+        setAmount(amount);
+        setCurrency(currency);
+        setId(-1);
+        setCategory(category);
     }
 
     /**
@@ -59,18 +59,44 @@ public class CostItem {
 
         if(amount < 0)
             throw new CostManagerException("Not a valid amount");
-        this.date = createDateFromString(date);
-        this.description = description;
-        this.amount= amount;
-        this.currency = currency;
-        this.id  = id;
+        setDate(createDateFromString(date));
+        setDescription(description);
+        setAmount(amount);
+        setCurrency(currency);
+        setId(id);
+        setCategory(category);
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+
+    public void setCurrency(Currency currency) {
+        this.currency = currency;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
     /**
      *
      * All get function to class members.
      */
+
+
 
     public int getId() {
         return id;

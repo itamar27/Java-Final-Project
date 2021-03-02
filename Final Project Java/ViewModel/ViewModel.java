@@ -30,8 +30,11 @@ public class ViewModel implements IViewModel {
     private ExecutorService pool;
 
     public ViewModel() {
-        pool = Executors.newFixedThreadPool(10);
+        setPool(Executors.newFixedThreadPool(10));
     }
+
+    @Override
+    public void setPool(ExecutorService pool) { this.pool = pool; }
 
     @Override
     public void setView(IView view) {
@@ -101,7 +104,38 @@ public class ViewModel implements IViewModel {
             @Override
             public void run() {
                 try {
-                    model.getCategorySumBetweenDates(dateFrom, dateTo);
+                    List<Pair> pieChartInfo = model.getCategorySumBetweenDates(dateFrom, dateTo);
+                    String[] catNames = new String[pieChartInfo.size()];
+                    double[] sums = new double[pieChartInfo.size()];
+                    int i = 0;
+                    for (Pair item : pieChartInfo) {
+                        catNames[i] = item.name;
+                        sums[i] = item.amount;
+                        i++;
+                    }
+                    view.displayCategoriesChart(catNames, sums);
+
+                } catch (CostManagerException e) {
+                    view.showMessage(e.getMessage());
+                }
+            }
+        });
+    }
+
+    @Override
+    public void getCategories() {
+        pool.submit(new Runnable() {
+            @Override
+            public void run() {
+
+                try {
+                    List<Category> categoryList = model.getAllCategory();
+                    String[] categoriesNames = new String[categoryList.size()];
+                    for (int i = 0; i < categoryList.size(); i++) {
+                        categoriesNames[i] = categoryList.get(i).getName();
+                    }
+
+                    view.displayCategoriesSelect(categoriesNames);
                 } catch (CostManagerException e) {
                     System.out.println(e.getMessage());
                 }
@@ -110,21 +144,12 @@ public class ViewModel implements IViewModel {
     }
 
     @Override
-    public String[] getCategories() {
-        try {
-            List<Category> categoryList = model.getAllCategory();
-            String[] categoriesNames = new String[categoryList.size()];
-            for (int i = 0; i < categoryList.size(); i++) {
-                categoriesNames[i] = categoryList.get(i).getName();
+    public void getCurrencies() {
+        pool.submit(new Runnable() {
+            @Override
+            public void run() {
+                view.displayCurrenciesSelect(Arrays.toString(Currency.values()).replaceAll("^.|.$", "").split(", "));
             }
-            return categoriesNames;
-        } catch (CostManagerException e) {
-            System.out.println(e.getMessage());
-        }
-        return new String[0];
-    }
-
-    public String[] getCurrencies() {
-        return Arrays.toString(Currency.values()).replaceAll("^.|.$", "").split(", ");
+        });
     }
 }

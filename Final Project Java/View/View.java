@@ -3,7 +3,6 @@ package View;
 import Model.*;
 import ViewModel.IViewModel;
 
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -12,6 +11,11 @@ import java.awt.event.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.general.DefaultPieDataset;
+import org.jfree.data.general.PieDataset;
 
 /**
  * View class to implement the IView interface.
@@ -27,19 +31,22 @@ public class View implements IView {
     private IViewModel vm;
     private ApplicationUI ui;
 
-    @Override
-    public void setViewModel(IViewModel vm) {
-        this.vm = vm;
-    }
-
     public View() {
 
         SwingUtilities.invokeLater(() -> {
-            View.this.ui = new ApplicationUI();
+            setUi(new ApplicationUI());
             View.this.ui.start();
         });
     }
 
+    public void setUi(ApplicationUI ui) {
+        this.ui = ui;
+    }
+
+    @Override
+    public void setViewModel(IViewModel vm) {
+        this.vm = vm;
+    }
 
     @Override
     public void displayCostItemTable(List<CostItem> cs) {
@@ -57,6 +64,21 @@ public class View implements IView {
         }
 
         View.this.ui.updateTable(table);
+    }
+
+    @Override
+    public void displayCategoriesChart(String[] catNames, double[] sums) {
+        View.this.ui.updateChart(catNames, sums);
+    }
+
+    @Override
+    public void displayCategoriesSelect(String[] catNames) {
+        View.this.ui.updateCategoriesSelect(catNames);
+    }
+
+    @Override
+    public void displayCurrenciesSelect(String[] currencies) {
+        View.this.ui.updateCurrenciesSelect(currencies);
     }
 
     @Override
@@ -124,6 +146,19 @@ public class View implements IView {
         public void updateTable(String[][] table) {
             this.tablePanel.updateTableData(table);
         }
+
+        public void updateChart(String[] catNames, double[] sums) {
+            this.chartPanel.updateChart(catNames, sums);
+        }
+
+        public void updateCategoriesSelect(String[] catNames) {
+            this.addCostPanel.updateCategories(catNames);
+        }
+
+        public void updateCurrenciesSelect(String[] currencies) {
+            this.addCostPanel.updateCurrencies(currencies);
+        }
+
 
         public void displayMainMenu() {
             this.current = mainPanel;
@@ -202,7 +237,8 @@ public class View implements IView {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         ApplicationUI.this.addCostPanel.cleanInputs();
-                        ApplicationUI.this.addCostPanel.updateCategories();
+                        View.this.vm.getCategories();
+                        View.this.vm.getCurrencies();
                         ApplicationUI.this.replaceScreen(ApplicationUI.this.addCostPanel);
                     }
                 });
@@ -269,9 +305,10 @@ public class View implements IView {
             private Font myFont;
 
             private String[] categoriesOptions;
-            private DefaultComboBoxModel<String> defaultCBmodel;
+            private DefaultComboBoxModel<String> defaultCBCategories;
 
             private String[] currencyOptions;
+            private DefaultComboBoxModel<String> defaultCBCurrencies;
 
 
             public AddCostPanel() {
@@ -305,20 +342,27 @@ public class View implements IView {
 
                         String category = cbChooseCategory.getSelectedItem().toString();
                         String currencyStr = cbChooseCurrency.getSelectedItem().toString();
+
                         Currency currencyEnum;
                         switch (currencyStr) {
                             case "ILS":
                                 currencyEnum = Currency.ILS;
+                                break;
                             case "USD":
                                 currencyEnum = Currency.USD;
+                                break;
                             case "NZD":
                                 currencyEnum = Currency.NZD;
+                                break;
                             case "GBP":
                                 currencyEnum = Currency.GBP;
+                                break;
                             case "EURO":
                                 currencyEnum = Currency.EURO;
+                                break;
                             default:
                                 currencyEnum = Currency.USD;
+                                break;
                         }
                         double amount = Double.parseDouble(tfEnterAmount.getText());
                         String description = tfEnterDescription.getText();
@@ -335,9 +379,7 @@ public class View implements IView {
 
                         //Rendering the Main Panel window.
                         ApplicationUI.this.replaceScreen(ApplicationUI.this.mainPanel);
-
                     }
-
                 });
 
                 gbc.weightx = 0;
@@ -351,16 +393,18 @@ public class View implements IView {
                 gbc.anchor = GridBagConstraints.CENTER;
                 gbc.fill = GridBagConstraints.BOTH;
 
-                categoriesOptions = View.this.vm.getCategories();
-                defaultCBmodel = new DefaultComboBoxModel<>(categoriesOptions);
-                cbChooseCategory = new JComboBox(defaultCBmodel);
+                categoriesOptions = new String[0];
+                View.this.vm.getCategories();
+                defaultCBCategories = new DefaultComboBoxModel<>(categoriesOptions);
+                cbChooseCategory = new JComboBox(defaultCBCategories);
                 cbChooseCategory.setBackground(Color.white);
                 cbChooseCategory.setRenderer(new MyComboBoxRenderer("Category"));
                 cbChooseCategory.setSelectedIndex(-1); //By default it selects first item, we don't want any selection
 
-
-                currencyOptions = View.this.vm.getCurrencies();
-                cbChooseCurrency = new JComboBox(currencyOptions);
+                currencyOptions = new String[0];
+                View.this.vm.getCurrencies();
+                defaultCBCurrencies = new DefaultComboBoxModel<>(currencyOptions);
+                cbChooseCurrency = new JComboBox(defaultCBCurrencies);
                 cbChooseCurrency.setBackground(Color.white);
                 cbChooseCurrency.setRenderer(new MyComboBoxRenderer("Currency"));
                 cbChooseCurrency.setSelectedIndex(-1);
@@ -404,17 +448,33 @@ public class View implements IView {
                 tfEnterDescription.setText("");
                 cbChooseCategory.setSelectedIndex(-1);
                 cbChooseCurrency.setSelectedIndex(-1);
+                tfDate.setText("");
             }
 
-            public void updateCategories() {
-                this.categoriesOptions = View.this.vm.getCategories();
+            public void updateCategories(String[] catNames) {
+                this.categoriesOptions = catNames;
 
-                this.defaultCBmodel.removeAllElements();
+                this.defaultCBCategories.removeAllElements();
                 for (String name : this.categoriesOptions) {
-                    this.defaultCBmodel.addElement(name);
+                    this.defaultCBCategories.addElement(name);
                 }
 
                 this.cbChooseCategory.setSelectedIndex(-1);
+
+                ApplicationUI.this.replaceScreen(ApplicationUI.this.addCostPanel);
+            }
+
+            public void updateCurrencies(String[] currencies) {
+                this.currencyOptions = currencies;
+
+                this.defaultCBCurrencies.removeAllElements();
+                for (String name : this.currencyOptions) {
+                    this.defaultCBCurrencies.addElement(name);
+                }
+
+                this.cbChooseCurrency.setSelectedIndex(-1);
+
+                ApplicationUI.this.replaceScreen(ApplicationUI.this.addCostPanel);
             }
 
             /**
@@ -717,14 +777,16 @@ public class View implements IView {
             }
         }
 
+
         class PieChartPanel extends JPanel {
             private JPanel chart;
             private GridBagConstraints gbc;
             private JButton btBackToMainMenu;
             private JLabel jlHeader;
-            private PieChartComponent pieChart;
+
 
             public PieChartPanel() {
+
 
                 setBorder(new EmptyBorder(10, 10, 10, 10));
                 setLayout(new GridBagLayout());
@@ -756,9 +818,6 @@ public class View implements IView {
                 add(headerPanel, gbc);
 
                 chart = new JPanel(new GridBagLayout());
-                Slice[] slices = {new Slice(1, Color.BLACK), new Slice(2, Color.RED)};
-                pieChart = new PieChartComponent(slices);
-                chart.add(pieChart,gbc);
 
                 gbc.fill = GridBagConstraints.BOTH;
 
@@ -767,56 +826,32 @@ public class View implements IView {
                 gbc.weighty = 0;
             }
 
-            public void updateChart(List<Pair> chartData) {
-                Slice[] slices = new Slice[chartData.size()];
-                Color[] colors = {Color.BLACK, Color.RED, Color.BLUE, Color.YELLOW, Color.GREEN};
-                for(int i=0; i< slices.length; i++) {
-                    slices[i] = new Slice(chartData.get(i).amount, colors[i]);
-                }
+            private JFreeChart createChart(PieDataset dataset) {
+                JFreeChart jChart = ChartFactory.createPieChart("Categories Sum", dataset, true, true, false);
 
+                return jChart;
+            }
+
+            private ChartPanel createChartPanel(PieDataset dataset) {
+                JFreeChart jChart = createChart(dataset);
+                return new ChartPanel(jChart);
+            }
+
+            public void updateChart(String[] catNames, double[] sums) {
                 chart.removeAll();
-                chart.add(new PieChartComponent(slices));
-            }
 
-            class Slice {
-                double value;
-                Color color;
-
-                public Slice(double value, Color color) {
-                    this.value = value;
-                    this.color = color;
-                }
-            }
-
-            class PieChartComponent extends JComponent {
-                Slice[] slices;
-
-                PieChartComponent(Slice[] slices) {
-                    this.slices = slices;
-                }
-                public void paint(Graphics g) {
-                    drawPie((Graphics2D) g, getBounds(), slices);
+                DefaultPieDataset dataset = new DefaultPieDataset();
+                for (int i = 0; i < catNames.length; i++) {
+                    dataset.setValue(catNames[i], sums[i]);
                 }
 
-                void drawPie(Graphics2D g, Rectangle area, Slice[] slices) {
-                    double total = 0.0D;
-                    for (int i = 0; i < slices.length; i++) {
-                        total += slices[i].value;
-                    }
+                ChartPanel chartPane = createChartPanel(dataset);
+                chart.add(chartPane);
 
-                    double curValue = 0.0D;
-                    int startAngle = 0;
-                    for (int i = 0; i < slices.length; i++) {
-                        startAngle = (int) (curValue * 360 / total);
-                        int arcAngle = (int) (slices[i].value * 360 / total);
-
-                        g.setColor(slices[i].color);
-                        g.fillArc(area.x, area.y, area.width, area.height, startAngle, arcAngle);
-                        curValue += slices[i].value;
-                    }
-                }
+                ApplicationUI.this.replaceScreen(chartPanel);
             }
         }
     }
 }
+
 

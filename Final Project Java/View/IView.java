@@ -14,6 +14,10 @@ public interface IView {
     //public void displayPieChart();
 
     public void displayCostItemTable(List<CostItem> cs);
+    public void displayCategoriesChart(String[] catNames, double[] sums);
+    public void displayCategoriesSelect(String[] catNames);
+    public void displayCurrenciesSelect(String[] currencies);
+
     public void showMessage(String message);
     public void setViewModel(IViewModel vm);
 

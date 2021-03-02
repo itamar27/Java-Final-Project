@@ -10,7 +10,15 @@ public class Pair {
     public Double amount;
 
     public Pair(String name, Double amount) {
+        setName(name);
+        setAmount(amount);
+    }
+
+    public void setName(String name) {
         this.name = name;
+    }
+
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
 
