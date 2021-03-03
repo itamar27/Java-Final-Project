@@ -1,10 +1,10 @@
-package il.ac.shenkar.ViewModel;
+package il.ac.shenkar.viewmodel;
 
 
-import il.ac.shenkar.Model.Category;
-import il.ac.shenkar.Model.IModel;
-import il.ac.shenkar.View.IView;
-import il.ac.shenkar.Model.CostItem;
+import il.ac.shenkar.model.Category;
+import il.ac.shenkar.model.IModel;
+import il.ac.shenkar.view.IView;
+import il.ac.shenkar.model.CostItem;
 
 import java.util.concurrent.ExecutorService;
 

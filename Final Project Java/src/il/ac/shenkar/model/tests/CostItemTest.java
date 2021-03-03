@@ -1,13 +1,13 @@
-package il.ac.shenkar.Model.tests;
+package il.ac.shenkar.model.tests;
 
 
-import il.ac.shenkar.Model.Category;
-import il.ac.shenkar.Model.CostItem;
-import il.ac.shenkar.Model.CostManagerException;
+import il.ac.shenkar.model.Category;
+import il.ac.shenkar.model.CostItem;
+import il.ac.shenkar.model.CostManagerException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import il.ac.shenkar.Model.Currency;
+import il.ac.shenkar.model.Currency;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

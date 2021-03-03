@@ -1,17 +1,17 @@
-package il.ac.shenkar.View;
+package il.ac.shenkar.view;
 
 
-import il.ac.shenkar.Model.CostItem;
-import il.ac.shenkar.ViewModel.IViewModel;
+import il.ac.shenkar.model.CostItem;
+import il.ac.shenkar.viewmodel.IViewModel;
 
 import java.util.List;
 
+/**
+ * IView interface defines the method that needs to be implemented for a view.
+ * This view interface is part of the MVVM architecture, every method will
+ * be provided to the ViewModel in order to work with the View.
+ */
 public interface IView {
-
-    //will be implemented after the ViewModel implementation
-
-
-    //public void displayPieChart();
 
     public void displayCostItemTable(List<CostItem> cs);
     public void displayCategoriesChart(String[] catNames, double[] sums);

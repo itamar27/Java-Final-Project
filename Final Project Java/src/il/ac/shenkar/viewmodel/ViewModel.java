@@ -1,8 +1,8 @@
-package il.ac.shenkar.ViewModel;
+package il.ac.shenkar.viewmodel;
 
 
-import il.ac.shenkar.View.IView;
-import il.ac.shenkar.Model.*;
+import il.ac.shenkar.view.IView;
+import il.ac.shenkar.model.*;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,6 +1,6 @@
-package il.ac.shenkar.View;
+package il.ac.shenkar.view;
 
-import il.ac.shenkar.ViewModel.IViewModel;
+import il.ac.shenkar.viewmodel.IViewModel;
 
 import java.util.List;
 import javax.swing.*;
@@ -10,24 +10,15 @@ import java.awt.event.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
-import il.ac.shenkar.Model.Category;
-import il.ac.shenkar.Model.CostItem;
-import il.ac.shenkar.Model.CostManagerException;
-import il.ac.shenkar.Model.Currency;
+import il.ac.shenkar.model.Category;
+import il.ac.shenkar.model.CostItem;
+import il.ac.shenkar.model.CostManagerException;
+import il.ac.shenkar.model.Currency;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.general.PieDataset;
-
-/**
- * View class to implement the IView interface.
- *
- * @params IViewModel vm
- * ApplicationUI ui
- * @Methods View() - To initiate all data members and start the program/
- * setViewModel() - setting the viewmodel data member
- */
 
 public class View implements IView {
 

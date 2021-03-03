@@ -1,4 +1,4 @@
-package il.ac.shenkar.Model;
+package il.ac.shenkar.model;
 
 public class CostManagerException extends Exception {
 

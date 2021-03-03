@@ -1,6 +1,6 @@
-package il.ac.shenkar.Model.tests;
+package il.ac.shenkar.model.tests;
 
-import il.ac.shenkar.Model.Category;
+import il.ac.shenkar.model.Category;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
