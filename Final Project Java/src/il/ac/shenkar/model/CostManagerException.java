@@ -1,3 +1,8 @@
+/**
+ * @author Barak Daniel - 204594329
+ * @author Itamar Yarden - 204289987
+ */
+
 package il.ac.shenkar.model;
 
 /**
