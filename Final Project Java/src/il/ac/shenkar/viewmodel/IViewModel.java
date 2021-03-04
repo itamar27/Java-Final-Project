@@ -1,5 +1,9 @@
-package il.ac.shenkar.viewmodel;
+/**
+ * @author Barak Daniel - 204594329
+ * @author Itamar Yarden - 204289987
+ */
 
+package il.ac.shenkar.viewmodel;
 
 import il.ac.shenkar.model.Category;
 import il.ac.shenkar.model.IModel;
