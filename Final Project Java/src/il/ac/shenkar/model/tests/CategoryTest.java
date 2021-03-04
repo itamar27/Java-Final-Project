@@ -1,3 +1,8 @@
+/**
+ * @author Barak Daniel - 204594329
+ * @author Itamar Yarden - 204289987
+ */
+
 package il.ac.shenkar.model.tests;
 
 import il.ac.shenkar.model.Category;
@@ -37,9 +42,6 @@ class CategoryTest {
         int actual = category.getId();
         assertEquals(expected, actual, 0);
     }
-
-
-
 
     @Test
     void testToString() {
