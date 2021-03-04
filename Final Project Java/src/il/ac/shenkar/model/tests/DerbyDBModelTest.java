@@ -10,6 +10,9 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Unit tests for all the DerbyDBModel class functionality
+ */
 class DerbyDBModelTest {
 
     DerbyDBModel db = null;

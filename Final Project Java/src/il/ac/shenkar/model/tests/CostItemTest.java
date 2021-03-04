@@ -14,6 +14,9 @@ import java.time.format.DateTimeFormatter;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Unit tests for all the CostItem class functionality
+ */
 class CostItemTest {
 
     private CostItem costItem = null;

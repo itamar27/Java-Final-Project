@@ -1,11 +1,11 @@
 package il.ac.shenkar.model;
 
-/*
- * Pair class for return values
+/**
+ * This class is used to hold a name and amount of pair of values.
+ * We use it to pass the data from and to the Model.
+ * In order to provide the required functionality we override toString() and equals()
  */
-
 public class Pair {
-
     public String name;
     public Double amount;
 

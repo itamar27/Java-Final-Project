@@ -10,8 +10,9 @@ import java.util.concurrent.ExecutorService;
 
 
 /**
- *  Interface to set functionality for every ViewModel that will implement it.
- *
+ * IViewModel interface defines the method that needs to be implemented for a ViewModel.
+ * This viewmodel interface is part of the MVVM architecture, every method will
+ * be provided to the View in order to work with the Model.
  */
 public interface IViewModel {
 
