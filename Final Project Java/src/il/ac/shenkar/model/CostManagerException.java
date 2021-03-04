@@ -1,5 +1,8 @@
 package il.ac.shenkar.model;
 
+/**
+ * This Exception Class is used in all the Model
+ */
 public class CostManagerException extends Exception {
 
     /**

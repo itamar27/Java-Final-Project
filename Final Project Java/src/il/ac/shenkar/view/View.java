@@ -20,13 +20,23 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.general.PieDataset;
 
+
+/**
+ * The View class is used to set the user's GUI.
+ * It works with IViewModel interface as he can call for his methods and also
+ * implements the method that the IViewModel will call to update the view.
+ */
+
 public class View implements IView {
 
     private IViewModel vm;
     private ApplicationUI ui;
 
+    /**
+     * The View constructor sets the UI using the ApplicationUI inner class,
+     * and then use it's start method to display the UI to the user.
+     */
     public View() {
-
         SwingUtilities.invokeLater(() -> {
             setUi(new ApplicationUI());
             View.this.ui.start();
@@ -42,13 +52,18 @@ public class View implements IView {
         this.vm = vm;
     }
 
+    /**
+     * Calls for the updateTable() method in order to update the table
+     * of the cost items.
+     * @param cs - list of costs item to display in the table.
+     */
     @Override
     public void displayCostItemTable(List<CostItem> cs) {
 
         String[][] table = new String[cs.size()][5];
 
+        // Filling the table values with Cost Item's data.
         for (int i = 0; i < cs.size(); i++) {
-
             CostItem cost = cs.get(i);
             table[i][0] = cost.getDate().toString();
             table[i][1] = cost.getCategory().toString();
@@ -56,53 +71,63 @@ public class View implements IView {
             table[i][3] = cost.getCurrency().name();
             table[i][4] = cost.getDescription();
         }
-
         View.this.ui.updateTable(table);
     }
 
+    /**
+     * Calls to the updateChart() method in order to update the pie chart
+     * of the categories sum.
+     * @param catNames - String array of all the category names to display in the chart
+     * @param sums - Double array of all the sums of the co-related categories in catNames.
+     */
     @Override
     public void displayCategoriesChart(String[] catNames, double[] sums) {
         View.this.ui.updateChart(catNames, sums);
     }
 
+    /**
+     * Display the categories in the select drop list of "Add Cost Panel".
+     * @param catNames
+     */
     @Override
     public void displayCategoriesSelect(String[] catNames) {
         View.this.ui.updateCategoriesSelect(catNames);
     }
 
+    /**
+     * Display the currencies in the select drop list of "Add Cost Panel".
+     * @param currencies
+     */
     @Override
     public void displayCurrenciesSelect(String[] currencies) {
         View.this.ui.updateCurrenciesSelect(currencies);
     }
 
+    /**
+     * Display the message in the home screen.
+     * @param message
+     */
     @Override
     public void showMessage(String message) {
-
         this.ui.updateMessageBoard(message);
     }
 
 
     /**
-     * This inner class implements the specific functionality of the GUI
-     * provide to the view class the required functions to implement the the IView contract
-     *
-     * @params frame - to set the frame of the application
-     * current - to hold the current performance of the screen displayed
-     * mainPanel -  functionality of the main panel
-     * addCostPanel - functionality of the add cost panel
-     * addCategoryPanel - functionality of the add category panel
-     * dateChoosePanel - functionality of the date choose category panel
-     * @Methods ApplicationUI() - Constructor to initiate all class panels that will be rendered.
-     * displayMainMenu()  - application method  to show the home screen
-     * replaceScreen() - application method to render different screens in the frame
-     * cleanTextInputs() - application method to clean all the inputs from the different screens
+     * This class implements all the user's GUI using Java Swing,
+     * the class holds the panels as members, while each panel is
+     * a screen in the application's frame.
+     * This class also handling all the functionality of the View,
+     * as in calling the IViewModel to get data, switch between screens and
+     * displaying data from the IViewModel to the screens.
      */
-
     public class ApplicationUI {
 
         //General frame component
         private JFrame frame;
+        //Current active panel
         private JPanel current;
+        //All the application's panels
         private MainPanel mainPanel;
         private AddCostPanel addCostPanel;
         private AddCategoryPanel addCategoryPanel;
@@ -112,7 +137,7 @@ public class View implements IView {
 
         public ApplicationUI() {
 
-            // starting the panels inner class data members
+            //Starting the panels inner class data members
             mainPanel = new MainPanel();
             addCostPanel = new AddCostPanel();
             addCategoryPanel = new AddCategoryPanel();
@@ -120,9 +145,11 @@ public class View implements IView {
             tablePanel = new TablePanel();
             chartPanel = new PieChartPanel();
 
-            //general common components setup
+            //General common components setup
             frame = new JFrame("CostManager");
             frame.setSize(900, 900);
+
+            //Event listener for application closing
             frame.addWindowListener(new WindowAdapter() {
                 @Override
                 public void windowClosing(WindowEvent e) {
@@ -133,34 +160,46 @@ public class View implements IView {
             });
         }
 
+        /**
+         * The following methods are used by the View outer class in order to pass the data
+         * to a specific panel.
+         */
         public void updateMessageBoard(String message) {
             mainPanel.updateMessageBoard(message);
         }
-
         public void updateTable(String[][] table) {
             this.tablePanel.updateTableData(table);
         }
-
         public void updateChart(String[] catNames, double[] sums) {
             this.chartPanel.updateChart(catNames, sums);
         }
-
         public void updateCategoriesSelect(String[] catNames) {
             this.addCostPanel.updateCategories(catNames);
         }
-
         public void updateCurrenciesSelect(String[] currencies) {
             this.addCostPanel.updateCurrencies(currencies);
         }
 
 
+        public void start() {
+            displayMainMenu();
+        }
+
+        /**
+         * Sets the screen to be the main panel, this method called
+         * in the start() method when the application starts running.
+         */
         public void displayMainMenu() {
             this.current = mainPanel;
             frame.getContentPane().add(this.current);
             frame.setVisible(true);
         }
 
-
+        /**
+         * Removes the current panel, and then repainting in order to replace it
+         * with the next desired panel.
+         * @param next - the panel show next in the application.
+         */
         public void replaceScreen(JPanel next) {
             frame.remove(this.current);
             frame.repaint();
@@ -169,33 +208,28 @@ public class View implements IView {
             frame.setVisible(true);
         }
 
-        public void start() {
-            displayMainMenu();
-        }
 
         /**
-         * This inner class implements the main panel (window) by extending the JPanel swing class
-         *
-         * @Methods MainPanel() - class C'tor to initiate all swing properties
-         * and define the class action listenrs for each functional button
-         * updateMessageBoard() - This function is updating the message board that displayed in the main panel.
+         * This panel is used as the home screen of the application,
+         * where the user can navigate through a menu with all the actions he can take in the application.
+         * All the setup of this panel happens in the constructor, where the JComponents are initialized
+         * and the event listeners are added.
          */
-
         public class MainPanel extends JPanel {
 
+            //Buttons for navigating to other panels of the application
             private JButton btAddCostItem;
             private JButton btAddCategory;
             private JButton btDisplayPie;
             private JButton btDisplayTable;
 
+            //Used to display messages to the user
             private JLabel jlMessage;
             private JTextArea taMessage;
 
             public MainPanel() {
-
                 setBorder(new EmptyBorder(10, 10, 10, 10));
                 setLayout(new GridBagLayout());
-
                 GridBagConstraints gbc = new GridBagConstraints();
                 gbc.gridwidth = GridBagConstraints.REMAINDER;
                 gbc.anchor = GridBagConstraints.NORTH;
@@ -223,10 +257,10 @@ public class View implements IView {
                 buttons.add(btAddCategory, gbc);
                 buttons.add(btDisplayPie, gbc);
                 buttons.add(btDisplayTable, gbc);
-
                 messageBoard.add(jlMessage, gbc);
                 messageBoard.add(scroll, gbc);
 
+                //Sends the user to the AddCostItem panel when pressed on Add Cost Item button
                 btAddCostItem.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
@@ -237,6 +271,7 @@ public class View implements IView {
                     }
                 });
 
+                //Sends the user to the AddCategory panel when pressed on Add Category button
                 btAddCategory.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
@@ -245,6 +280,7 @@ public class View implements IView {
                     }
                 });
 
+                //Sends the user to the select dates panel when pressed on Display Table button
                 btDisplayTable.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
@@ -254,6 +290,7 @@ public class View implements IView {
                     }
                 });
 
+                //Sends the user to the select dates panel when pressed on Display Pie Chart button
                 btDisplayPie.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
@@ -271,18 +308,15 @@ public class View implements IView {
             public void updateMessageBoard(String message) {
                 this.taMessage.append(message + "\n");
             }
-
         }
 
         /**
-         * This inner class implements the add cost panel by extending JPanel
-         * it shows a form to fill that its details will be sent to the model as new entry in DB.
-         *
-         * @Methods AddCostPanel() - class C'tor to initiate all swing items.
-         * cleanInputs() - A method to clean all previous inputs in text boxes.
-         * updateCategories() - A method to add a new category added to the Combo box when added durring app run time.s
+         * This panel is used as the Add Cost screen of the application,
+         * the user fills a form and when done the cost he will be added to the DB
+         * by using an Event Listener.
+         * All the setup of this panel happens in the constructor as well as setting the
+         * event listeners.
          */
-
         public class AddCostPanel extends JPanel {
 
             private JComboBox cbChooseCategory;
@@ -298,6 +332,7 @@ public class View implements IView {
             private JLabel jlHeader;
             private Font myFont;
 
+            //Used for the select drop list in the form
             private String[] categoriesOptions;
             private DefaultComboBoxModel<String> defaultCBCategories;
 
@@ -308,9 +343,7 @@ public class View implements IView {
             public AddCostPanel() {
                 setBorder(new EmptyBorder(10, 10, 10, 10));
                 setLayout(new GridBagLayout());
-
                 GridBagConstraints gbc = new GridBagConstraints();
-
                 gbc.gridwidth = GridBagConstraints.REMAINDER;
                 gbc.insets = new Insets(5, 5, 5, 5);
 
@@ -322,6 +355,7 @@ public class View implements IView {
                 homePanel.add(btBackToMainMenu, gbc);
                 add(homePanel, gbc);
 
+                //Sending the user back to the home screen (MainPanel)
                 btBackToMainMenu.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
@@ -329,10 +363,10 @@ public class View implements IView {
                     }
                 });
 
+                //Collecting data from user inputs and creating new Cost Item
                 btSubmit.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        //Collecting data from user inputs and creatin new Cost Item
 
                         String category = cbChooseCategory.getSelectedItem().toString();
                         String currencyStr = cbChooseCurrency.getSelectedItem().toString();
@@ -377,7 +411,6 @@ public class View implements IView {
                 });
 
                 gbc.weightx = 0;
-
                 JPanel headerPanel = new JPanel(new GridBagLayout());
                 jlHeader = new JLabel("<html><h1><strong><i>Add new cost item</i></strong></h1><hr></html>");
                 gbc.anchor = GridBagConstraints.CENTER;
@@ -387,6 +420,7 @@ public class View implements IView {
                 gbc.anchor = GridBagConstraints.CENTER;
                 gbc.fill = GridBagConstraints.BOTH;
 
+                //Creating a JComboBox in order to initialize the select drop list
                 categoriesOptions = new String[0];
                 View.this.vm.getCategories();
                 defaultCBCategories = new DefaultComboBoxModel<>(categoriesOptions);
@@ -403,6 +437,7 @@ public class View implements IView {
                 cbChooseCurrency.setRenderer(new MyComboBoxRenderer("Currency"));
                 cbChooseCurrency.setSelectedIndex(-1);
 
+                //Creating the text fields of the form
                 myFont = new Font("Default", Font.PLAIN, 12);
                 jlEnterAmount = new JLabel("Enter Amount");
                 tfEnterAmount = new TextField(5);
@@ -411,7 +446,7 @@ public class View implements IView {
                 tfEnterDescription = new TextField(20);
                 tfEnterDescription.setFont(myFont);
 
-
+                //Setting a format for the date field in the form
                 DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                 jlDate = new JLabel("Enter date (yyyy-MM-dd):");
                 tfDate = new JFormattedTextField(format);
@@ -431,12 +466,14 @@ public class View implements IView {
                 submit.add(btSubmit, gbc);
                 submit.setAlignmentX(RIGHT_ALIGNMENT);
 
-
                 gbc.weighty = 1;
                 add(form, gbc);
                 add(submit, gbc);
             }
 
+            /**
+             * Clean all the previous inputs in this panel
+             */
             public void cleanInputs() {
                 tfEnterAmount.setText("");
                 tfEnterDescription.setText("");
@@ -445,6 +482,10 @@ public class View implements IView {
                 tfDate.setText("");
             }
 
+            /**
+             * Updates the values of the select drop list of the categories
+             * @param catNames
+             */
             public void updateCategories(String[] catNames) {
                 this.categoriesOptions = catNames;
 
@@ -452,12 +493,15 @@ public class View implements IView {
                 for (String name : this.categoriesOptions) {
                     this.defaultCBCategories.addElement(name);
                 }
-
                 this.cbChooseCategory.setSelectedIndex(-1);
 
                 ApplicationUI.this.replaceScreen(ApplicationUI.this.addCostPanel);
             }
 
+            /**
+             * Updates the values of the select drop list of the currencies
+             * @param currencies
+             */
             public void updateCurrencies(String[] currencies) {
                 this.currencyOptions = currencies;
 
@@ -465,19 +509,16 @@ public class View implements IView {
                 for (String name : this.currencyOptions) {
                     this.defaultCBCurrencies.addElement(name);
                 }
-
                 this.cbChooseCurrency.setSelectedIndex(-1);
 
                 ApplicationUI.this.replaceScreen(ApplicationUI.this.addCostPanel);
             }
 
             /**
-             * Inner class to control the combo box of the category combo box element
-             *
-             * @Methods MyComboBoxRenderer(String title) - constructor, receive  a parameter to set the combo box title (will be shown when combo box closed)
-             * getListCellRendererComponent() - ListCellRenderer methods override to implement adding data to the combo box
+             * This class is used to set values into the select drop lists in the form,
+             * it also used to set the first value the user will see and to get the value
+             * the user selected.
              */
-
             class MyComboBoxRenderer extends JLabel implements ListCellRenderer {
                 private String _title;
 
@@ -492,17 +533,13 @@ public class View implements IView {
                     return this;
                 }
             }
-
         }
 
         /**
-         * This inner class implements the add category panel by extending JPanel
-         * it shows a form to fill that its details will be sent to the model as new entry in DB.
-         *
-         * @Methods AddCategoryPanel() - class C'tor to initiate all swing items.
-         * cleanInputs() - A method to clean all previous inputs in text boxes.
+         * This panel is used as the Add Category screen of the application,
+         * the only thing in the form of this panel is a textual field for the
+         * category name.
          */
-
         public class AddCategoryPanel extends JPanel {
 
             private TextField tfCategoryName;
@@ -516,9 +553,7 @@ public class View implements IView {
             public AddCategoryPanel() {
                 setBorder(new EmptyBorder(10, 10, 10, 10));
                 setLayout(new GridBagLayout());
-
                 GridBagConstraints gbc = new GridBagConstraints();
-
                 gbc.gridwidth = GridBagConstraints.REMAINDER;
                 gbc.insets = new Insets(5, 5, 5, 5);
 
@@ -529,6 +564,7 @@ public class View implements IView {
                 homePanel.add(btBackToMainMenu, gbc);
                 add(homePanel, gbc);
 
+                //Sends the user back to the home screen (MainPanel)
                 btBackToMainMenu.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
@@ -537,7 +573,6 @@ public class View implements IView {
                 });
 
                 gbc.weightx = 0;
-
                 JPanel headerPanel = new JPanel(new GridBagLayout());
                 jlHeader = new JLabel("<html><h1><strong><i>Add new cost item</i></strong></h1><hr></html>");
                 gbc.anchor = GridBagConstraints.CENTER;
@@ -547,20 +582,17 @@ public class View implements IView {
                 myFont = new Font("Default", Font.PLAIN, 12);
                 tfCategoryName = new TextField("", 10);
                 tfCategoryName.setFont(myFont);
-
                 jlEnterCategory = new JLabel("<html><h3><strong><i>Enter new category:</i></strong></h3></html>");
 
-
                 btSubmit = new JButton("Submit");
-
                 JPanel form = new JPanel(new GridBagLayout());
                 JPanel submit = new JPanel(new GridBagLayout());
-
 
                 form.add(jlEnterCategory, gbc);
                 form.add(tfCategoryName, gbc);
                 submit.add(btSubmit, gbc);
 
+                //Calls to the vm in order to add the new category
                 btSubmit.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
@@ -584,16 +616,11 @@ public class View implements IView {
         }
 
         /**
-         * This inner class implements the the date choosing panel by extending JPanel
-         * it shows a form to fill that its details will be sent as quirey to the DB and will be implemented.
-         * this panel is used once for the sending dates to render the date panel and once for the pie chart panel.
-         *
-         * @Methods DateChoosePanel() - class C'tor to initiate all swing items.
-         * cleanInputs() - A method to clean all previous inputs in text boxes.
-         * updateButton() - because this class is used to pass data for the table panel once and once for the pie chart
-         * the action listner that renders this panel will call first this method to set a different button each time.
+         * This panel is used to choose dates (from, to) for the table and pie chart panels,
+         * it is a form of only two fields, depending on the submit button text it will call
+         * the next panel (Table, Pie Chart).
+         * All the setup of the panel including the event listeners are in the constructor.
          */
-
         class DatesChoosePanel extends JPanel {
 
             private JLabel jlHeader;
@@ -604,14 +631,13 @@ public class View implements IView {
             private JButton btSubmit;
             private JButton btBackToMainMenu;
 
+            //Also used in order to call the next panel
             private String buttonName;
 
             public DatesChoosePanel() {
                 setBorder(new EmptyBorder(10, 10, 10, 10));
                 setLayout(new GridBagLayout());
-
                 GridBagConstraints gbc = new GridBagConstraints();
-
                 gbc.gridwidth = GridBagConstraints.REMAINDER;
                 gbc.insets = new Insets(5, 5, 5, 5);
 
@@ -623,6 +649,7 @@ public class View implements IView {
                 homePanel.add(btBackToMainMenu, gbc);
                 add(homePanel, gbc);
 
+                //Sends the user back to the home screen (MainPanel)
                 btBackToMainMenu.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
@@ -630,28 +657,29 @@ public class View implements IView {
                     }
                 });
 
+                //Submitting the dates and calls for the vm in order to get the data, then to the next panel
                 btSubmit.addActionListener(e -> {
                     //reading dates from text box
                     String fromDate = tfFromDate.getText();
                     String toDate = tfToDate.getText();
 
                     if (buttonName.equals("table")) {
-                        //sending dates to viewmodel for query the model and presnting in app
+                        //sending dates to viewmodel to query the model and present the data in the app
                         View.this.vm.getCostsForTable(fromDate, toDate);
 
                         //rendering the table panel
                         ApplicationUI.this.replaceScreen(ApplicationUI.this.tablePanel);
 
                     } else if (buttonName.equals("pie chart")) {
-                        //sending dates to viewmodel for query the model and presnting in app
+                        //sending dates to viewmodel for query the model and present the data in the app
                         View.this.vm.getCostsForPieChart(fromDate, toDate);
 
                         //rendering the pie chart panel
                         ApplicationUI.this.replaceScreen(ApplicationUI.this.chartPanel);
                     }
                 });
-                gbc.weightx = 0;
 
+                gbc.weightx = 0;
                 JPanel headerPanel = new JPanel(new GridBagLayout());
                 jlHeader = new JLabel("<html><h1><strong><i>Choose dates</i></strong></h1><hr></html>");
                 gbc.anchor = GridBagConstraints.CENTER;
@@ -666,6 +694,7 @@ public class View implements IView {
 
                 Font myFont = new Font("Default", Font.PLAIN, 12);
 
+                //Setting a format to the date fields
                 DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                 tfFromDate = new JFormattedTextField(format);
                 tfToDate = new JFormattedTextField(format);
@@ -673,7 +702,6 @@ public class View implements IView {
                 tfToDate.setFont(myFont);
 
                 gbc.fill = GridBagConstraints.HORIZONTAL;
-
                 tfFromDate.setColumns(10);
                 tfToDate.setColumns(10);
                 form.add(jlFromDate, gbc);
@@ -682,12 +710,12 @@ public class View implements IView {
                 form.add(tfToDate, gbc);
                 submit.add(btSubmit, gbc);
 
-
                 gbc.weighty = 1;
                 add(form, gbc);
                 add(submit, gbc);
             }
 
+            //Update the submit button's text
             public void updateButton(String str) {
                 this.buttonName = str;
                 btSubmit.setText("Get " + str);
@@ -700,15 +728,13 @@ public class View implements IView {
 
         }
 
-        /**
-         * This inner class implements the the date choosing panel by extending JPanel
-         * it shows a form to fill that its details will be sent as quirey to the DB and will be implemented.
-         * this panel is used once for the sending dates to render the date panel and once for the pie chart panel.
-         *
-         * @Methods TablePanel() - class C'tor to initiate all swing items.
-         * updateTableInputs() - This method will be called each time before this panel is rendered to update the table due to the last query sent to model.
-         */
 
+        /**
+         * This panel is used to display the table filled with cost item's data,
+         * the table is held as a member using JTable.
+         * The setup of the panel and the event listeners happens in the constructor,
+         * while the filling of the table happens in the method updateTableData().
+         */
         class TablePanel extends JPanel {
             private JPanel table;
             private GridBagConstraints gbc;
@@ -719,11 +745,9 @@ public class View implements IView {
             private String[] colNames = {"Date", "Category", "Amount", "Currency", "Description"};
 
             public TablePanel() {
-
                 setBorder(new EmptyBorder(10, 10, 10, 10));
                 setLayout(new GridBagLayout());
                 gbc = new GridBagConstraints();
-
                 gbc.gridwidth = GridBagConstraints.REMAINDER;
                 gbc.insets = new Insets(5, 5, 5, 5);
 
@@ -734,6 +758,7 @@ public class View implements IView {
                 homePanel.add(btBackToMainMenu, gbc);
                 add(homePanel, gbc);
 
+                //Sends the user back to the home screen (MainPanel)
                 btBackToMainMenu.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
@@ -742,24 +767,30 @@ public class View implements IView {
                 });
 
                 gbc.weightx = 0;
-
                 JPanel headerPanel = new JPanel(new GridBagLayout());
                 jlHeader = new JLabel("<html><h1><strong><i>Costs table</i></strong></h1><hr></html>");
                 gbc.anchor = GridBagConstraints.CENTER;
                 headerPanel.add(jlHeader, gbc);
                 add(headerPanel, gbc);
 
+                //The panel used to host the JTable
                 table = new JPanel(new GridBagLayout());
 
                 gbc.fill = GridBagConstraints.BOTH;
-
                 gbc.weighty = 1;
                 add(table, gbc);
                 gbc.weighty = 0;
             }
 
+            /**
+             * Updates the data in the table with costs items,
+             * then adding the table to the table's panel.
+             * @param data - the data needed to be filled in the table.
+             */
             public void updateTableData(String[][] data) {
                 tableCosts = new JTable(data, this.colNames);
+
+                //Making the table scrollable in cases of many data.
                 tableCosts.setPreferredScrollableViewportSize(new Dimension(600, 300));
                 tableCosts.setFillsViewportHeight(true);
                 tableCosts.setEnabled(false);
@@ -771,21 +802,22 @@ public class View implements IView {
             }
         }
 
-
+        /**
+         * This panel is used to display the pie chart filled with categories and sums data.
+         * The setup of the panel and the event listeners happens in the constructor,
+         * while the filling of the pie chart happens in the method updateChart().
+         */
         class PieChartPanel extends JPanel {
-            private JPanel chart;
             private GridBagConstraints gbc;
             private JButton btBackToMainMenu;
             private JLabel jlHeader;
-
+            //The panel that holds the chart
+            private JPanel chart;
 
             public PieChartPanel() {
-
-
                 setBorder(new EmptyBorder(10, 10, 10, 10));
                 setLayout(new GridBagLayout());
                 gbc = new GridBagConstraints();
-
                 gbc.gridwidth = GridBagConstraints.REMAINDER;
                 gbc.insets = new Insets(5, 5, 5, 5);
 
@@ -796,6 +828,7 @@ public class View implements IView {
                 homePanel.add(btBackToMainMenu, gbc);
                 add(homePanel, gbc);
 
+                //Sends the user back to the home screen (MainPanel)
                 btBackToMainMenu.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
@@ -804,41 +837,56 @@ public class View implements IView {
                 });
 
                 gbc.weightx = 0;
-
                 JPanel headerPanel = new JPanel(new GridBagLayout());
                 jlHeader = new JLabel("<html><h1><strong><i>Pie chart for category sum:</i></strong></h1><hr></html>");
                 gbc.anchor = GridBagConstraints.CENTER;
                 headerPanel.add(jlHeader, gbc);
                 add(headerPanel, gbc);
 
+                //Creating the panel that will hold our pie chart
                 chart = new JPanel(new GridBagLayout());
 
                 gbc.fill = GridBagConstraints.BOTH;
-
                 gbc.weighty = 1;
                 add(chart, gbc);
                 gbc.weighty = 0;
             }
 
+            /**
+             * Creating a new JFreeChart with the dataset provided
+             * @param dataset
+             * @return pie chart as JFreeChart
+             */
             private JFreeChart createChart(PieDataset dataset) {
                 JFreeChart jChart = ChartFactory.createPieChart("Categories Sum", dataset, true, true, false);
-
                 return jChart;
             }
 
+            /**
+             * Creates a ChartPanel which is a type of JPanel, and initialize it with a JFreeChart.
+             * @param dataset
+             * @return ChartPanel with a JFreeChart in it.
+             */
             private ChartPanel createChartPanel(PieDataset dataset) {
                 JFreeChart jChart = createChart(dataset);
                 return new ChartPanel(jChart);
             }
 
+            /**
+             * Update the chart in the panel by using createChartPanel().
+             * @param catNames
+             * @param sums
+             */
             public void updateChart(String[] catNames, double[] sums) {
                 chart.removeAll();
 
+                //Making a data set from the data given, used to call createChartPanel()
                 DefaultPieDataset dataset = new DefaultPieDataset();
                 for (int i = 0; i < catNames.length; i++) {
                     dataset.setValue(catNames[i], sums[i]);
                 }
 
+                //Creates the ChartPanel
                 ChartPanel chartPane = createChartPanel(dataset);
                 chart.add(chartPane);
 

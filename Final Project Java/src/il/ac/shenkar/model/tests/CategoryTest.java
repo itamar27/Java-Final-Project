@@ -7,6 +7,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Unit tests for all the Category class functionality
+ */
 class CategoryTest {
 
     Category category;

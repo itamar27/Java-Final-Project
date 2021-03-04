@@ -4,23 +4,11 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 /**
- * @class CostItem - This class represents cost of the user.
- * @members
- * id - the id representation for the CostItem in the DB.
- * category - the category of this cost.
- * amount - the amount that the user spent on the cost.
- * currency - the currency which the user used for the cost.
- * description - a short description of the user's cost.
- * date - the date of that cost.
- * @methods
- * setName() - set the name of the category to new one.
- * getName() - return the name of the category.
- * setId() - set the id of the category to a new one.
- * getId() - return the id of the category.
- * equals() - return true if the given category is equal to *this* category.
- * toString() - return string representation of the category.
+ * This class represent the main object of the system,
+ * it hold all the important data the DB has to save inorder to display to the user.
+ * This class support functionality of creating a new CostItem object,
+ * setting the values, string interpolation, and comparing between the different cost items.
  */
-
 public class CostItem {
 
     private int id;
@@ -30,41 +18,16 @@ public class CostItem {
     private String description;
     private LocalDate date;
 
-
     /**
-     * This constructor builds a CostItem object from input.
-     *
-     * @params
-     * date - The date that the cost was made.
-     * description - A short text describing the cost reason of spending.
-     * amount - The total amount of the cost
-     * currency - The currency that was being used during the purchase time.
-     * Category - An instantiation  of an object that represents the category that the Cost belonged to.
+     * This is the main constructor where we set the values of all the members of the class
+     * @param id
+     * @param category
+     * @param amount
+     * @param currency
+     * @param description
+     * @param date
+     * @throws CostManagerException
      */
-    public CostItem(Category category, double amount, Currency currency, String description, String date) throws CostManagerException {
-
-        if (amount < 0)
-            throw new CostManagerException("Not a valid amount");
-        setDate(createDateFromString(date));
-        setDescription(description);
-        setAmount(amount);
-        setCurrency(currency);
-        setId(-1);
-        setCategory(category);
-    }
-
-    /**
-     * This constructor builds a CostItem object from a database load.
-     *
-     * @params
-     * description - A short text describing the cost reason of spending.
-     * amount - The total amount of the cost
-     * currency - The currency that was being used during the purchase time.
-     * Category - An instantiation  of an object that represents the category that the Cost belonged to.
-     * id - A variable to hold the Cost id from DB.
-     * date - the date that the cost was made.
-     */
-
     public CostItem(int id, Category category, double amount, Currency currency, String description, String date) throws CostManagerException {
         setDate(createDateFromString(date));
         setDescription(description);
@@ -75,12 +38,23 @@ public class CostItem {
     }
 
     /**
-     *
-     * This method sets the id of the category.
-     * @params
-     * id - should be the id of the category.
-     *
+     * This constructor don't need an id value, which means the cost hasn't been stored in the DB yet.
+     * It uses the main constructor with value of -1 for id.
+     * @param category
+     * @param amount
+     * @param currency
+     * @param description
+     * @param date
+     * @throws CostManagerException
      */
+    public CostItem(Category category, double amount, Currency currency, String description, String date) throws CostManagerException {
+        this(-1, category, amount, currency, description, date);
+    }
+
+    /**
+     * All set methods of the members
+     */
+
     public void setId(int id) {
         this.id = id;
     }
@@ -109,9 +83,8 @@ public class CostItem {
     }
 
     /**
-     * All get function to class members.
+     * All get methods of the members.
      */
-
 
     public int getId() {
         return id;
@@ -137,6 +110,12 @@ public class CostItem {
         return date;
     }
 
+    /**
+     * In order to work with the right format of the date member,
+     * this private method parsing the sent date in the right format.
+     * @param dateTime
+     * @return
+     */
     private LocalDate createDateFromString(String dateTime) {
 
         DateTimeFormatter inputFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -149,7 +128,6 @@ public class CostItem {
     /**
      * Over riding class object methods.
      */
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -162,7 +140,6 @@ public class CostItem {
                 description.equals(costItem.description) &&
                 date.equals(costItem.date);
     }
-
 
     @Override
     public String toString() {
